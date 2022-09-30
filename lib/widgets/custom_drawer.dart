@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/wip_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class CustomDrawer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          const SizedBox(
+          SizedBox(
             height: 200,
             child: DrawerHeader(
               decoration: BoxDecoration(
@@ -27,53 +28,82 @@ class CustomDrawer extends StatelessWidget {
                 alignment: Alignment.bottomLeft,
                 child: Padding(
                   padding: EdgeInsets.all(10.0),
-                  child: Text(
-                    'AR Therapy',
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      color: Colors.white,
-                      fontSize: 38,
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'AR Therapy',
+                        style: Theme.of(context).textTheme.headline2,
+                      ),
+                      const SizedBox(height: 10.0),
+                      Text(
+                        'Version 0.2',
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
+                    ],
                   ),
                 ),
               ),
             ),
           ),
           ListTile(
-            title: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: const Text(
-                'Home',
-                style: TextStyle(
-                  fontSize: 24,
-                ),
-              ),
-            ),
             onTap: () => {},
+            leading: const Icon(Icons.home, size: 24),
+            title: Text(
+              'Home',
+              style: Theme.of(context).textTheme.bodyText1,
+            ),
           ),
           ListTile(
-            title: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: const Text(
-                'My Exercises',
-                style: TextStyle(
-                  fontSize: 24,
+            onTap: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const WipScreen(
+                    screenName: 'My Exercises Screen',
+                  ),
                 ),
               ),
+            },
+            leading: const Icon(Icons.accessibility, size: 24.0),
+            title: Text(
+              'My Exercises',
+              style: Theme.of(context).textTheme.bodyText1,
             ),
-            onTap: () => {},
           ),
           ListTile(
-            title: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: const Text(
-                'About',
-                style: TextStyle(
-                  fontSize: 24,
+            onTap: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const WipScreen(
+                    screenName: 'Settings Screen',
+                  ),
                 ),
               ),
+            },
+            leading: const Icon(Icons.settings, size: 24.0),
+            title: Text(
+              'Settings',
+              style: Theme.of(context).textTheme.bodyText1,
             ),
-            onTap: () => {},
+          ),
+          ListTile(
+            onTap: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const WipScreen(
+                    screenName: 'About Screen',
+                  ),
+                ),
+              ),
+            },
+            leading: const Icon(Icons.info_outlined, size: 24.0),
+            title: Text(
+              'About',
+              style: Theme.of(context).textTheme.bodyText1,
+            ),
           ),
         ],
       ),

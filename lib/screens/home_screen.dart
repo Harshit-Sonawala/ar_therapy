@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import '../widgets/custom_drawer.dart';
 import 'demo_screen_3d.dart';
 import './account_screen.dart';
-import 'demo_screen_ar.dart';
+import './wip_screen.dart';
+// import 'demo_screen_ar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,11 +16,11 @@ class _HomeScreenState extends State<HomeScreen> {
   GlobalKey<ScaffoldState> homeScreenScaffoldKey = GlobalKey<ScaffoldState>(); // for opening the drawer
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        key: homeScreenScaffoldKey, // for opening the drawer
-        drawer: const CustomDrawer(),
-        body: SingleChildScrollView(
+    return Scaffold(
+      key: homeScreenScaffoldKey, // for opening the drawer
+      drawer: const CustomDrawer(),
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
@@ -36,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           },
                           icon: const Icon(
                             Icons.menu,
-                            size: 32,
+                            size: 34,
                           ),
                         ),
                         const SizedBox(width: 20),
@@ -76,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       icon: Icon(
                         Icons.account_circle,
                         color: Theme.of(context).primaryColor,
-                        size: 36,
+                        size: 34,
                       ),
                     ),
                   ],
@@ -93,10 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Text(
                         'Welcome to\nAR Therapy!',
-                        style: TextStyle(
-                          fontSize: 45,
-                          color: Theme.of(context).primaryColor,
-                        ),
+                        style: Theme.of(context).textTheme.headline1,
                       ),
                       const SizedBox(height: 20.0),
                       const Text(
@@ -194,12 +192,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: InkWell(
                     onTap: () => {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => const DemoScreenAR(),
-                      //   ),
-                      // )
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const WipScreen(
+                            screenName: 'AR Demo Screen',
+                          ),
+                        ),
+                      )
                     },
                     customBorder: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),

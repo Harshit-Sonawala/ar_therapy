@@ -12,6 +12,7 @@ class DemoScreen3D extends StatelessWidget {
           scene.world.add(
             Object(
               fileName: 'assets/3D models/male_low_poly.obj',
+              // fileName: 'assets/3D models/snow_v04.obj',
             ),
           );
           scene.camera.zoom = 10;
