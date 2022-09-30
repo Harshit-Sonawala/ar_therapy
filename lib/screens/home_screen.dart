@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/custom_drawer.dart';
+import '../widgets/custom_button.dart';
 import 'demo_screen_3d.dart';
 import './account_screen.dart';
 import './wip_screen.dart';
@@ -43,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SizedBox(width: 20),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          children: const [
+                          children: [
                             // Text(
                             //   'Good Morning,',
                             //   style: TextStyle(
@@ -52,8 +53,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             //   ),
                             // ),
                             Text(
-                              'ARTherapy',
-                              style: TextStyle(fontFamily: 'Montserrat', fontSize: 24),
+                              'AR Therapy',
+                              style: Theme.of(context).textTheme.bodyText2,
                             ),
                           ],
                         ),
@@ -97,11 +98,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: Theme.of(context).textTheme.headline1,
                       ),
                       const SizedBox(height: 20.0),
-                      const Text(
+                      Text(
                         'Where physiotherapy meets AR Technology',
-                        style: TextStyle(
-                          fontSize: 22,
-                        ),
+                        style: Theme.of(context).textTheme.bodyText1,
                       ),
                     ],
                   ),
@@ -115,16 +114,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Text(
                     'Solve all of your physio problems using state of the art AR Technology',
-                    style: TextStyle(
-                      fontSize: 24,
-                      color: Theme.of(context).primaryColor,
-                    ),
+                    style: Theme.of(context).textTheme.bodyText1,
                   ),
                 ),
                 const SizedBox(height: 20.0),
                 Ink(
                   decoration: BoxDecoration(
                     // color: const Color(0xff3d3d3d),
+                    borderRadius: BorderRadius.circular(10),
                     gradient: const LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
@@ -133,7 +130,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         Color(0xff00e5ff),
                       ],
                     ),
-                    borderRadius: BorderRadius.circular(10),
                   ),
                   child: InkWell(
                     onTap: () => {
@@ -157,19 +153,17 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(30.0),
+                      padding: const EdgeInsets.all(20.0),
                       child: Row(
-                        children: const [
-                          Icon(
+                        children: [
+                          const Icon(
                             Icons.threed_rotation,
                             size: 36,
                           ),
-                          SizedBox(width: 20.0),
+                          const SizedBox(width: 20.0),
                           Text(
                             'View 3D Demo',
-                            style: TextStyle(
-                              fontSize: 24,
-                            ),
+                            style: Theme.of(context).textTheme.bodyText2,
                           ),
                         ],
                       ),
@@ -205,24 +199,31 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(30.0),
+                      padding: const EdgeInsets.all(20.0),
                       child: Row(
-                        children: const [
-                          Icon(
+                        children: [
+                          const Icon(
                             Icons.view_in_ar,
                             size: 36,
                           ),
-                          SizedBox(width: 20.0),
+                          const SizedBox(width: 20.0),
                           Text(
                             'View AR Demo',
-                            style: TextStyle(
-                              fontSize: 24,
-                            ),
+                            style: Theme.of(context).textTheme.bodyText2,
                           ),
                         ],
                       ),
                     ),
                   ),
+                ),
+                const SizedBox(height: 20.0),
+                CustomButton(
+                  onPressed: () => {},
+                  icon: Icons.access_alarm,
+                  title: 'Very Very Long Text Test',
+                  // child: const Text(
+                  //   'Custom Button',
+                  // ),
                 ),
               ],
             ),

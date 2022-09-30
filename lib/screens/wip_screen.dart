@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class WipScreen extends StatefulWidget {
-  const WipScreen({Key? key, required this.screenName}) : super(key: key);
-
   final String screenName;
+
+  const WipScreen({Key? key, required this.screenName}) : super(key: key);
 
   @override
   State<WipScreen> createState() => _WipScreenState();
