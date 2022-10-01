@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../widgets/custom_drawer.dart';
-import '../widgets/custom_button.dart';
+import '../widgets/custom_elevated_button.dart';
 import 'demo_screen_3d.dart';
-import './account_screen.dart';
+import 'login_screen.dart';
 import './wip_screen.dart';
 // import 'demo_screen_ar.dart';
 
@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const AccountScreen(
+                            builder: (context) => const LoginScreen(
                                 // parameters to pass, example
                                 // passedNotice: NoticeModel(
                                 //   noticeId: 1,
@@ -217,7 +217,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const SizedBox(height: 20.0),
-                CustomButton(
+                CustomElevatedButton(
                   onPressed: () => {},
                   icon: Icons.access_alarm,
                   title: 'Very Very Long Text Test',

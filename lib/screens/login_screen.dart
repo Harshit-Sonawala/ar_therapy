@@ -1,13 +1,15 @@
+import 'package:ar_therapy/widgets/custom_elevated_button.dart';
+import 'package:ar_therapy/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
 
-class AccountScreen extends StatefulWidget {
-  const AccountScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  State<AccountScreen> createState() => _AccountScreenState();
+  State<LoginScreen> createState() => _AccountScreenState();
 }
 
-class _AccountScreenState extends State<AccountScreen> {
+class _AccountScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +20,7 @@ class _AccountScreenState extends State<AccountScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                SizedBox(height: 30),
                 Text(
                   'Welcome Back',
                   style: TextStyle(
@@ -25,16 +28,16 @@ class _AccountScreenState extends State<AccountScreen> {
                     fontSize: 36,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'Login here,',
                   style: TextStyle(
                     fontSize: 24,
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 40),
                 TextField(
                   style: const TextStyle(
                     fontSize: 20,
@@ -59,9 +62,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     hintText: 'Email Address',
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 TextField(
                   style: const TextStyle(
                     fontSize: 20,
@@ -85,6 +86,17 @@ class _AccountScreenState extends State<AccountScreen> {
                     hintText: 'Password',
                   ),
                 ),
+                const SizedBox(height: 40),
+                CustomElevatedButton(
+                  onPressed: () => {},
+                  title: 'Submit',
+                  mainAxisAlignment: MainAxisAlignment.center,
+                ),
+                const SizedBox(height: 40),
+                CustomTextButton(
+                  onPressed: () => {},
+                  title: 'Not You? Create an Account',
+                )
               ],
             ),
           ),
