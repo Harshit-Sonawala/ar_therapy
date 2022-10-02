@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomElevatedButton extends StatefulWidget {
-  void onPressed;
+  final VoidCallback onPressed;
+  // final void Function() onPressed;
   final EdgeInsets? padding;
   final double? fontSize;
   final double? iconSize;
@@ -9,7 +10,7 @@ class CustomElevatedButton extends StatefulWidget {
   final String? title;
   final IconData? icon;
   final MainAxisAlignment mainAxisAlignment;
-  CustomElevatedButton({
+  const CustomElevatedButton({
     Key? key,
     required this.onPressed,
     this.padding = const EdgeInsets.all(16),
@@ -42,9 +43,7 @@ class _CustomButtonState extends State<CustomElevatedButton> {
         borderRadius: BorderRadius.circular(10),
       ),
       child: InkWell(
-        onTap: () {
-          widget.onPressed;
-        },
+        onTap: widget.onPressed,
         customBorder: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTextButton extends StatefulWidget {
-  final Function onPressed;
+  final VoidCallback onPressed;
   final EdgeInsets? padding;
   final double? fontSize;
   final double? iconSize;
@@ -37,7 +37,7 @@ class _CustomTextButtonState extends State<CustomTextButton> {
         ),
         padding: widget.padding!,
       ),
-      onPressed: () => widget.onPressed,
+      onPressed: widget.onPressed,
       child: Row(
         mainAxisAlignment: widget.mainAxisAlignment,
         children: [
