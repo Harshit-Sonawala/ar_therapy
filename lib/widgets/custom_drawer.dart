@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../screens/wip_screen.dart';
+import '../screens/account_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class CustomDrawer extends StatelessWidget {
           SizedBox(
             height: 200,
             child: DrawerHeader(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 // color: Theme.of(context).primaryColor,
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
@@ -27,7 +28,7 @@ class CustomDrawer extends StatelessWidget {
               child: Align(
                 alignment: Alignment.bottomLeft,
                 child: Padding(
-                  padding: EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -59,9 +60,7 @@ class CustomDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const WipScreen(
-                    screenName: 'My Exercises Screen',
-                  ),
+                  builder: (context) => const AccountScreen(),
                 ),
               ),
             },

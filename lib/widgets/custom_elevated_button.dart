@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomElevatedButton extends StatefulWidget {
-  final Function onPressed;
+  void onPressed;
   final EdgeInsets? padding;
   final double? fontSize;
   final double? iconSize;
@@ -9,7 +9,7 @@ class CustomElevatedButton extends StatefulWidget {
   final String? title;
   final IconData? icon;
   final MainAxisAlignment mainAxisAlignment;
-  const CustomElevatedButton({
+  CustomElevatedButton({
     Key? key,
     required this.onPressed,
     this.padding = const EdgeInsets.all(16),
@@ -42,7 +42,9 @@ class _CustomButtonState extends State<CustomElevatedButton> {
         borderRadius: BorderRadius.circular(10),
       ),
       child: InkWell(
-        onTap: () => widget.onPressed,
+        onTap: () {
+          widget.onPressed;
+        },
         customBorder: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
@@ -51,19 +53,28 @@ class _CustomButtonState extends State<CustomElevatedButton> {
           child: Row(
             mainAxisAlignment: widget.mainAxisAlignment,
             children: [
-              if (widget.icon != null) ...[
+              if (widget.icon != null)
                 Icon(
                   widget.icon,
                   size: widget.iconSize,
+                  color: Colors.white,
                 ),
-                const SizedBox(width: 10.0),
+              if (widget.title != null) ...[
+                const SizedBox(width: 10),
+                Text(
+                  widget.title!,
+                  style: TextStyle(
+                    fontSize: widget.fontSize,
+                    color: Colors.white,
+                  ),
+                ),
               ],
-              widget.title != null
-                  ? Text(
-                      widget.title!,
-                      style: TextStyle(fontSize: widget.fontSize),
-                    )
-                  : Container(),
+              // widget.title != null
+              //     ? Text(
+              //         widget.title!,
+              //         style: TextStyle(fontSize: widget.fontSize, color: Theme.of(context).primaryColor),
+              //       )
+              //     : Container(),
               widget.child ?? Container(),
             ],
           ),

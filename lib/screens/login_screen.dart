@@ -20,7 +20,7 @@ class _AccountScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Text(
                   'Welcome Back',
                   style: TextStyle(

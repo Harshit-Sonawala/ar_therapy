@@ -19,6 +19,7 @@ class ARTherapy extends StatelessWidget {
         textTheme: const TextTheme(
           headline1: TextStyle(
             fontSize: 36.0,
+            fontWeight: FontWeight.bold,
             color: Color(0xff00e5ff),
           ),
           headline2: TextStyle(
