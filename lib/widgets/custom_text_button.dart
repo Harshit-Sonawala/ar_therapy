@@ -13,7 +13,7 @@ class CustomTextButton extends StatefulWidget {
   const CustomTextButton({
     Key? key,
     required this.onPressed,
-    this.padding = const EdgeInsets.all(16),
+    this.padding = const EdgeInsets.all(12),
     this.fontSize = 20,
     this.iconSize = 26,
     this.borderRadius = 10,
@@ -47,13 +47,22 @@ class _CustomTextButtonState extends State<CustomTextButton> {
               size: widget.iconSize,
               color: const Color(0xff00e5ff),
             ),
-          if (widget.title != null) ...[
-            const SizedBox(width: 10),
+          if (widget.icon != null && widget.title != null) const SizedBox(width: 10),
+          if (widget.title != null)
             Text(
               widget.title!,
-              style: TextStyle(fontSize: widget.fontSize, color: Theme.of(context).primaryColor),
+              style: TextStyle(
+                fontSize: widget.fontSize,
+                color: Theme.of(context).primaryColor,
+              ),
             ),
-          ],
+          // if (widget.title != null) ...[
+          //   const SizedBox(width: 10),
+          //   Text(
+          //     widget.title!,
+          //     style: TextStyle(fontSize: widget.fontSize, color: Theme.of(context).primaryColor),
+          //   ),
+          // ],
           // widget.title != null
           //     ? Text(
           //         widget.title!,

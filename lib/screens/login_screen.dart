@@ -15,90 +15,103 @@ class _AccountScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const SizedBox(height: 30),
-                Text(
-                  'Welcome Back',
-                  style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 36,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
+                children: [
+                  CustomTextButton(
+                    onPressed: () => {
+                      Navigator.pop(context),
+                    },
+                    padding: const EdgeInsets.all(5),
+                    icon: Icons.arrow_back,
+                    borderRadius: 50,
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Text(
-                  'Login here,',
-                  style: TextStyle(
-                    fontSize: 24,
-                  ),
-                ),
-                const SizedBox(height: 40),
-                TextField(
-                  style: const TextStyle(
-                    fontSize: 20,
-                  ),
-                  cursorColor: Theme.of(context).primaryColor,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.email,
-                      color: Theme.of(context).primaryColor,
-                      size: 24,
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Welcome Back',
+                      style: Theme.of(context).textTheme.headline1,
                     ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                    const SizedBox(
+                      height: 10,
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        width: 2,
-                        color: Theme.of(context).primaryColor,
+                    const Text(
+                      'Login here,',
+                      style: TextStyle(
+                        fontSize: 24,
                       ),
-                      borderRadius: BorderRadius.circular(10),
                     ),
-                    hintText: 'Email Address',
-                  ),
-                ),
-                const SizedBox(height: 20),
-                TextField(
-                  style: const TextStyle(
-                    fontSize: 20,
-                  ),
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.key,
-                      color: Theme.of(context).primaryColor,
-                      size: 24,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        width: 2,
-                        color: Theme.of(context).primaryColor,
+                    const SizedBox(height: 40),
+                    TextField(
+                      style: const TextStyle(
+                        fontSize: 20,
                       ),
-                      borderRadius: BorderRadius.circular(10),
+                      cursorColor: Theme.of(context).primaryColor,
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.email,
+                          color: Theme.of(context).primaryColor,
+                          size: 24,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            width: 2,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        hintText: 'Email Address',
+                      ),
                     ),
-                    hintText: 'Password',
-                  ),
+                    const SizedBox(height: 20),
+                    TextField(
+                      style: const TextStyle(
+                        fontSize: 20,
+                      ),
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.key,
+                          color: Theme.of(context).primaryColor,
+                          size: 24,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            width: 2,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        hintText: 'Password',
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+                    CustomElevatedButton(
+                      onPressed: () => {},
+                      title: 'Submit',
+                      mainAxisAlignment: MainAxisAlignment.center,
+                    ),
+                    const SizedBox(height: 40),
+                    CustomTextButton(
+                      onPressed: () => {},
+                      title: 'Not You? Create an Account',
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 40),
-                CustomElevatedButton(
-                  onPressed: () => {},
-                  title: 'Submit',
-                  mainAxisAlignment: MainAxisAlignment.center,
-                ),
-                const SizedBox(height: 40),
-                CustomTextButton(
-                  onPressed: () => {},
-                  title: 'Not You? Create an Account',
-                )
-              ],
-            ),
+              )
+            ],
           ),
         ),
       ),

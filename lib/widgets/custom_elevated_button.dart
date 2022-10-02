@@ -58,8 +58,8 @@ class _CustomButtonState extends State<CustomElevatedButton> {
                   size: widget.iconSize,
                   color: Colors.white,
                 ),
-              if (widget.title != null) ...[
-                const SizedBox(width: 10),
+              if (widget.icon != null && widget.title != null) const SizedBox(width: 10),
+              if (widget.title != null)
                 Text(
                   widget.title!,
                   style: TextStyle(
@@ -67,7 +67,6 @@ class _CustomButtonState extends State<CustomElevatedButton> {
                     color: Colors.white,
                   ),
                 ),
-              ],
               // widget.title != null
               //     ? Text(
               //         widget.title!,

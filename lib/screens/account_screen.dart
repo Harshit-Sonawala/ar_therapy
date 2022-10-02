@@ -25,12 +25,6 @@ class _AccountScreenState extends State<AccountScreen> {
                 children: [
                   CustomTextButton(
                     onPressed: () => {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => const HomeScreen(),
-                      //   ),
-                      // )
                       Navigator.pop(context),
                     },
                     icon: Icons.arrow_back,
@@ -110,7 +104,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       horizontal: 16,
                     ),
                     onPressed: () => {
-                      print('Logout Pressed'),
+                      debugPrint('Edit Profile Pressed'),
                     },
                     icon: Icons.edit,
                     iconSize: 20,
