@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 20.0),
                 Container(
-                  padding: const EdgeInsets.all(30.0),
+                  padding: const EdgeInsets.all(20.0),
                   decoration: BoxDecoration(
                     color: const Color(0xff3d3d3d),
                     borderRadius: BorderRadius.circular(10),
@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         'Welcome to\nAR Therapy!',
                         style: Theme.of(context).textTheme.headline1,
                       ),
-                      const SizedBox(height: 20.0),
+                      const SizedBox(height: 10.0),
                       Text(
                         'Where physiotherapy meets AR Technology',
                         style: Theme.of(context).textTheme.bodyText1,
@@ -107,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 20),
                 Container(
-                  padding: const EdgeInsets.all(30.0),
+                  padding: const EdgeInsets.all(20.0),
                   decoration: BoxDecoration(
                     color: const Color(0xff3d3d3d),
                     borderRadius: BorderRadius.circular(10),

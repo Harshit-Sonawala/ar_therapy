@@ -3,9 +3,14 @@ import 'package:flutter_cube/flutter_cube.dart';
 
 import '../widgets/custom_text_button.dart';
 
-class DemoScreen3D extends StatelessWidget {
+class DemoScreen3D extends StatefulWidget {
   const DemoScreen3D({Key? key}) : super(key: key);
 
+  @override
+  State<DemoScreen3D> createState() => _DemoScreen3DState();
+}
+
+class _DemoScreen3DState extends State<DemoScreen3D> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +52,8 @@ class DemoScreen3D extends StatelessWidget {
                 onSceneCreated: (Scene scene) {
                   scene.world.add(
                     Object(
-                      fileName: 'assets/3D models/male_low_poly.obj',
+                      fileName: 'assets/3D models/rigmodel.obj',
+                      // fileName: 'assets/3D models/male_low_poly.obj',
                       // fileName: 'assets/3D models/snow_v04.obj',
                     ),
                   );

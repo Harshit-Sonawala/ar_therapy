@@ -57,9 +57,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/3D models/male_low_poly.obj
-    - assets/3D models/Humano_01Business_01_30K.obj
-    - assets/3D models/snow_v04.obj
+    - assets/3D models/
 
   fonts:
     - family: Montserrat
