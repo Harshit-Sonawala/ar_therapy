@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../screens/wip_screen.dart';
 import '../screens/account_screen.dart';
+import '../screens/test_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -72,6 +73,12 @@ class CustomDrawer extends StatelessWidget {
           ),
           ListTile(
             onTap: () => {
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => const TestScreen(),
+              //   ),
+              // ),
               Navigator.push(
                 context,
                 MaterialPageRoute(
