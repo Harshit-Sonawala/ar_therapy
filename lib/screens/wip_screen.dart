@@ -27,6 +27,7 @@ class _WipScreenState extends State<WipScreen> {
                   },
                   padding: const EdgeInsets.all(5),
                   icon: Icons.arrow_back,
+                  iconSize: 28,
                   borderRadius: 50,
                 ),
               ],

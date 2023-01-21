@@ -1,9 +1,9 @@
-// import 'package:ar_therapy/screens/model_viewer_screen.dart';
 import 'package:flutter/material.dart';
 import '../widgets/custom_drawer.dart';
 import '../widgets/custom_elevated_button.dart';
 // import 'demo_screen_3d.dart';
 import 'login_screen.dart';
+import 'model_viewer_screen.dart';
 // import './wip_screen.dart';
 
 import 'package:model_viewer_plus/model_viewer_plus.dart';
@@ -146,12 +146,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 // const SizedBox(height: 20.0),
                 CustomElevatedButton(
                   onPressed: () => {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => ModelViewerScreen(),
-                    //   ),
-                    // )
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const ModelViewerScreen(),
+                      ),
+                    )
                   },
                   icon: Icons.view_in_ar,
                   iconSize: 34,
