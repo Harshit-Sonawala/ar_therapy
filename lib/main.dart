@@ -28,12 +28,12 @@ class ARTherapy extends StatelessWidget {
             fontSize: 36.0,
             color: Colors.white,
           ),
-          bodyText1: TextStyle(fontSize: 20.0),
-          bodyText2: TextStyle(fontSize: 24.0),
+          bodyText1: TextStyle(fontSize: 22.0),
+          bodyText2: TextStyle(fontSize: 26.0),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(22.0),
           ),
 
           // ButtonStyle(backgroundColor: const LinearGradient(

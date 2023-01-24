@@ -15,35 +15,45 @@ class _ModelViewerScreenState extends State<ModelViewerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                CustomTextButton(
-                  onPressed: () => {
-                    Navigator.pop(context),
-                  },
-                  padding: const EdgeInsets.all(5),
-                  icon: Icons.arrow_back,
-                  title: 'Forward Flexion',
-                  borderRadius: 50,
-                ),
-              ],
-            ),
-            // const Text('Model Viewer Screen'),
-            Expanded(
-              child: ModelViewer(
-                // src: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
-                //src: 'assets/3Dmodels/final.glb', // Human with given skeleton
-                // src: 'assets/3D models/back_exercise.glb',
-                src: 'assets/forward_flexion.glb',
-                alt: "Exercise 3D Model",
-                ar: true,
-                autoRotate: true,
-                cameraControls: true,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  CustomTextButton(
+                    onPressed: () => {
+                      Navigator.pop(context),
+                    },
+                    padding: const EdgeInsets.all(5),
+                    icon: Icons.arrow_back,
+                    // title: 'Forward Flexion',
+                    borderRadius: 50,
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    'Forward Flexion',
+                    style: Theme.of(context).textTheme.bodyText2,
+                  ),
+                ],
               ),
-            ),
-          ],
+              // const Text('Model Viewer Screen'),
+              Expanded(
+                child: ModelViewer(
+                  // src: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
+                  //src: 'assets/3Dmodels/final.glb', // Human with given skeleton
+                  // src: 'assets/3D models/back_exercise.glb',
+                  src: 'assets/forward_flexion.glb',
+                  alt: "Animated 3D model of exercise",
+                  ar: true,
+                  autoRotate: true,
+                  cameraControls: true,
+                  enablePan: true,
+                  autoPlay: true,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       // body: ModelViewer(

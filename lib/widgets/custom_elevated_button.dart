@@ -70,7 +70,10 @@ class _CustomButtonState extends State<CustomElevatedButton> {
               // widget.title != null
               //     ? Text(
               //         widget.title!,
-              //         style: TextStyle(fontSize: widget.fontSize, color: Theme.of(context).primaryColor),
+              //         style: TextStyle(
+              //          fontSize: widget.fontSize,
+              //          color: Theme.of(context).primaryColor,
+              //         ),
               //       )
               //     : Container(),
               widget.child ?? Container(),

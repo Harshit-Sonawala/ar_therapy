@@ -116,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Text(
-                    'Solve all of your physio problems using state of the art AR Technology',
+                    'Solve all of your physiotherapy related problems using state of the art AR Technology',
                     style: Theme.of(context).textTheme.bodyText1,
                   ),
                 ),

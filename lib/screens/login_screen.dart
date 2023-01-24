@@ -50,9 +50,7 @@ class _AccountScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 40),
                     TextField(
-                      style: const TextStyle(
-                        fontSize: 20,
-                      ),
+                      style: Theme.of(context).textTheme.bodyText1,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
                         prefixIcon: Icon(
@@ -75,9 +73,7 @@ class _AccountScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 20),
                     TextField(
-                      style: const TextStyle(
-                        fontSize: 20,
-                      ),
+                      style: Theme.of(context).textTheme.bodyText1,
                       decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.key,

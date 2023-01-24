@@ -39,7 +39,7 @@ class CustomDrawer extends StatelessWidget {
                       ),
                       const SizedBox(height: 10.0),
                       Text(
-                        'Version 0.2',
+                        'Version 0.3.8',
                         style: Theme.of(context).textTheme.bodyText1,
                       ),
                     ],
