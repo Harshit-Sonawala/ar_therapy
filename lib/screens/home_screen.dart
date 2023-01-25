@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+
+import 'package:provider/provider.dart';
+import '../providers/disorder_list_provider.dart';
+//import 'package:model_viewer_plus/model_viewer_plus.dart';
+
 import '../widgets/custom_drawer.dart';
 import '../widgets/custom_elevated_button.dart';
+
 // import 'demo_screen_3d.dart';
 import 'login_screen.dart';
 import 'model_viewer_screen.dart';
 // import './wip_screen.dart';
-
-import 'package:model_viewer_plus/model_viewer_plus.dart';
 // import 'demo_screen_ar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,6 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       key: homeScreenScaffoldKey, // for opening the drawer
       drawer: const CustomDrawer(),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () => {
+      //     print(
+      //       Provider.of<DisorderList>(context, listen: false),
+      //       // context.watch<DisorderList>().globalDisorderList[0],
+      //     ),
+      //   },
+      // ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

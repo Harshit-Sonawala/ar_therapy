@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
+
+import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-void main() => runApp(const ARTherapy());
+import 'screens/home_screen.dart';
+import 'providers/disorder_list_provider.dart';
+import 'providers/exercise_list_provider.dart';
+
+void main() => runApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider<DisorderList>(create: (context) => DisorderList()),
+          // ChangeNotifierProvider(create: create)
+        ],
+        child: const ARTherapy(),
+      ),
+    );
 
 class ARTherapy extends StatelessWidget {
   const ARTherapy({Key? key}) : super(key: key);

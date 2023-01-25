@@ -21,4 +21,6 @@ class DisorderList with ChangeNotifier {
           'exerciseItem1'
         ]),
   ];
+
+  List<DisorderItem> get globalDisorderList => _globalDisorderList;
 }
