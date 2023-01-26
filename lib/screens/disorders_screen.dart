@@ -1,5 +1,12 @@
-import 'package:ar_therapy/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
+
+import 'package:provider/provider.dart';
+
+import '../providers/disorder_list_provider.dart';
+
+import '../widgets/custom_text_button.dart';
+import '../widgets/custom_card.dart';
+import '../widgets/custom_list_item.dart';
 
 class DisordersScreen extends StatefulWidget {
   const DisordersScreen({super.key});
@@ -31,6 +38,29 @@ class _DisordersScreenState extends State<DisordersScreen> {
                   const Text('Disorders'),
                 ],
               ),
+              const SizedBox(height: 20.0),
+              const CustomCard(
+                child: Text(
+                  'Browse through various physical disorders and tap to learn more about them',
+                  style: TextStyle(fontSize: 21.0),
+                ),
+              ),
+              const SizedBox(height: 20.0),
+              Expanded(
+                  child: ListView.builder(
+                itemCount: Provider.of<DisorderList>(context, listen: false).globalDisorderList.length,
+                itemBuilder: (context, eachDisorder) => CustomListItem(
+                  onPressed: () => {},
+                  title:
+                      Provider.of<DisorderList>(context, listen: false).globalDisorderList[eachDisorder].disItemTitle,
+                  body: Provider.of<DisorderList>(context, listen: false)
+                      .globalDisorderList[eachDisorder]
+                      .disItemDescription,
+                  images: Provider.of<DisorderList>(context, listen: false)
+                      .globalDisorderList[eachDisorder]
+                      .disItemImagePaths,
+                ),
+              )),
             ],
           ),
         ),

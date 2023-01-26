@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:provider/provider.dart';
-import '../providers/disorder_list_provider.dart';
-//import 'package:model_viewer_plus/model_viewer_plus.dart';
-
 import '../widgets/custom_drawer.dart';
 import '../widgets/custom_elevated_button.dart';
 
-// import 'demo_screen_3d.dart';
 import 'login_screen.dart';
 import 'model_viewer_screen.dart';
 import 'disorders_screen.dart';
-// import './wip_screen.dart';
-// import 'demo_screen_ar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

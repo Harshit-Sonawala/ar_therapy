@@ -4,6 +4,7 @@ class DisorderItem {
   String disItemDescription;
   List<String> disItemSymptoms;
   List<String> disItemExerciseList;
+  List<String> disItemImagePaths;
 
   DisorderItem({
     required this.disItemId,
@@ -11,5 +12,6 @@ class DisorderItem {
     required this.disItemDescription,
     required this.disItemSymptoms,
     required this.disItemExerciseList,
+    required this.disItemImagePaths,
   });
 }

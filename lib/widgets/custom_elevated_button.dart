@@ -14,8 +14,9 @@ class CustomElevatedButton extends StatefulWidget {
   final double? trailingIconSize;
   final MainAxisAlignment mainAxisAlignment;
   final CrossAxisAlignment crossAxisAlignment;
+
   const CustomElevatedButton({
-    Key? key,
+    //Key? key,
     required this.onPressed,
     this.padding = const EdgeInsets.all(16),
     this.child,
@@ -28,7 +29,8 @@ class CustomElevatedButton extends StatefulWidget {
     this.trailingIconSize = 34,
     this.mainAxisAlignment = MainAxisAlignment.center,
     this.crossAxisAlignment = CrossAxisAlignment.center,
-  }) : super(key: key);
+    super.key,
+  }); // : super(key: key);
 
   @override
   State<CustomElevatedButton> createState() => _CustomButtonState();
