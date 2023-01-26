@@ -4,26 +4,30 @@ class CustomElevatedButton extends StatefulWidget {
   final VoidCallback onPressed;
   // final void Function() onPressed;
   final EdgeInsets? padding;
-  final double? fontSize;
-  final double? iconSize;
-  final double? trailingIconSize;
   final Widget? child;
+  final String backgroundImage;
   final String? title;
+  final double? fontSize;
   final IconData? icon;
+  final double? iconSize;
   final IconData? trailingIcon;
+  final double? trailingIconSize;
   final MainAxisAlignment mainAxisAlignment;
+  final CrossAxisAlignment crossAxisAlignment;
   const CustomElevatedButton({
     Key? key,
     required this.onPressed,
     this.padding = const EdgeInsets.all(16),
-    this.fontSize = 22,
-    this.iconSize = 26,
-    this.trailingIconSize = 26,
     this.child,
+    this.backgroundImage = '',
     this.title,
+    this.fontSize = 22,
     this.icon,
+    this.iconSize = 34,
     this.trailingIcon,
+    this.trailingIconSize = 34,
     this.mainAxisAlignment = MainAxisAlignment.center,
+    this.crossAxisAlignment = CrossAxisAlignment.center,
   }) : super(key: key);
 
   @override
@@ -34,18 +38,32 @@ class _CustomButtonState extends State<CustomElevatedButton> {
   @override
   Widget build(BuildContext context) {
     return Ink(
-      decoration: BoxDecoration(
-        // color: const Color(0xff3d3d3d),
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Colors.blue,
-            Color(0xff00e5ff),
-          ],
-        ),
-        borderRadius: BorderRadius.circular(10),
-      ),
+      decoration: widget.backgroundImage != ''
+          ? BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: AssetImage(
+                  widget.backgroundImage,
+                ),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.2),
+                  BlendMode.darken,
+                ),
+              ),
+            )
+          : BoxDecoration(
+              // color: const Color(0xff3d3d3d),
+              borderRadius: BorderRadius.circular(10),
+              gradient: const LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Colors.blue,
+                  Color(0xff00e5ff),
+                ],
+              ),
+            ),
       child: InkWell(
         onTap: widget.onPressed,
         customBorder: RoundedRectangleBorder(
@@ -55,6 +73,7 @@ class _CustomButtonState extends State<CustomElevatedButton> {
           padding: widget.padding!,
           child: Row(
             mainAxisAlignment: widget.mainAxisAlignment,
+            crossAxisAlignment: widget.crossAxisAlignment,
             children: [
               if (widget.icon != null)
                 Icon(

@@ -115,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       const SizedBox(height: 10.0),
                       Text(
-                        'Where physiotherapy meets AR Technology',
+                        'The perfect personal companion app to support your physical therapy',
                         style: Theme.of(context).textTheme.bodyText1,
                       ),
                     ],
@@ -167,20 +167,44 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   icon: Icons.view_in_ar,
                   iconSize: 34,
-                  title: 'View 3D & AR Demo',
+                  title: 'Try 3D & AR Demo',
+                ),
+                const SizedBox(height: 20.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CustomElevatedButton(
+                      onPressed: () => {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const DisordersScreen(),
+                          ),
+                        )
+                      },
+                      backgroundImage: 'assets/images/disorders.jpeg',
+                      child: const Padding(
+                        padding: EdgeInsets.all(30),
+                        child: Text('Disorders'),
+                      ),
+                    ),
+                    const SizedBox(width: 20.0),
+                    CustomElevatedButton(
+                      onPressed: () => {},
+                      backgroundImage: 'assets/images/exercises.jpeg',
+                      child: const Padding(
+                        padding: EdgeInsets.all(30),
+                        child: Text('Exercises'),
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 20.0),
                 CustomElevatedButton(
-                  onPressed: () => {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const DisordersScreen(),
-                      ),
-                    )
-                  },
+                  onPressed: () => {},
                   trailingIcon: Icons.arrow_forward,
                   trailingIconSize: 34,
-                  title: 'Browse Disorders',
+                  title: 'Continue Treatment',
                 ),
               ],
             ),
