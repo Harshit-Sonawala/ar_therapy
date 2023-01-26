@@ -10,6 +10,7 @@ import '../widgets/custom_elevated_button.dart';
 // import 'demo_screen_3d.dart';
 import 'login_screen.dart';
 import 'model_viewer_screen.dart';
+import 'disorders_screen.dart';
 // import './wip_screen.dart';
 // import 'demo_screen_ar.dart';
 
@@ -128,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Text(
-                    'Solve all of your physiotherapy related problems using state of the art AR Technology',
+                    'Solve all of your physiotherapy related problems using state of the art Augmented Reality Technology',
                     style: Theme.of(context).textTheme.bodyText1,
                   ),
                 ),
@@ -168,17 +169,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   iconSize: 34,
                   title: 'View 3D & AR Demo',
                 ),
-                // Expanded(
-                //   child: ModelViewer(
-                //     src: 'assets/final_rigmodel.glb',
-                //     alt: 'Animated 3D model of exercise',
-                //     ar: true,
-                //     autoRotate: true,
-                //     cameraControls: true,
-                //     enablePan: true,
-                //     autoPlay: true,
-                //   ),
-                // ),
+                const SizedBox(height: 20.0),
+                CustomElevatedButton(
+                  onPressed: () => {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const DisordersScreen(),
+                      ),
+                    )
+                  },
+                  trailingIcon: Icons.arrow_forward,
+                  trailingIconSize: 34,
+                  title: 'Browse Disorders',
+                ),
               ],
             ),
           ),

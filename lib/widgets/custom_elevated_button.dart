@@ -6,9 +6,11 @@ class CustomElevatedButton extends StatefulWidget {
   final EdgeInsets? padding;
   final double? fontSize;
   final double? iconSize;
+  final double? trailingIconSize;
   final Widget? child;
   final String? title;
   final IconData? icon;
+  final IconData? trailingIcon;
   final MainAxisAlignment mainAxisAlignment;
   const CustomElevatedButton({
     Key? key,
@@ -16,9 +18,11 @@ class CustomElevatedButton extends StatefulWidget {
     this.padding = const EdgeInsets.all(16),
     this.fontSize = 22,
     this.iconSize = 26,
+    this.trailingIconSize = 26,
     this.child,
     this.title,
     this.icon,
+    this.trailingIcon,
     this.mainAxisAlignment = MainAxisAlignment.center,
   }) : super(key: key);
 
@@ -58,7 +62,10 @@ class _CustomButtonState extends State<CustomElevatedButton> {
                   size: widget.iconSize,
                   color: Colors.white,
                 ),
-              if (widget.icon != null && widget.title != null) const SizedBox(width: 10),
+              if (widget.icon != null && widget.title != null)
+                const SizedBox(
+                  width: 10,
+                ),
               if (widget.title != null)
                 Text(
                   widget.title!,
@@ -66,6 +73,16 @@ class _CustomButtonState extends State<CustomElevatedButton> {
                     fontSize: widget.fontSize,
                     color: Colors.white,
                   ),
+                ),
+              if (widget.trailingIcon != null && widget.title != null)
+                const SizedBox(
+                  width: 10,
+                ),
+              if (widget.trailingIcon != null)
+                Icon(
+                  widget.trailingIcon,
+                  size: widget.trailingIconSize,
+                  color: Colors.white,
                 ),
               // widget.title != null
               //     ? Text(
