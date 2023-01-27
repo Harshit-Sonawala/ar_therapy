@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 
 import 'screens/home_screen.dart';
 import 'providers/disorder_list_provider.dart';
@@ -11,7 +11,7 @@ void main() => runApp(
       MultiProvider(
         providers: [
           ChangeNotifierProvider<DisorderList>(create: (context) => DisorderList()),
-          // ChangeNotifierProvider(create: create)
+          ChangeNotifierProvider<ExerciseList>(create: (context) => ExerciseList()),
         ],
         child: const ARTherapy(),
       ),

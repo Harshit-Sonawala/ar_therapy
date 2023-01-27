@@ -37,37 +37,45 @@ class _CustomListItemState extends State<CustomListItem> {
         borderRadius: BorderRadius.circular(10),
         child: Column(
           children: [
-            Container(
-              padding: const EdgeInsets.all(20),
-              height: 160,
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  topRight: Radius.circular(10),
-                ),
-                image: DecorationImage(
-                  image: AssetImage(
-                    widget.images![0],
+            if (widget.images != null)
+              Container(
+                padding: const EdgeInsets.all(20),
+                height: 160,
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10),
                   ),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              child: Align(
-                alignment: Alignment.bottomLeft,
-                child: Text(
-                  widget.title!,
-                  style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 26,
+                  image: DecorationImage(
+                    image: AssetImage(
+                      widget.images![0],
+                    ),
+                    fit: BoxFit.cover,
                   ),
                 ),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    widget.title!,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 28,
+                    ),
+                  ),
+                ),
               ),
-            ),
             Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  if (widget.images == null)
+                    Text(
+                      widget.title!,
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
                   Text(
                     '${widget.body!.substring(0, 81)}...',
                     style: Theme.of(context).textTheme.bodyText1,

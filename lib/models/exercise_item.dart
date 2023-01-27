@@ -2,9 +2,10 @@ class ExerciseItem {
   String exItemId;
   String exItemTitle;
   String exItemDescription;
-  String exItemProcedure;
+  List<String> exItemProcedure;
   List<String> exItemFocusAreas;
   List<String> exItemDisorderList;
+  String exItemModelPath;
 
   ExerciseItem({
     required this.exItemId,
@@ -13,5 +14,6 @@ class ExerciseItem {
     required this.exItemProcedure,
     required this.exItemFocusAreas,
     required this.exItemDisorderList,
+    required this.exItemModelPath,
   });
 }

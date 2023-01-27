@@ -6,6 +6,7 @@ import '../widgets/custom_elevated_button.dart';
 import 'login_screen.dart';
 import 'model_viewer_screen.dart';
 import 'disorders_screen.dart';
+import 'exercises_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -183,7 +184,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const SizedBox(width: 20.0),
                     CustomElevatedButton(
-                      onPressed: () => {},
+                      onPressed: () => {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const ExercisesScreen(),
+                          ),
+                        )
+                      },
                       backgroundImage: 'assets/images/exercises.jpeg',
                       child: const Padding(
                         padding: EdgeInsets.all(30),
