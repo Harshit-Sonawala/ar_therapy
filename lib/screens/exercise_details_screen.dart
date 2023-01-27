@@ -42,7 +42,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                     borderRadius: 50,
                   ),
                   const SizedBox(width: 10),
-                  const Text('Disorder Details'),
+                  const Text('Exercise Details'),
                 ],
               ),
               const SizedBox(height: 20),
@@ -75,7 +75,9 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                   // src: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
                   //src: 'assets/3Dmodels/final.glb', // Human with given skeleton
                   // src: 'assets/3D models/back_exercise.glb',
-                  src: 'assets/forward_flexion.glb',
+                  src: Provider.of<ExerciseList>(context, listen: false)
+                      .globalExerciseList[widget.exerciseIndex]
+                      .exItemModelPath,
                   alt: "Animated 3D model of exercise",
                   ar: true,
                   autoRotate: true,
