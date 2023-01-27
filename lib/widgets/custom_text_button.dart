@@ -15,7 +15,7 @@ class CustomTextButton extends StatefulWidget {
     required this.onPressed,
     this.padding = const EdgeInsets.all(12),
     this.fontSize = 20,
-    this.iconSize = 26,
+    this.iconSize = 34,
     this.borderRadius = 10,
     this.child,
     this.title,

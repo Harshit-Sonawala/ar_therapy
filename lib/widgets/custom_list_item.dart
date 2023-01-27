@@ -30,23 +30,50 @@ class _CustomListItemState extends State<CustomListItem> {
     return Ink(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
+        color: const Color(0xff3d3d3d),
       ),
-      child: CustomCard(
+      child: InkWell(
+        onTap: widget.onPressed,
+        borderRadius: BorderRadius.circular(10),
         child: Column(
           children: [
-            Image.asset(widget.images![0]),
-            const SizedBox(height: 10),
-            Text(
-              widget.title!,
-              style: TextStyle(
-                color: Theme.of(context).primaryColor,
-                fontSize: 24,
+            Container(
+              padding: const EdgeInsets.all(20),
+              height: 160,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                ),
+                image: DecorationImage(
+                  image: AssetImage(
+                    widget.images![0],
+                  ),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  widget.title!,
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 26,
+                  ),
+                ),
               ),
             ),
-            const SizedBox(height: 10),
-            Text(
-              widget.body!,
-              style: Theme.of(context).textTheme.bodyText1,
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '${widget.body!.substring(0, 81)}...',
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
+                ],
+              ),
             ),
           ],
         ),

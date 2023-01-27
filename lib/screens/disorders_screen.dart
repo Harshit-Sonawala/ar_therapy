@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 
 import '../providers/disorder_list_provider.dart';
 
+import 'disorder_details_screen.dart';
+
 import '../widgets/custom_text_button.dart';
 import '../widgets/custom_card.dart';
 import '../widgets/custom_list_item.dart';
@@ -49,15 +51,23 @@ class _DisordersScreenState extends State<DisordersScreen> {
               Expanded(
                   child: ListView.builder(
                 itemCount: Provider.of<DisorderList>(context, listen: false).globalDisorderList.length,
-                itemBuilder: (context, eachDisorder) => CustomListItem(
-                  onPressed: () => {},
+                itemBuilder: (context, disorderIndex) => CustomListItem(
+                  onPressed: () => {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => DisorderDetailsScreen(
+                          disorderIndex: disorderIndex,
+                        ),
+                      ),
+                    ),
+                  },
                   title:
-                      Provider.of<DisorderList>(context, listen: false).globalDisorderList[eachDisorder].disItemTitle,
+                      Provider.of<DisorderList>(context, listen: false).globalDisorderList[disorderIndex].disItemTitle,
                   body: Provider.of<DisorderList>(context, listen: false)
-                      .globalDisorderList[eachDisorder]
+                      .globalDisorderList[disorderIndex]
                       .disItemDescription,
                   images: Provider.of<DisorderList>(context, listen: false)
-                      .globalDisorderList[eachDisorder]
+                      .globalDisorderList[disorderIndex]
                       .disItemImagePaths,
                 ),
               )),
