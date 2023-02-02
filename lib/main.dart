@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
-
+import 'package:camera/camera.dart';
 import 'screens/home_screen.dart';
 import 'providers/disorder_list_provider.dart';
 import 'providers/exercise_list_provider.dart';
+late List<CameraDescription> cameras;
+Future <void> main() async { 
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
+   runApp(
+   
 
-void main() => runApp(
       MultiProvider(
         providers: [
           ChangeNotifierProvider<DisorderList>(create: (context) => DisorderList()),
@@ -15,10 +20,11 @@ void main() => runApp(
         ],
         child: const ARTherapy(),
       ),
-    );
+    );}
 
 class ARTherapy extends StatelessWidget {
   const ARTherapy({Key? key}) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {

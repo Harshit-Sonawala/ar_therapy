@@ -3,14 +3,19 @@ import 'package:flutter/material.dart';
 import '../widgets/custom_drawer.dart';
 import '../widgets/custom_elevated_button.dart';
 import '../widgets/custom_card.dart';
+import 'package:camera/camera.dart';
+import '../ai/pushed_pageS.dart';
 
 import 'login_screen.dart';
 import 'model_viewer_screen.dart';
 import 'disorders_screen.dart';
 import 'exercises_screen.dart';
+List<CameraDescription>? cameras;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -178,6 +183,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const SizedBox(height: 20.0),
                     CustomElevatedButton(
+                      onPressed: () => {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => onSelectS(context: context, modelName: 'posenet'),
+                          ),
+                        )
+                      },
+                      backgroundImage: 'assets/images/aidetect.jpeg',
+                      child: const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+                        child: Text('Check Posture'),
+                      ),
+                    ),
+                    const SizedBox(height: 20.0),
+                    CustomElevatedButton(
                       onPressed: () => {},
                       trailingIcon: Icons.arrow_forward,
                       trailingIconSize: 34,
@@ -192,4 +212,17 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+  
+}
+
+ onSelectS({required BuildContext context,required String modelName}) async {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => PushedPageS(
+        cameras: cameras!,
+        title: modelName,
+      ),
+    ),
+  );
 }

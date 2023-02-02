@@ -37,6 +37,12 @@ dependencies:
   model_viewer_plus: ^1.3.3
   firebase_auth: ^4.2.5
   provider: ^6.0.5
+ 
+  camera: ^0.5.8+11
+  tflite: ^1.1.1
+  font_awesome_flutter: ^8.10.0
+  line_awesome_flutter: ^1.0.1
+
 
 dev_dependencies:
   flutter_test:
