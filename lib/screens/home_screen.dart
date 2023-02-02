@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Welcome to\nAR Therapy!',
+                            'Welcome to AR Therapy!',
                             style: Theme.of(context).textTheme.headline1,
                           ),
                           const SizedBox(height: 10.0),
@@ -130,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     //     )
                     //   },
                     //   icon: Icons.threed_rotation_rounded,
-                    //   iconSize: 34,
+                    //   iconSize: 28,
                     //   title: 'View 3D Demo',
                     // ),
                     // const SizedBox(height: 20.0),
@@ -143,7 +143,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         )
                       },
                       icon: Icons.view_in_ar,
-                      iconSize: 34,
                       title: 'Try 3D & AR Demo',
                     ),
                     const SizedBox(height: 20.0),
@@ -180,7 +179,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     CustomElevatedButton(
                       onPressed: () => {},
                       trailingIcon: Icons.arrow_forward,
-                      trailingIconSize: 34,
                       title: 'Continue Treatment',
                     ),
                   ],

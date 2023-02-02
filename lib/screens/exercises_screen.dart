@@ -41,10 +41,10 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                 ],
               ),
               const SizedBox(height: 20.0),
-              const CustomCard(
+              CustomCard(
                 child: Text(
                   'Browse through various exercises and tap to view their 3D and AR View',
-                  style: TextStyle(fontSize: 21.0),
+                  style: Theme.of(context).textTheme.bodyText1,
                 ),
               ),
               const SizedBox(height: 20.0),

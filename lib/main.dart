@@ -33,16 +33,20 @@ class ARTherapy extends StatelessWidget {
         textTheme: const TextTheme(
           headline1: TextStyle(
             // fontFamily: 'Montserrat',
-            fontSize: 36.0,
+            fontSize: 28.0,
             fontWeight: FontWeight.bold,
             color: Color(0xff00e5ff),
           ),
           headline2: TextStyle(
-            fontSize: 36.0,
+            fontSize: 28.0,
             color: Colors.white,
           ),
-          bodyText1: TextStyle(fontSize: 22.0),
-          bodyText2: TextStyle(fontSize: 26.0),
+          bodyText1: TextStyle(fontSize: 18.0), // old: 22
+          bodyText2: TextStyle(fontSize: 20.0), // old: 26
+        ),
+        iconTheme: const IconThemeData(
+          size: 28,
+          color: Colors.white,
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
@@ -59,6 +63,13 @@ class ARTherapy extends StatelessWidget {
           //             ),
         ),
       ),
+      // builder: (context, child) {
+      //   return MediaQuery(
+      //       data: MediaQuery.of(context).copyWith(
+      //         textScaleFactor: 1.0,
+      //       ),
+      //       child: const HomeScreen());
+      // }
       home: const HomeScreen(),
     );
   }

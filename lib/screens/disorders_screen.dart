@@ -41,10 +41,10 @@ class _DisordersScreenState extends State<DisordersScreen> {
                 ],
               ),
               const SizedBox(height: 20.0),
-              const CustomCard(
+              CustomCard(
                 child: Text(
                   'Browse through various physical disorders and tap to learn more about them',
-                  style: TextStyle(fontSize: 21.0),
+                  style: Theme.of(context).textTheme.bodyText1,
                 ),
               ),
               const SizedBox(height: 20.0),
