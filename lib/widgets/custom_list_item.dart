@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/custom_card.dart';
-
 class CustomListItem extends StatefulWidget {
   final VoidCallback onPressed;
   final Widget? child;
