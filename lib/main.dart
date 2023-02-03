@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
 
 import 'screens/home_screen.dart';
 import 'providers/disorder_list_provider.dart';
@@ -41,6 +40,11 @@ class ARTherapy extends StatelessWidget {
             fontSize: 28.0,
             color: Colors.white,
           ),
+          headline3: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: Color(0xff00e5ff),
+          ),
           bodyText1: TextStyle(fontSize: 18.0), // old: 22
           bodyText2: TextStyle(fontSize: 20.0), // old: 26
         ),
@@ -52,15 +56,6 @@ class ARTherapy extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.all(22.0),
           ),
-
-          // ButtonStyle(backgroundColor: const LinearGradient(
-          //               begin: Alignment.topLeft,
-          //               end: Alignment.bottomRight,
-          //               colors: [
-          //                 Colors.blue,
-          //                 Color(0xff00e5ff),
-          //               ],
-          //             ),
         ),
       ),
       // builder: (context, child) {
