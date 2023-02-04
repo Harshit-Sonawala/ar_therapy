@@ -1,5 +1,5 @@
 name: ar_therapy
-description: A new Flutter project.
+description: A mobile application to supplement physiotherapy treatment using 3D models and AR.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.

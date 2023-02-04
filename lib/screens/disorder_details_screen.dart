@@ -1,8 +1,6 @@
-import 'package:ar_therapy/models/disorder_item.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
-import '../models/disorder_item.dart';
 import '../providers/disorder_list_provider.dart';
 
 import '../widgets/custom_text_button.dart';

@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
+            VALUE "CompanyName", "com.hibproject" "\0"
             VALUE "FileDescription", "ar_therapy" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "ar_therapy" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2022 com.hibproject. All rights reserved." "\0"
             VALUE "OriginalFilename", "ar_therapy.exe" "\0"
             VALUE "ProductName", "ar_therapy" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"

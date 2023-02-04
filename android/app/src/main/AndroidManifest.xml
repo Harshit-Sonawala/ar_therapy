@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ar_therapy">
+    package="com.hibproject.ar_therapy">
    <application
-        android:label="ar_therapy"
+        android:label="AR Therapy"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">

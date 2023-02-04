@@ -1,4 +1,4 @@
-package com.example.ar_therapy
+package com.hibproject.ar_therapy
 
 import io.flutter.embedding.android.FlutterActivity
 

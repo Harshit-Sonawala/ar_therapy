@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "357550858262",
+    "project_id": "artherapy-d7f29",
+    "storage_bucket": "artherapy-d7f29.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357550858262:android:4cc62a1ade39c641a81537",
+        "android_client_info": {
+          "package_name": "com.hibproject.ar_therapy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357550858262-s97692tbhjtn8a4def0shha42ngm2pvl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hibproject.ar_therapy",
+            "certificate_hash": "c9cb2ad8a77d096bd43eb037b84de6d8a07e1266"
+          }
+        },
+        {
+          "client_id": "357550858262-b3u9b5rhu0susjc2i1al0el4o45fiq03.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD06wnpH0dlrox_RDx_NIlTMJvNxMaVkok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357550858262-b3u9b5rhu0susjc2i1al0el4o45fiq03.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
