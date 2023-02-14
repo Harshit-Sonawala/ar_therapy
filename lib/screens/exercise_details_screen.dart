@@ -47,7 +47,9 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
               ),
               const SizedBox(height: 20),
               Text(
-                Provider.of<ExerciseList>(context, listen: false).globalExerciseList[widget.exerciseIndex].exItemTitle,
+                Provider.of<ExerciseListProvider>(context, listen: false)
+                    .globalExerciseList[widget.exerciseIndex]
+                    .exItemTitle,
                 style: Theme.of(context).textTheme.headline1,
               ),
               const SizedBox(height: 20),
@@ -62,7 +64,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                       ),
                     ),
                     Text(
-                        Provider.of<ExerciseList>(context, listen: false)
+                        Provider.of<ExerciseListProvider>(context, listen: false)
                             .globalExerciseList[widget.exerciseIndex]
                             .exItemDescription,
                         style: Theme.of(context).textTheme.bodyText1),
@@ -75,7 +77,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                   // src: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
                   //src: 'assets/3Dmodels/final.glb', // Human with given skeleton
                   // src: 'assets/3D models/back_exercise.glb',
-                  src: Provider.of<ExerciseList>(context, listen: false)
+                  src: Provider.of<ExerciseListProvider>(context, listen: false)
                       .globalExerciseList[widget.exerciseIndex]
                       .exItemModelPath,
                   alt: "Animated 3D model of exercise",

@@ -11,14 +11,14 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final emailTextController = TextEditingController();
-  final passwordTextController = TextEditingController();
-  bool _isObscured = true;
+  final TextEditingController _emailTextController = TextEditingController();
+  final TextEditingController _passwordTextController = TextEditingController();
+  bool _passIsObscured = true;
 
   @override
   void dispose() {
-    emailTextController.dispose();
-    passwordTextController.dispose();
+    _emailTextController.dispose();
+    _passwordTextController.dispose();
     super.dispose();
   }
 
@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 40),
                     TextField(
-                      controller: emailTextController,
+                      controller: _emailTextController,
                       style: Theme.of(context).textTheme.bodyText1,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
@@ -91,8 +91,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 20),
                     TextField(
-                      obscureText: _isObscured,
-                      controller: passwordTextController,
+                      obscureText: _passIsObscured,
+                      controller: _passwordTextController,
                       style: Theme.of(context).textTheme.bodyText1,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
@@ -111,10 +111,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         suffixIcon: IconButton(
                           onPressed: () => {
-                            setState(() => _isObscured = !_isObscured),
+                            setState(() => _passIsObscured = !_passIsObscured),
                           },
                           icon: Icon(
-                            _isObscured ? Icons.visibility : Icons.visibility_off,
+                            _passIsObscured ? Icons.visibility : Icons.visibility_off,
                             color: Theme.of(context).primaryColor,
                           ),
                         ),
@@ -134,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     CustomElevatedButton(
                       onPressed: () => {
                         debugPrint(
-                          'Email: ${emailTextController.text.trim()}, Password: ${passwordTextController.text.trim()}',
+                          'Email: ${_emailTextController.text.trim()}, Password: ${_passwordTextController.text.trim()}',
                         ),
                       },
                       title: 'Submit',

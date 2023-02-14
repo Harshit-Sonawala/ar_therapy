@@ -50,7 +50,7 @@ class _DisordersScreenState extends State<DisordersScreen> {
               const SizedBox(height: 20.0),
               Expanded(
                   child: ListView.builder(
-                itemCount: Provider.of<DisorderList>(context, listen: false).globalDisorderList.length,
+                itemCount: Provider.of<DisorderListProvider>(context, listen: false).globalDisorderList.length,
                 itemBuilder: (context, disorderIndex) => CustomListItem(
                   onPressed: () => {
                     Navigator.of(context).push(
@@ -61,12 +61,13 @@ class _DisordersScreenState extends State<DisordersScreen> {
                       ),
                     ),
                   },
-                  title:
-                      Provider.of<DisorderList>(context, listen: false).globalDisorderList[disorderIndex].disItemTitle,
-                  body: Provider.of<DisorderList>(context, listen: false)
+                  title: Provider.of<DisorderListProvider>(context, listen: false)
+                      .globalDisorderList[disorderIndex]
+                      .disItemTitle,
+                  body: Provider.of<DisorderListProvider>(context, listen: false)
                       .globalDisorderList[disorderIndex]
                       .disItemDescription,
-                  images: Provider.of<DisorderList>(context, listen: false)
+                  images: Provider.of<DisorderListProvider>(context, listen: false)
                       .globalDisorderList[disorderIndex]
                       .disItemImagePaths,
                 ),

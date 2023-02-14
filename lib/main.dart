@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'providers/disorder_list_provider.dart';
 import 'providers/exercise_list_provider.dart';
+import 'providers/auth_provider.dart';
 
 import 'screens/home_screen.dart';
 
@@ -14,8 +15,9 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider<DisorderList>(create: (context) => DisorderList()),
-        ChangeNotifierProvider<ExerciseList>(create: (context) => ExerciseList()),
+        ChangeNotifierProvider<DisorderListProvider>(create: (context) => DisorderListProvider()),
+        ChangeNotifierProvider<ExerciseListProvider>(create: (context) => ExerciseListProvider()),
+        Provider<AuthService>(create: (context) => AuthService()),
       ],
       child: const ARTherapy(),
     ),

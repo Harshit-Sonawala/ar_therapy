@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/exercise_item.dart';
 
-class ExerciseList with ChangeNotifier {
+class ExerciseListProvider with ChangeNotifier {
   final List<ExerciseItem> _globalExerciseList = [
     ExerciseItem(
       exItemId: 'exerciseItem1',

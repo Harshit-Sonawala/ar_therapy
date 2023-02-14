@@ -44,11 +44,14 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                Text(
-                  Provider.of<DisorderList>(context, listen: false)
-                      .globalDisorderList[widget.disorderIndex]
-                      .disItemTitle,
-                  style: Theme.of(context).textTheme.headline1,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  child: Text(
+                    Provider.of<DisorderListProvider>(context, listen: false)
+                        .globalDisorderList[widget.disorderIndex]
+                        .disItemTitle,
+                    style: Theme.of(context).textTheme.headline1,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 CustomCard(
@@ -60,25 +63,24 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                         style: Theme.of(context).textTheme.headline3,
                       ),
                       Container(
+                        margin: const EdgeInsets.only(bottom: 10),
                         height: 10,
                         width: double.infinity,
                         decoration: const BoxDecoration(
                           border: Border(
                             bottom: BorderSide(
-                              color: Colors.white,
-                              width: 2.0,
+                              color: Color(0xff4d4d4d),
+                              width: 1.4,
                             ),
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
                       Text(
-                          Provider.of<DisorderList>(context, listen: false)
-                              .globalDisorderList[widget.disorderIndex]
-                              .disItemDescription,
-                          style: Theme.of(context).textTheme.bodyText1),
+                        Provider.of<DisorderListProvider>(context, listen: false)
+                            .globalDisorderList[widget.disorderIndex]
+                            .disItemDescription,
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
                     ],
                   ),
                 ),
@@ -92,7 +94,20 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                         'Symptoms',
                         style: Theme.of(context).textTheme.headline3,
                       ),
-                      for (var eachSymptom in Provider.of<DisorderList>(context, listen: false)
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 10),
+                        height: 10,
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(
+                              color: Color(0xff4d4d4d),
+                              width: 1.4,
+                            ),
+                          ),
+                        ),
+                      ),
+                      for (var eachSymptom in Provider.of<DisorderListProvider>(context, listen: false)
                           .globalDisorderList[widget.disorderIndex]
                           .disItemSymptoms)
                         Padding(
@@ -105,7 +120,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                 const SizedBox(height: 20),
                 CustomCard(
                   child: Column(
-                    children: Provider.of<DisorderList>(context, listen: false)
+                    children: Provider.of<DisorderListProvider>(context, listen: false)
                         .globalDisorderList[widget.disorderIndex]
                         .disItemImagePaths
                         .map<Widget>(

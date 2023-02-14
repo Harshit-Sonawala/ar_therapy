@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/disorder_item.dart';
 
-class DisorderList with ChangeNotifier {
+class DisorderListProvider with ChangeNotifier {
   final List<DisorderItem> _globalDisorderList = [
     DisorderItem(
       disItemId: 'disorderItem1',

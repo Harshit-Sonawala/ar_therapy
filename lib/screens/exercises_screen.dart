@@ -50,7 +50,7 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
               const SizedBox(height: 20.0),
               Expanded(
                   child: ListView.builder(
-                itemCount: Provider.of<ExerciseList>(context, listen: false).globalExerciseList.length,
+                itemCount: Provider.of<ExerciseListProvider>(context, listen: false).globalExerciseList.length,
                 itemBuilder: (context, exerciseIndex) => Padding(
                   padding: const EdgeInsets.only(bottom: 20.0),
                   child: CustomListItem(
@@ -63,9 +63,10 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                         ),
                       ),
                     },
-                    title:
-                        Provider.of<ExerciseList>(context, listen: false).globalExerciseList[exerciseIndex].exItemTitle,
-                    body: Provider.of<ExerciseList>(context, listen: false)
+                    title: Provider.of<ExerciseListProvider>(context, listen: false)
+                        .globalExerciseList[exerciseIndex]
+                        .exItemTitle,
+                    body: Provider.of<ExerciseListProvider>(context, listen: false)
                         .globalExerciseList[exerciseIndex]
                         .exItemDescription,
                     // modelPath: Provider.of<ExerciseList>(context, listen: false)
