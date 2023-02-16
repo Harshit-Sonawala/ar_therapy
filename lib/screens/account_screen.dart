@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import '../widgets/custom_elevated_button.dart';
 import '../widgets/custom_text_button.dart';
 
-// import './home_screen.dart';
-
 class AccountScreen extends StatefulWidget {
   const AccountScreen({Key? key}) : super(key: key);
 

@@ -27,5 +27,6 @@ class DisorderListProvider with ChangeNotifier {
     ),
   ];
 
+  // Encapsulation for safety
   List<DisorderItem> get globalDisorderList => _globalDisorderList;
 }

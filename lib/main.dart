@@ -17,7 +17,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider<DisorderListProvider>(create: (context) => DisorderListProvider()),
         ChangeNotifierProvider<ExerciseListProvider>(create: (context) => ExerciseListProvider()),
-        Provider<AuthService>(create: (context) => AuthService()),
+        ChangeNotifierProvider<AuthProvider>(create: (context) => AuthProvider()),
       ],
       child: const ARTherapy(),
     ),
