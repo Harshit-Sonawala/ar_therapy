@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
-
 import '../providers/disorder_list_provider.dart';
 
 import 'disorder_details_screen.dart';
