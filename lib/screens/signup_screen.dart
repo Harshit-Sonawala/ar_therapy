@@ -15,25 +15,26 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-  TextEditingController? _nameController;
-  TextEditingController? _ageController;
-  TextEditingController? _heightController;
-  TextEditingController? _weightController;
-  TextEditingController? _emailTextController;
-  TextEditingController? _passwordTextController;
-  TextEditingController? _confirmPasswordTextController;
+  final _nameController = TextEditingController();
+  final _ageController = TextEditingController();
+  final _heightController = TextEditingController();
+  final _weightController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+
   bool _passwordIsObscured = true;
   bool _confirmPasswordIsObscured = true;
 
   @override
   void dispose() {
-    _nameController!.dispose();
-    _ageController!.dispose();
-    _heightController!.dispose();
-    _weightController!.dispose();
-    _emailTextController!.dispose();
-    _passwordTextController!.dispose();
-    _confirmPasswordTextController!.dispose();
+    _nameController.dispose();
+    _ageController.dispose();
+    _heightController.dispose();
+    _weightController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 
@@ -75,7 +76,39 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     const SizedBox(height: 40),
                     TextField(
-                      controller: _emailTextController,
+                      controller: _nameController,
+                      keyboardType: TextInputType.name,
+                      style: Theme.of(context).textTheme.bodyLarge,
+                      cursorColor: Theme.of(context).primaryColor,
+                      decoration: InputDecoration(
+                        labelText: 'Your Name *',
+                        labelStyle: const TextStyle(
+                          fontSize: 18,
+                          color: Colors.grey,
+                        ),
+                        floatingLabelStyle: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                        ),
+                        prefixIcon: Icon(
+                          Icons.person,
+                          color: Theme.of(context).primaryColor,
+                          size: 24,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            width: 2,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    TextField(
+                      controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
                       style: Theme.of(context).textTheme.bodyLarge,
                       cursorColor: Theme.of(context).primaryColor,
@@ -108,7 +141,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     const SizedBox(height: 20),
                     TextField(
                       obscureText: _passwordIsObscured,
-                      controller: _passwordTextController,
+                      controller: _passwordController,
                       style: Theme.of(context).textTheme.bodyLarge,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
@@ -149,7 +182,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     const SizedBox(height: 20),
                     TextField(
                       obscureText: _confirmPasswordIsObscured,
-                      controller: _confirmPasswordTextController,
+                      controller: _confirmPasswordController,
                       style: Theme.of(context).textTheme.bodyLarge,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
@@ -187,14 +220,75 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 20),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            controller: _ageController,
+                            keyboardType: TextInputType.number,
+                            style: Theme.of(context).textTheme.bodyLarge,
+                            cursorColor: Theme.of(context).primaryColor,
+                            decoration: InputDecoration(
+                              labelText: 'Age',
+                              labelStyle: const TextStyle(
+                                fontSize: 18,
+                                color: Colors.grey,
+                              ),
+                              floatingLabelStyle: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 2,
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        CustomTextButton(
+                          onPressed: () => {
+                            setState(() {
+                              if (int.parse(_ageController.text) < 200) {
+                                _ageController.text = (int.parse(_ageController.text) + 1).toString();
+                              }
+                            }),
+                          },
+                          padding: const EdgeInsets.all(5),
+                          icon: Icons.keyboard_arrow_up,
+                          border: const BorderSide(width: 2, color: Colors.white),
+                          borderRadius: 50,
+                        ),
+                        const SizedBox(width: 10),
+                        CustomTextButton(
+                          onPressed: () => {
+                            setState(() {
+                              if (int.parse(_ageController.text) > 0) {
+                                _ageController.text = (int.parse(_ageController.text) - 1).toString();
+                              }
+                            }),
+                          },
+                          padding: const EdgeInsets.all(5),
+                          icon: Icons.keyboard_arrow_down,
+                          border: const BorderSide(width: 2, color: Colors.white),
+                          borderRadius: 50,
+                        ),
+                      ],
+                    ),
                     const SizedBox(height: 40),
                     CustomElevatedButton(
                       onPressed: () => {
                         debugPrint(
-                          'Email: ${_emailTextController!.text.trim()}, Password: ${_passwordTextController!.text.trim()}',
+                          'Email: ${_emailController.text.trim()}, Password: ${_passwordController.text.trim()}',
                         ),
                       },
-                      title: 'Submit',
+                      title: 'Create Account',
                       mainAxisAlignment: MainAxisAlignment.center,
                     ),
                     const SizedBox(height: 40),

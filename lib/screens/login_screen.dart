@@ -59,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 10,
                     ),
                     Text(
-                      'Login here,',
+                      'Login here:',
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     const SizedBox(height: 40),
