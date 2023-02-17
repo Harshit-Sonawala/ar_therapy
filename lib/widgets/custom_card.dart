@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatefulWidget {
+  final EdgeInsets? margin;
   final EdgeInsets? padding;
   final Widget? child;
   final String backgroundImage;
@@ -8,6 +9,7 @@ class CustomCard extends StatefulWidget {
 
   const CustomCard({
     this.padding = const EdgeInsets.all(16),
+    this.margin,
     this.child,
     this.backgroundImage = '',
     this.color = const Color(0xff3d3d3d),
@@ -22,6 +24,7 @@ class _CustomCardState extends State<CustomCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: widget.margin,
       padding: widget.padding,
       decoration: widget.backgroundImage != ''
           ? BoxDecoration(
