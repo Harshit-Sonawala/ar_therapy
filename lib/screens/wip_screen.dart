@@ -22,35 +22,32 @@ class _WipScreenState extends State<WipScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Row(
+                // Row(
+                //   children: [
+                //     CustomTextButton(
+                //       onPressed: () => {
+                //         Navigator.pop(context),
+                //       },
+                //       padding: const EdgeInsets.all(5),
+                //       icon: Icons.arrow_back,
+                //       iconSize: 28,
+                //       borderRadius: 50,
+                //     ),
+                //   ],
+                // ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CustomTextButton(
-                      onPressed: () => {
-                        Navigator.pop(context),
-                      },
-                      padding: const EdgeInsets.all(5),
-                      icon: Icons.arrow_back,
-                      iconSize: 28,
-                      borderRadius: 50,
+                    Text(
+                      widget.screenName,
+                      style: Theme.of(context).textTheme.displayLarge,
+                    ),
+                    const SizedBox(height: 20),
+                    const Text(
+                      'Work in progress...',
+                      style: TextStyle(fontSize: 22),
                     ),
                   ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.screenName,
-                        style: Theme.of(context).textTheme.displayLarge,
-                      ),
-                      const SizedBox(height: 20),
-                      const Text(
-                        'Work in progress...',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                    ],
-                  ),
                 ),
               ],
             ),

@@ -7,7 +7,7 @@ import 'providers/disorder_list_provider.dart';
 import 'providers/exercise_list_provider.dart';
 import 'providers/auth_provider.dart';
 
-import 'screens/home_screen.dart';
+import 'screens/bottom_nav_wrapper_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -73,7 +73,7 @@ class ARTherapy extends StatelessWidget {
       //       ),
       //       child: const HomeScreen());
       // }
-      home: const HomeScreen(),
+      home: const BottomNavWrapperScreen(),
     );
   }
 }

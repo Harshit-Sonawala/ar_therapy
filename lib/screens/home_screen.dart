@@ -59,27 +59,27 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                    IconButton(
-                      onPressed: () => {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const LoginScreen(
-                                // parameters to pass, example
-                                // passedNotice: NoticeModel(
-                                //   noticeId: 1,
-                                //   noticeTitle: 'Notice Title',
-                                // ),
-                                ),
-                          ),
-                        )
-                      },
-                      icon: Icon(
-                        Icons.account_circle,
-                        color: Theme.of(context).primaryColor,
-                        size: 34,
-                      ),
-                    ),
+                    // IconButton(
+                    //   onPressed: () => {
+                    //     Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //         builder: (context) => const LoginScreen(
+                    //             // parameters to pass, example
+                    //             // passedNotice: NoticeModel(
+                    //             //   noticeId: 1,
+                    //             //   noticeTitle: 'Notice Title',
+                    //             // ),
+                    //             ),
+                    //       ),
+                    //     )
+                    //   },
+                    //   icon: Icon(
+                    //     Icons.account_circle,
+                    //     color: Theme.of(context).primaryColor,
+                    //     size: 34,
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
