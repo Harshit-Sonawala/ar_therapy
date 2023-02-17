@@ -27,8 +27,8 @@ class _BottomNavWrapperScreenState extends State<BottomNavWrapperScreen> {
     return Scaffold(
       body: _screenData[_selectedScreenIndex]['page'] as Widget,
       bottomNavigationBar: CustomCard(
-        margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
-        padding: const EdgeInsets.all(6),
+        margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
+        padding: const EdgeInsets.all(0),
         child: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(

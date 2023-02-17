@@ -3,21 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 
-import './signup_screen.dart';
+import 'login_screen.dart';
 import '../widgets/custom_elevated_button.dart';
 import '../widgets/custom_text_button.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _emailTextController = TextEditingController();
   final TextEditingController _passwordTextController = TextEditingController();
-  bool _passIsObscured = true;
+  final TextEditingController _confirmPasswordTextController = TextEditingController();
+  bool _passwordIsObscured = true;
+  bool _confirmPasswordIsObscured = true;
 
   @override
   void dispose() {
@@ -52,14 +54,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Welcome Back',
+                      'Sign Up',
                       style: Theme.of(context).textTheme.displayLarge,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      'Login here,',
+                      'Create an account here,',
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     const SizedBox(height: 40),
@@ -96,12 +98,53 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 20),
                     TextField(
-                      obscureText: _passIsObscured,
+                      obscureText: _passwordIsObscured,
                       controller: _passwordTextController,
                       style: Theme.of(context).textTheme.bodyLarge,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
-                        labelText: 'Password',
+                        labelText: 'Choose a Password',
+                        labelStyle: const TextStyle(
+                          fontSize: 18,
+                          color: Colors.grey,
+                        ),
+                        floatingLabelStyle: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                        ),
+                        prefixIcon: Icon(
+                          Icons.lock,
+                          color: Theme.of(context).primaryColor,
+                          size: 24,
+                        ),
+                        suffixIcon: IconButton(
+                          onPressed: () => {
+                            setState(() => _passwordIsObscured = !_passwordIsObscured),
+                          },
+                          icon: Icon(
+                            _passwordIsObscured ? Icons.visibility : Icons.visibility_off,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            width: 2,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    TextField(
+                      obscureText: _confirmPasswordIsObscured,
+                      controller: _confirmPasswordTextController,
+                      style: Theme.of(context).textTheme.bodyLarge,
+                      cursorColor: Theme.of(context).primaryColor,
+                      decoration: InputDecoration(
+                        labelText: 'Confirm Password',
                         labelStyle: const TextStyle(
                           fontSize: 18,
                           color: Colors.grey,
@@ -116,10 +159,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         suffixIcon: IconButton(
                           onPressed: () => {
-                            setState(() => _passIsObscured = !_passIsObscured),
+                            setState(() => _confirmPasswordIsObscured = !_confirmPasswordIsObscured),
                           },
                           icon: Icon(
-                            _passIsObscured ? Icons.visibility : Icons.visibility_off,
+                            _confirmPasswordIsObscured ? Icons.visibility : Icons.visibility_off,
                             color: Theme.of(context).primaryColor,
                           ),
                         ),
@@ -150,11 +193,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () => {
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
-                            builder: (context) => const SignupScreen(),
+                            builder: (context) => const LoginScreen(),
                           ),
                         ),
                       },
-                      title: 'Not You? Create an Account',
+                      title: 'Already have an account? Login here',
                     ),
                   ],
                 ),
