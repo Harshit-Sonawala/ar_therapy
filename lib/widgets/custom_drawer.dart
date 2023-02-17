@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../screens/wip_screen.dart';
-import '../screens/account_screen.dart';
+import '../screens/user_account_screen.dart';
 // import '../screens/test_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -61,7 +61,7 @@ class CustomDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const AccountScreen(),
+                  builder: (context) => const UserAccountScreen(),
                 ),
               ),
             },

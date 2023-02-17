@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'package:provider/provider.dart';
+import '../providers/auth_provider.dart';
+
 import './home_screen.dart';
 import './login_screen.dart';
-// import './account_screen.dart';
+import './account_screen.dart';
 import './wip_screen.dart';
 import '../widgets/custom_card.dart';
 
@@ -17,7 +20,7 @@ class _BottomNavWrapperScreenState extends State<BottomNavWrapperScreen> {
     {"page": HomeScreen()},
     {"page": WipScreen(screenName: 'Explore')},
     {"page": WipScreen(screenName: 'Search')},
-    {"page": LoginScreen()},
+    {"page": AccountScreen()},
   ];
 
   int _selectedScreenIndex = 0;
@@ -30,23 +33,24 @@ class _BottomNavWrapperScreenState extends State<BottomNavWrapperScreen> {
         margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
         padding: const EdgeInsets.all(0),
         child: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(
+          items: [
+            const BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: 'Home',
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(Icons.explore),
               label: 'Explore',
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(Icons.search),
               label: 'Search',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
-              label: 'Account',
-            ),
+            if (Provider.of<AuthProvider>(context).currentUser != null)
+              const BottomNavigationBarItem(
+                icon: Icon(Icons.account_circle),
+                label: 'Account',
+              ),
           ],
           currentIndex: _selectedScreenIndex,
           onTap: (int newIndex) => {

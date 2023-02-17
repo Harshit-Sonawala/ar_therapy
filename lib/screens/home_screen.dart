@@ -4,7 +4,7 @@ import '../widgets/custom_drawer.dart';
 import '../widgets/custom_elevated_button.dart';
 import '../widgets/custom_card.dart';
 
-import 'login_screen.dart';
+import 'account_screen.dart';
 import 'model_viewer_screen.dart';
 import 'disorders_screen.dart';
 import 'exercises_screen.dart';
@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
       // floatingActionButton: FloatingActionButton(
       //   onPressed: () => {
       //     print(
-      //       Provider.of<DisorderList>(context, listen: false),
+      //       Provider.of<DisorderList>(context, listen: false).globalDisorderList[0],
       //       // context.watch<DisorderList>().globalDisorderList[0],
       //     ),
       //   },
@@ -59,27 +59,27 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                    // IconButton(
-                    //   onPressed: () => {
-                    //     Navigator.push(
-                    //       context,
-                    //       MaterialPageRoute(
-                    //         builder: (context) => const LoginScreen(
-                    //             // parameters to pass, example
-                    //             // passedNotice: NoticeModel(
-                    //             //   noticeId: 1,
-                    //             //   noticeTitle: 'Notice Title',
-                    //             // ),
-                    //             ),
-                    //       ),
-                    //     )
-                    //   },
-                    //   icon: Icon(
-                    //     Icons.account_circle,
-                    //     color: Theme.of(context).primaryColor,
-                    //     size: 34,
-                    //   ),
-                    // ),
+                    IconButton(
+                      onPressed: () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AccountScreen(
+                                // parameters to pass, example
+                                // passedNotice: NoticeModel(
+                                //   noticeId: 1,
+                                //   noticeTitle: 'Notice Title',
+                                // ),
+                                ),
+                          ),
+                        )
+                      },
+                      icon: Icon(
+                        Icons.account_circle,
+                        color: Theme.of(context).primaryColor,
+                        size: 34,
+                      ),
+                    ),
                   ],
                 ),
               ),

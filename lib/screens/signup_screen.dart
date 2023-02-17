@@ -15,16 +15,25 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-  final TextEditingController _emailTextController = TextEditingController();
-  final TextEditingController _passwordTextController = TextEditingController();
-  final TextEditingController _confirmPasswordTextController = TextEditingController();
+  TextEditingController? _nameController;
+  TextEditingController? _ageController;
+  TextEditingController? _heightController;
+  TextEditingController? _weightController;
+  TextEditingController? _emailTextController;
+  TextEditingController? _passwordTextController;
+  TextEditingController? _confirmPasswordTextController;
   bool _passwordIsObscured = true;
   bool _confirmPasswordIsObscured = true;
 
   @override
   void dispose() {
-    _emailTextController.dispose();
-    _passwordTextController.dispose();
+    _nameController!.dispose();
+    _ageController!.dispose();
+    _heightController!.dispose();
+    _weightController!.dispose();
+    _emailTextController!.dispose();
+    _passwordTextController!.dispose();
+    _confirmPasswordTextController!.dispose();
     super.dispose();
   }
 
@@ -61,7 +70,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       height: 10,
                     ),
                     Text(
-                      'Create an account here,',
+                      'Enter your details and create an account:',
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     const SizedBox(height: 40),
@@ -71,7 +80,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       style: Theme.of(context).textTheme.bodyLarge,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
-                        labelText: 'Email Address',
+                        labelText: 'Email Address *',
                         labelStyle: const TextStyle(
                           fontSize: 18,
                           color: Colors.grey,
@@ -103,7 +112,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       style: Theme.of(context).textTheme.bodyLarge,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
-                        labelText: 'Choose a Password',
+                        labelText: 'Choose a Password *',
                         labelStyle: const TextStyle(
                           fontSize: 18,
                           color: Colors.grey,
@@ -144,7 +153,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       style: Theme.of(context).textTheme.bodyLarge,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
-                        labelText: 'Confirm Password',
+                        labelText: 'Confirm Password *',
                         labelStyle: const TextStyle(
                           fontSize: 18,
                           color: Colors.grey,
@@ -182,7 +191,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     CustomElevatedButton(
                       onPressed: () => {
                         debugPrint(
-                          'Email: ${_emailTextController.text.trim()}, Password: ${_passwordTextController.text.trim()}',
+                          'Email: ${_emailTextController!.text.trim()}, Password: ${_passwordTextController!.text.trim()}',
                         ),
                       },
                       title: 'Submit',
