@@ -76,7 +76,7 @@ class _CustomListItemState extends State<CustomListItem> {
                     ),
                   Text(
                     '${widget.body!.substring(0, 81)}...',
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ],
               ),

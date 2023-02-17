@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SizedBox(width: 20),
                         Text(
                           'AR Therapy',
-                          style: Theme.of(context).textTheme.bodyText2,
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ],
                     ),
@@ -93,12 +93,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Text(
                             'Welcome to AR Therapy!',
-                            style: Theme.of(context).textTheme.headline1,
+                            style: Theme.of(context).textTheme.displayLarge,
                           ),
                           const SizedBox(height: 10.0),
                           Text(
                             'The perfect personal companion app to support your physical therapy',
-                            style: Theme.of(context).textTheme.bodyText1,
+                            style: Theme.of(context).textTheme.bodyLarge,
                           ),
                         ],
                       ),
@@ -107,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     CustomCard(
                       child: Text(
                         'Solve all of your physiotherapy related problems using state of the art Augmented Reality Technology',
-                        style: Theme.of(context).textTheme.bodyText1,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ),
                     const SizedBox(height: 20.0),

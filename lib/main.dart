@@ -38,23 +38,23 @@ class ARTherapy extends StatelessWidget {
         primaryColor: const Color(0xff00e5ff),
         fontFamily: 'ProductSans',
         textTheme: const TextTheme(
-          headline1: TextStyle(
+          displayLarge: TextStyle(
             // fontFamily: 'Montserrat',
             fontSize: 28.0,
             fontWeight: FontWeight.bold,
             color: Color(0xff00e5ff),
           ),
-          headline2: TextStyle(
+          displayMedium: TextStyle(
             fontSize: 28.0,
             color: Colors.white,
           ),
-          headline3: TextStyle(
+          displaySmall: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
             color: Color(0xff00e5ff),
           ),
-          bodyText1: TextStyle(fontSize: 18.0), // old: 22
-          bodyText2: TextStyle(fontSize: 20.0), // old: 26
+          bodyLarge: TextStyle(fontSize: 18.0), // old: 22
+          bodyMedium: TextStyle(fontSize: 20.0), // old: 26
         ),
         iconTheme: const IconThemeData(
           size: 28,

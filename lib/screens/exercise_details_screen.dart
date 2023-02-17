@@ -50,7 +50,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                 Provider.of<ExerciseListProvider>(context, listen: false)
                     .globalExerciseList[widget.exerciseIndex]
                     .exItemTitle,
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.displayLarge,
               ),
               const SizedBox(height: 20),
               CustomCard(
@@ -67,7 +67,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                         Provider.of<ExerciseListProvider>(context, listen: false)
                             .globalExerciseList[widget.exerciseIndex]
                             .exItemDescription,
-                        style: Theme.of(context).textTheme.bodyText1),
+                        style: Theme.of(context).textTheme.bodyLarge),
                   ],
                 ),
               ),
@@ -143,7 +143,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
               //           .exItemProcedure)
               //         Padding(
               //           padding: const EdgeInsets.all(4.0),
-              //           child: Text('- $eachSymptom', style: Theme.of(context).textTheme.bodyText1),
+              //           child: Text('- $eachSymptom', style: Theme.of(context).textTheme.bodyLarge),
               //         )
               //     ],
               //   ),

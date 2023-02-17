@@ -35,12 +35,12 @@ class CustomDrawer extends StatelessWidget {
                     children: [
                       Text(
                         'AR Therapy',
-                        style: Theme.of(context).textTheme.headline2,
+                        style: Theme.of(context).textTheme.displayMedium,
                       ),
                       const SizedBox(height: 10.0),
                       Text(
                         'Version 0.3.8',
-                        style: Theme.of(context).textTheme.bodyText1,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ],
                   ),
@@ -53,7 +53,7 @@ class CustomDrawer extends StatelessWidget {
             leading: const Icon(Icons.home, size: 24),
             title: Text(
               'Home',
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
           ListTile(
@@ -68,7 +68,7 @@ class CustomDrawer extends StatelessWidget {
             leading: const Icon(Icons.accessibility, size: 24.0),
             title: Text(
               'My Exercises',
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
           ListTile(
@@ -91,7 +91,7 @@ class CustomDrawer extends StatelessWidget {
             leading: const Icon(Icons.settings, size: 24.0),
             title: Text(
               'Settings',
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
           ListTile(
@@ -108,7 +108,7 @@ class CustomDrawer extends StatelessWidget {
             leading: const Icon(Icons.info_outlined, size: 24.0),
             title: Text(
               'About',
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
         ],

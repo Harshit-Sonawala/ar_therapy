@@ -46,7 +46,7 @@ class _AccountScreenState extends State<AccountScreen> {
               Center(
                 child: Text(
                   'Harshit Sonawala',
-                  style: Theme.of(context).textTheme.headline1,
+                  style: Theme.of(context).textTheme.displayLarge,
                 ),
               ),
               const SizedBox(height: 20),
@@ -55,12 +55,12 @@ class _AccountScreenState extends State<AccountScreen> {
                 children: [
                   Text(
                     'Age: 21',
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   const SizedBox(width: 20),
                   Text(
                     'Gender: Male',
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ],
               ),
@@ -70,12 +70,12 @@ class _AccountScreenState extends State<AccountScreen> {
                 children: [
                   Text(
                     'Height: 5 ft, 6 in',
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   const SizedBox(width: 20),
                   Text(
                     'Weight: 75Kg',
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ],
               ),

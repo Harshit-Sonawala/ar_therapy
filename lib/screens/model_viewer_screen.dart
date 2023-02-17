@@ -33,7 +33,7 @@ class _ModelViewerScreenState extends State<ModelViewerScreen> {
                   const SizedBox(width: 10),
                   Text(
                     'Forward Flexion',
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ],
               ),

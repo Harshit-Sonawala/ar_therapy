@@ -42,7 +42,7 @@ class _WipScreenState extends State<WipScreen> {
                     children: [
                       Text(
                         widget.screenName,
-                        style: Theme.of(context).textTheme.headline1,
+                        style: Theme.of(context).textTheme.displayLarge,
                       ),
                       const SizedBox(height: 20),
                       const Text(

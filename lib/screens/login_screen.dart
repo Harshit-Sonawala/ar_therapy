@@ -52,19 +52,19 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     Text(
                       'Welcome Back',
-                      style: Theme.of(context).textTheme.headline1,
+                      style: Theme.of(context).textTheme.displayLarge,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
                       'Login here,',
-                      style: Theme.of(context).textTheme.bodyText1,
+                      style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     const SizedBox(height: 40),
                     TextField(
                       controller: _emailTextController,
-                      style: Theme.of(context).textTheme.bodyText1,
+                      style: Theme.of(context).textTheme.bodyLarge,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
                         labelText: 'Email Address',
@@ -96,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     TextField(
                       obscureText: _passIsObscured,
                       controller: _passwordTextController,
-                      style: Theme.of(context).textTheme.bodyText1,
+                      style: Theme.of(context).textTheme.bodyLarge,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
                         labelText: 'Password',

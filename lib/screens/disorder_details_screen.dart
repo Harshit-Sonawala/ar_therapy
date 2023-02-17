@@ -50,7 +50,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                     Provider.of<DisorderListProvider>(context, listen: false)
                         .globalDisorderList[widget.disorderIndex]
                         .disItemTitle,
-                    style: Theme.of(context).textTheme.headline1,
+                    style: Theme.of(context).textTheme.displayLarge,
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -60,7 +60,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                     children: [
                       Text(
                         'About',
-                        style: Theme.of(context).textTheme.headline3,
+                        style: Theme.of(context).textTheme.displaySmall,
                       ),
                       Container(
                         margin: const EdgeInsets.only(bottom: 10),
@@ -79,7 +79,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                         Provider.of<DisorderListProvider>(context, listen: false)
                             .globalDisorderList[widget.disorderIndex]
                             .disItemDescription,
-                        style: Theme.of(context).textTheme.bodyText1,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ],
                   ),
@@ -92,7 +92,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                     children: [
                       Text(
                         'Symptoms',
-                        style: Theme.of(context).textTheme.headline3,
+                        style: Theme.of(context).textTheme.displaySmall,
                       ),
                       Container(
                         margin: const EdgeInsets.only(bottom: 10),
@@ -112,7 +112,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                           .disItemSymptoms)
                         Padding(
                           padding: const EdgeInsets.all(4.0),
-                          child: Text('- $eachSymptom', style: Theme.of(context).textTheme.bodyText1),
+                          child: Text('- $eachSymptom', style: Theme.of(context).textTheme.bodyLarge),
                         )
                     ],
                   ),
