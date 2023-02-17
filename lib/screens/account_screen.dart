@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 
 import 'login_screen.dart';
-import 'signup_screen.dart';
 import 'user_account_screen.dart';
 
 class AccountScreen extends StatefulWidget {

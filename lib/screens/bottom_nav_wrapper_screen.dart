@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 
 import './home_screen.dart';
-import './login_screen.dart';
 import './account_screen.dart';
 import './wip_screen.dart';
 import '../widgets/custom_card.dart';
