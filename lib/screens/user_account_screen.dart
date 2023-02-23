@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:provider/provider.dart';
+import '../providers/auth_provider.dart';
+
 import '../widgets/custom_elevated_button.dart';
 import '../widgets/custom_text_button.dart';
 
@@ -25,11 +28,15 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                     onPressed: () => {
                       Navigator.pop(context),
                     },
+                    padding: const EdgeInsets.all(5),
                     icon: Icons.arrow_back,
                     borderRadius: 50,
                   ),
+                  const SizedBox(width: 10),
+                  const Text('My Account'),
                 ],
               ),
+              const SizedBox(height: 20),
               const SizedBox(
                 height: 100,
                 width: 100,
@@ -90,6 +97,8 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                     ),
                     onPressed: () => {
                       debugPrint('Logout Pressed'),
+                      Provider.of<AuthProvider>(context, listen: false).signOut(),
+                      Navigator.pop(context),
                     },
                     icon: Icons.logout,
                     iconSize: 20,

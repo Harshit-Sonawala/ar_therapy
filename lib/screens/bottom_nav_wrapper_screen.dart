@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 
 import './home_screen.dart';
-import './account_screen.dart';
+import './user_account_screen.dart';
 import './wip_screen.dart';
 import '../widgets/custom_card.dart';
 
@@ -19,7 +19,7 @@ class _BottomNavWrapperScreenState extends State<BottomNavWrapperScreen> {
     {"page": HomeScreen()},
     {"page": WipScreen(screenName: 'Explore')},
     {"page": WipScreen(screenName: 'Search')},
-    {"page": AccountScreen()},
+    {"page": WipScreen(screenName: 'My Exercises')},
   ];
 
   int _selectedScreenIndex = 0;
@@ -27,10 +27,11 @@ class _BottomNavWrapperScreenState extends State<BottomNavWrapperScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true, // needed for transparent background of the bottomNavigationBar
       body: _screenData[_selectedScreenIndex]['page'] as Widget,
       bottomNavigationBar: CustomCard(
-        margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
-        padding: const EdgeInsets.all(0),
+        margin: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
+        padding: const EdgeInsets.symmetric(vertical: 4.0),
         child: BottomNavigationBar(
           items: [
             const BottomNavigationBarItem(
@@ -45,10 +46,11 @@ class _BottomNavWrapperScreenState extends State<BottomNavWrapperScreen> {
               icon: Icon(Icons.search),
               label: 'Search',
             ),
-            if (Provider.of<AuthProvider>(context).currentUser != null)
+            // if (context.watch<AuthProvider>().currentUser != null)
+            if (Provider.of<AuthProvider>(context, listen: true).currentUser != null)
               const BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle),
-                label: 'Account',
+                icon: Icon(Icons.accessibility_new),
+                label: 'My Exercises',
               ),
           ],
           currentIndex: _selectedScreenIndex,

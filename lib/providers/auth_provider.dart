@@ -14,25 +14,42 @@ class AuthProvider with ChangeNotifier {
   Future<void> createUserWithEmailAndPassword({
     required String passedEmail,
     required String passedPassword,
+    required String passedName,
+    int passedAge = 0,
   }) async {
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: passedEmail,
-      password: passedPassword,
-    );
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: passedEmail,
+        password: passedPassword,
+      );
+      notifyListeners();
+    } catch (error) {
+      debugPrint('Create User Error: $error');
+    }
   }
 
   Future<void> signInWithEmailAndPassword({
     required String passedEmail,
     required String passedPassword,
   }) async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: passedEmail,
-      password: passedPassword,
-    );
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: passedEmail,
+        password: passedPassword,
+      );
+      notifyListeners();
+    } catch (error) {
+      debugPrint('Sign In User Error: $error');
+    }
   }
 
   Future<void> signOut() async {
-    await FirebaseAuth.instance.signOut();
+    try {
+      await FirebaseAuth.instance.signOut();
+      notifyListeners();
+    } catch (error) {
+      debugPrint('Sign Out Error: $error');
+    }
   }
 
   // UserModel? _userFromFirebase(auth.User? user) {

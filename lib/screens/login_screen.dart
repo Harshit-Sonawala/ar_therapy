@@ -15,14 +15,14 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController _emailTextController = TextEditingController();
-  final TextEditingController _passwordTextController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   bool _passIsObscured = true;
 
   @override
   void dispose() {
-    _emailTextController.dispose();
-    _passwordTextController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
     super.dispose();
   }
 
@@ -64,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 40),
                     TextField(
-                      controller: _emailTextController,
+                      controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
                       style: Theme.of(context).textTheme.bodyLarge,
                       cursorColor: Theme.of(context).primaryColor,
@@ -97,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 20),
                     TextField(
                       obscureText: _passIsObscured,
-                      controller: _passwordTextController,
+                      controller: _passwordController,
                       style: Theme.of(context).textTheme.bodyLarge,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
@@ -139,7 +139,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     CustomElevatedButton(
                       onPressed: () => {
                         debugPrint(
-                          'Email: ${_emailTextController.text.trim()}, Password: ${_passwordTextController.text.trim()}',
+                          'Email: ${_emailController.text.trim()}, Password: ${_passwordController.text.trim()}',
+                        ),
+                        Provider.of<AuthProvider>(context, listen: false).signInWithEmailAndPassword(
+                          passedEmail: _emailController.text.trim(),
+                          passedPassword: _passwordController.text.trim(),
                         ),
                       },
                       title: 'Submit',

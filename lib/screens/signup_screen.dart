@@ -230,7 +230,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             style: Theme.of(context).textTheme.bodyLarge,
                             cursorColor: Theme.of(context).primaryColor,
                             decoration: InputDecoration(
-                              labelText: 'Age',
+                              labelText: 'Your Age',
                               labelStyle: const TextStyle(
                                 fontSize: 18,
                                 color: Colors.grey,
@@ -255,7 +255,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         CustomTextButton(
                           onPressed: () => {
                             setState(() {
-                              if (int.parse(_ageController.text) < 200) {
+                              if (_ageController.text != '' && int.parse(_ageController.text) < 200) {
                                 _ageController.text = (int.parse(_ageController.text) + 1).toString();
                               }
                             }),
@@ -269,7 +269,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         CustomTextButton(
                           onPressed: () => {
                             setState(() {
-                              if (int.parse(_ageController.text) > 0) {
+                              if (_ageController.text != '' && int.parse(_ageController.text) > 0) {
                                 _ageController.text = (int.parse(_ageController.text) - 1).toString();
                               }
                             }),
@@ -287,6 +287,13 @@ class _SignupScreenState extends State<SignupScreen> {
                         debugPrint(
                           'Email: ${_emailController.text.trim()}, Password: ${_passwordController.text.trim()}',
                         ),
+                        Provider.of<AuthProvider>(context, listen: false).createUserWithEmailAndPassword(
+                          passedEmail: _emailController.text.trim(),
+                          passedPassword: _passwordController.text.trim(),
+                          passedName: _nameController.text.trim(),
+                          passedAge: int.parse(_ageController.text),
+                        ),
+                        Navigator.pop(context),
                       },
                       title: 'Create Account',
                       mainAxisAlignment: MainAxisAlignment.center,
