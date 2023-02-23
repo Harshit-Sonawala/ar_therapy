@@ -22,61 +22,66 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  CustomTextButton(
-                    onPressed: () => {
-                      Navigator.pop(context),
-                    },
-                    padding: const EdgeInsets.all(5),
-                    icon: Icons.arrow_back,
-                    borderRadius: 50,
-                  ),
-                  const SizedBox(width: 10),
-                  const Text('Exercises'),
-                ],
-              ),
-              const SizedBox(height: 20.0),
-              CustomCard(
-                child: Text(
-                  'Browse through various exercises and tap to view their 3D and AR View',
-                  style: Theme.of(context).textTheme.bodyLarge,
+        child: Column(
+          children: [
+            Row(
+              children: [
+                CustomTextButton(
+                  onPressed: () => {
+                    Navigator.pop(context),
+                  },
+                  padding: const EdgeInsets.all(5),
+                  icon: Icons.arrow_back,
+                  borderRadius: 50,
                 ),
-              ),
-              const SizedBox(height: 20.0),
-              Expanded(
-                  child: ListView.builder(
-                itemCount: Provider.of<ExerciseListProvider>(context, listen: false).globalExerciseList.length,
-                itemBuilder: (context, exerciseIndex) => Padding(
-                  padding: const EdgeInsets.only(bottom: 20.0),
-                  child: CustomListItem(
-                    onPressed: () => {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => ExerciseDetailsScreen(
-                            exerciseIndex: exerciseIndex,
-                          ),
+                const SizedBox(width: 10),
+                const Text('Exercises'),
+              ],
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  children: [
+                    CustomCard(
+                      child: Text(
+                        'Browse through various exercises and tap to view their 3D and AR View',
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                    ),
+                    const SizedBox(height: 20.0),
+                    Expanded(
+                        child: ListView.builder(
+                      itemCount: Provider.of<ExerciseListProvider>(context, listen: false).globalExerciseList.length,
+                      itemBuilder: (context, exerciseIndex) => Padding(
+                        padding: const EdgeInsets.only(bottom: 20.0),
+                        child: CustomListItem(
+                          onPressed: () => {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => ExerciseDetailsScreen(
+                                  exerciseIndex: exerciseIndex,
+                                ),
+                              ),
+                            ),
+                          },
+                          title: Provider.of<ExerciseListProvider>(context, listen: false)
+                              .globalExerciseList[exerciseIndex]
+                              .exItemTitle,
+                          body: Provider.of<ExerciseListProvider>(context, listen: false)
+                              .globalExerciseList[exerciseIndex]
+                              .exItemDescription,
+                          // modelPath: Provider.of<ExerciseList>(context, listen: false)
+                          //     .globalExerciseList[disorderIndex]
+                          //     .exItemModelPath,
                         ),
                       ),
-                    },
-                    title: Provider.of<ExerciseListProvider>(context, listen: false)
-                        .globalExerciseList[exerciseIndex]
-                        .exItemTitle,
-                    body: Provider.of<ExerciseListProvider>(context, listen: false)
-                        .globalExerciseList[exerciseIndex]
-                        .exItemDescription,
-                    // modelPath: Provider.of<ExerciseList>(context, listen: false)
-                    //     .globalExerciseList[disorderIndex]
-                    //     .exItemModelPath,
-                  ),
+                    )),
+                  ],
                 ),
-              )),
-            ],
-          ),
+              ),
+            ),
+          ],
         ),
       ),
     );

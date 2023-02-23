@@ -57,6 +57,19 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                 ),
               ),
               const SizedBox(height: 20),
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.email),
+                    SizedBox(width: 20),
+                    Text(
+                      'hssonawala@gmail.com',
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

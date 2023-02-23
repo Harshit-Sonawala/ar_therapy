@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './custom_divider.dart';
+
 class CustomListItem extends StatefulWidget {
   final VoidCallback onPressed;
   final Widget? child;
@@ -70,10 +72,9 @@ class _CustomListItemState extends State<CustomListItem> {
                   if (widget.images == null)
                     Text(
                       widget.title!,
-                      style: TextStyle(
-                        color: Theme.of(context).primaryColor,
-                      ),
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
+                  if (widget.images == null) const CustomDivider(),
                   Text(
                     '${widget.body!.substring(0, 81)}...',
                     style: Theme.of(context).textTheme.bodyLarge,
