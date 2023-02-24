@@ -86,7 +86,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                           ar: true,
                           autoRotate: true,
                           cameraControls: true,
-                          enablePan: true,
+                          disablePan: false,
                           autoPlay: true,
                           innerModelViewerHtml: """
                         <button class="hotspot" slot="hotspot-hand" data-position="0 1.93 -0.5" data-normal="-5.73 0.05 0.69">
