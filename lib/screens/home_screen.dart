@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:provider/provider.dart';
+import '../providers/auth_provider.dart';
+
 import '../widgets/custom_drawer.dart';
 import '../widgets/custom_elevated_button.dart';
 import '../widgets/custom_card.dart';
@@ -92,7 +95,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Welcome to AR Therapy!',
+                            Provider.of<AuthProvider>(context).currentUser != null
+                                ? 'Welcome to AR Therapy, ${Provider.of<AuthProvider>(context).currentUser!.displayName}!'
+                                : 'Welcome to AR Therapy!',
                             style: Theme.of(context).textTheme.displayLarge,
                           ),
                           const SizedBox(height: 10.0),
@@ -175,12 +180,23 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Text('Browse Exercises'),
                       ),
                     ),
-                    const SizedBox(height: 20.0),
-                    CustomElevatedButton(
-                      onPressed: () => {},
-                      trailingIcon: Icons.arrow_forward,
-                      title: 'Continue Treatment',
-                    ),
+                    Provider.of<AuthProvider>(context).currentUser != null
+                        ? Column(
+                            children: [
+                              const SizedBox(height: 20.0),
+                              CustomElevatedButton(
+                                onPressed: () => {},
+                                trailingIcon: Icons.arrow_forward,
+                                title: 'Continue Treatment',
+                              ),
+                            ],
+                          )
+                        : Column(
+                            children: [
+                              const SizedBox(height: 20.0),
+                              Container(),
+                            ],
+                          ),
                   ],
                 ),
               ),

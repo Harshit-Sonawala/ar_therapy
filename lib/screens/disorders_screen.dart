@@ -53,6 +53,7 @@ class _DisordersScreenState extends State<DisordersScreen> {
                       child: ListView.builder(
                         itemCount: Provider.of<DisorderListProvider>(context, listen: false).globalDisorderList.length,
                         itemBuilder: (context, disorderIndex) => CustomListItem(
+                          padding: const EdgeInsets.only(bottom: 20.0),
                           onPressed: () => {
                             Navigator.of(context).push(
                               MaterialPageRoute(

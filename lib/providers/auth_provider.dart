@@ -15,13 +15,18 @@ class AuthProvider with ChangeNotifier {
     required String passedEmail,
     required String passedPassword,
     required String passedName,
-    int passedAge = 0,
   }) async {
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: passedEmail,
-        password: passedPassword,
-      );
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+            email: passedEmail,
+            password: passedPassword,
+          )
+          .then(
+            (response) => {
+              FirebaseAuth.instance.currentUser?.updateDisplayName(passedName),
+            },
+          );
       notifyListeners();
     } catch (error) {
       debugPrint('Create User Error: $error');

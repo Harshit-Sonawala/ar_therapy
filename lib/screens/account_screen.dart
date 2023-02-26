@@ -15,7 +15,7 @@ class AccountScreen extends StatefulWidget {
 class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
-    if (Provider.of<AuthProvider>(context, listen: true).currentUser != null) {
+    if (Provider.of<AuthProvider>(context).currentUser != null) {
       return const UserAccountScreen();
     } else {
       return const LoginScreen();

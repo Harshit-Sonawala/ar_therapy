@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'providers/disorder_list_provider.dart';
 import 'providers/exercise_list_provider.dart';
 import 'providers/auth_provider.dart';
+import 'providers/cloudstore_provider.dart';
 
 import 'screens/bottom_nav_wrapper_screen.dart';
 
@@ -18,6 +19,7 @@ void main() async {
         ChangeNotifierProvider<DisorderListProvider>(create: (context) => DisorderListProvider()),
         ChangeNotifierProvider<ExerciseListProvider>(create: (context) => ExerciseListProvider()),
         ChangeNotifierProvider<AuthProvider>(create: (context) => AuthProvider()),
+        ChangeNotifierProvider<CloudstoreProvider>(create: (context) => CloudstoreProvider()),
       ],
       child: const ARTherapy(),
     ),

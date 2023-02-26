@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
+import '../providers/cloudstore_provider.dart';
 
 import 'login_screen.dart';
 import '../widgets/custom_elevated_button.dart';
@@ -287,12 +288,18 @@ class _SignupScreenState extends State<SignupScreen> {
                         debugPrint(
                           'Email: ${_emailController.text.trim()}, Password: ${_passwordController.text.trim()}',
                         ),
-                        Provider.of<AuthProvider>(context, listen: false).createUserWithEmailAndPassword(
-                          passedEmail: _emailController.text.trim(),
-                          passedPassword: _passwordController.text.trim(),
-                          passedName: _nameController.text.trim(),
-                          passedAge: int.parse(_ageController.text),
-                        ),
+                        Provider.of<AuthProvider>(context, listen: false)
+                            .createUserWithEmailAndPassword(
+                              passedEmail: _emailController.text.trim(),
+                              passedPassword: _passwordController.text.trim(),
+                              passedName: _nameController.text.trim(),
+                            )
+                            .then((value) => {
+                                  Provider.of<CloudstoreProvider>(context, listen: false).setUserData(
+                                    Provider.of<AuthProvider>(context, listen: false).currentUser,
+                                    int.parse(_ageController.text.trim()),
+                                  )
+                                }),
                         Navigator.pop(context),
                       },
                       title: 'Create Account',

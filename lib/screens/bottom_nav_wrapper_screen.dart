@@ -47,7 +47,7 @@ class _BottomNavWrapperScreenState extends State<BottomNavWrapperScreen> {
               label: 'Search',
             ),
             // if (context.watch<AuthProvider>().currentUser != null)
-            if (Provider.of<AuthProvider>(context, listen: true).currentUser != null)
+            if (Provider.of<AuthProvider>(context).currentUser != null)
               const BottomNavigationBarItem(
                 icon: Icon(Icons.accessibility_new),
                 label: 'My Exercises',

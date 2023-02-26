@@ -52,6 +52,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                           .disItemTitle,
                       style: Theme.of(context).textTheme.displayLarge,
                     ),
+                    const CustomDivider(),
                     const SizedBox(height: 20),
                     CustomCard(
                       child: Column(
@@ -95,29 +96,39 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                     const SizedBox(height: 20),
                     CustomCard(
                       child: Column(
-                        children: Provider.of<DisorderListProvider>(context, listen: false)
-                            .globalDisorderList[widget.disorderIndex]
-                            .disItemImagePaths
-                            .map<Widget>(
-                              (eachDisorderItemImagePath) => Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 10),
-                                child: Container(
-                                  height: 200,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                        eachDisorderItemImagePath,
-                                        // Provider.of<DisorderList>(context, listen: false)
-                                        //     .globalDisorderList[widget.disorderIndex]
-                                        //     .disItemImagePaths[disorderImageIndex],
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Images',
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
+                          const CustomDivider(),
+                          Column(
+                            children: Provider.of<DisorderListProvider>(context, listen: false)
+                                .globalDisorderList[widget.disorderIndex]
+                                .disItemImagePaths
+                                .map<Widget>(
+                                  (eachDisorderItemImagePath) => Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: 10),
+                                    child: Container(
+                                      height: 200,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                            eachDisorderItemImagePath,
+                                            // Provider.of<DisorderList>(context, listen: false)
+                                            //     .globalDisorderList[widget.disorderIndex]
+                                            //     .disItemImagePaths[disorderImageIndex],
+                                          ),
+                                          fit: BoxFit.fitHeight,
+                                        ),
                                       ),
-                                      fit: BoxFit.fitHeight,
                                     ),
                                   ),
-                                ),
-                              ),
-                            )
-                            .toList(),
+                                )
+                                .toList(),
+                          ),
+                        ],
                       ),
                     ),
                   ],
