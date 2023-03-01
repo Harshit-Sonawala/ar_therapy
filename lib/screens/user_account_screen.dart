@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
+import '../providers/cloudstore_provider.dart';
 
 import '../widgets/custom_elevated_button.dart';
 import '../widgets/custom_text_button.dart';
@@ -16,6 +17,8 @@ class UserAccountScreen extends StatefulWidget {
 class _UserAccountScreenState extends State<UserAccountScreen> {
   @override
   Widget build(BuildContext context) {
+    final userDocFromFirestore = Provider.of<CloudstoreProvider>(context, listen: false)
+        .getUserData(Provider.of<AuthProvider>(context, listen: false).currentUser);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -78,7 +81,7 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Age: 21',
+                    'Age: ${userDocFromFirestore}',
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   const SizedBox(width: 20),
