@@ -96,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Text(
                             Provider.of<AuthProvider>(context).currentUser != null
-                                ? 'Welcome to AR Therapy, ${Provider.of<AuthProvider>(context).currentUser!.displayName}!'
+                                ? 'Welcome to AR Therapy,\n${Provider.of<AuthProvider>(context).currentUser!.displayName}!'
                                 : 'Welcome to AR Therapy!',
                             style: Theme.of(context).textTheme.displayLarge,
                           ),

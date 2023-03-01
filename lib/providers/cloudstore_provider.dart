@@ -7,6 +7,7 @@ class CloudstoreProvider with ChangeNotifier {
   get cloudFirestoreDB => FirebaseFirestore.instance;
 
   void setUserData(User? passedCurrentUser, int passedCurrentAge) async {
+    debugPrint('Cloud Firestore setUserData passedCurrentUser: $passedCurrentUser');
     try {
       await cloudFirestoreDB.collection('users').doc(passedCurrentUser!.uid).set(
         {

@@ -61,11 +61,14 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
               Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Icon(Icons.email),
-                    SizedBox(width: 20),
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.email),
+                    const SizedBox(width: 10),
                     Text(
-                      'hssonawala@gmail.com',
+                      Provider.of<AuthProvider>(context).currentUser != null
+                          ? '${Provider.of<AuthProvider>(context).currentUser!.email}'
+                          : 'example@email.com',
                     ),
                   ],
                 ),
