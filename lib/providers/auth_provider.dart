@@ -24,12 +24,13 @@ class AuthProvider with ChangeNotifier {
           )
           .then(
             (response) => {
-              FirebaseAuth.instance.currentUser?.updateDisplayName(passedName),
+              currentUser!.updateDisplayName(passedName),
             },
           );
+      debugPrint('Successfully created user: ${currentUser!.displayName}, ${currentUser!.uid}');
       notifyListeners();
     } catch (error) {
-      debugPrint('Create User Error: $error');
+      debugPrint('createUserWithEmailAndPassword error: $error');
     }
   }
 
@@ -44,7 +45,7 @@ class AuthProvider with ChangeNotifier {
       );
       notifyListeners();
     } catch (error) {
-      debugPrint('Sign In User Error: $error');
+      debugPrint('signInWithEmailAndPassword error: $error');
     }
   }
 
@@ -53,7 +54,7 @@ class AuthProvider with ChangeNotifier {
       await FirebaseAuth.instance.signOut();
       notifyListeners();
     } catch (error) {
-      debugPrint('Sign Out Error: $error');
+      debugPrint('signOut error: $error');
     }
   }
 

@@ -50,11 +50,12 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-              Center(
-                child: Text(
-                  'Harshit Sonawala',
-                  style: Theme.of(context).textTheme.displayLarge,
-                ),
+              Text(
+                Provider.of<AuthProvider>(context).currentUser != null
+                    ? '${Provider.of<AuthProvider>(context).currentUser!.displayName}'
+                    : 'User Name',
+                style: Theme.of(context).textTheme.displayLarge,
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 20),
               Center(
@@ -109,7 +110,6 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                       horizontal: 16,
                     ),
                     onPressed: () => {
-                      debugPrint('Logout Pressed'),
                       Provider.of<AuthProvider>(context, listen: false).signOut(),
                       Navigator.pop(context),
                     },

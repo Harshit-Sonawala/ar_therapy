@@ -288,18 +288,15 @@ class _SignupScreenState extends State<SignupScreen> {
                         debugPrint(
                           'Email: ${_emailController.text.trim()}, Password: ${_passwordController.text.trim()}',
                         ),
-                        Provider.of<AuthProvider>(context, listen: false)
-                            .createUserWithEmailAndPassword(
-                              passedEmail: _emailController.text.trim(),
-                              passedPassword: _passwordController.text.trim(),
-                              passedName: _nameController.text.trim(),
-                            )
-                            .then((value) => {
-                                  Provider.of<CloudstoreProvider>(context, listen: false).setUserData(
-                                    Provider.of<AuthProvider>(context, listen: false).currentUser,
-                                    int.parse(_ageController.text.trim()),
-                                  )
-                                }),
+                        Provider.of<AuthProvider>(context, listen: false).createUserWithEmailAndPassword(
+                          passedEmail: _emailController.text.trim(),
+                          passedPassword: _passwordController.text.trim(),
+                          passedName: _nameController.text.trim(),
+                        ),
+                        Provider.of<CloudstoreProvider>(context, listen: false).setUserData(
+                          Provider.of<AuthProvider>(context, listen: false).currentUser,
+                          int.parse(_ageController.text.trim()),
+                        ),
                         Navigator.pop(context),
                       },
                       title: 'Create Account',
