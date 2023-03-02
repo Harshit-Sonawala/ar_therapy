@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './wip_screen.dart';
+import './webview_screen.dart';
 
 import '../widgets/custom_card.dart';
 import '../widgets/custom_elevated_button.dart';
@@ -53,9 +54,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       onPressed: () => {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => const WipScreen(
-                              screenName: 'Web Search',
-                            ),
+                            builder: (context) => WebviewScreen(),
                           ),
                         )
                       },

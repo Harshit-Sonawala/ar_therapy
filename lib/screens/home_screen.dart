@@ -9,8 +9,8 @@ import '../widgets/custom_card.dart';
 
 import 'account_screen.dart';
 import 'model_viewer_screen.dart';
-import 'disorders_screen.dart';
-import 'exercises_screen.dart';
+// import 'disorders_screen.dart';
+// import 'exercises_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
