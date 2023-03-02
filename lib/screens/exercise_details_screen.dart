@@ -54,6 +54,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                           .exItemTitle,
                       style: Theme.of(context).textTheme.displayLarge,
                     ),
+                    const CustomDivider(),
                     const SizedBox(height: 20),
                     CustomCard(
                       child: Column(

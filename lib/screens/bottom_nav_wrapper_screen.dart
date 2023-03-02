@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 
 import './home_screen.dart';
+import './explore_screen.dart';
+import './search_screen.dart';
 // import './user_account_screen.dart';
 import './wip_screen.dart';
 import '../widgets/custom_card.dart';
@@ -17,8 +19,8 @@ class BottomNavWrapperScreen extends StatefulWidget {
 class _BottomNavWrapperScreenState extends State<BottomNavWrapperScreen> {
   final List<Map<String, Object>> _screenData = const [
     {"page": HomeScreen()},
-    {"page": WipScreen(screenName: 'Explore')},
-    {"page": WipScreen(screenName: 'Search')},
+    {"page": ExploreScreen()},
+    {"page": SearchScreen()},
     {"page": WipScreen(screenName: 'My Exercises')},
   ];
 

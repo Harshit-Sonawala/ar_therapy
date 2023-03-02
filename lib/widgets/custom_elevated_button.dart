@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class CustomElevatedButton extends StatefulWidget {
   final VoidCallback onPressed;
   // final void Function() onPressed;
-  final EdgeInsets? padding;
   final Widget? child;
+  final EdgeInsets? padding;
+  final BorderRadiusGeometry? borderRadius;
   final String backgroundImage;
   final String? title;
   final double? fontSize;
@@ -18,8 +19,9 @@ class CustomElevatedButton extends StatefulWidget {
   const CustomElevatedButton({
     //Key? key,
     required this.onPressed,
-    this.padding = const EdgeInsets.all(16),
     this.child,
+    this.padding = const EdgeInsets.all(16),
+    this.borderRadius = const BorderRadius.all(Radius.circular(10)),
     this.backgroundImage = '',
     this.title,
     this.fontSize = 18,
@@ -42,7 +44,7 @@ class _CustomButtonState extends State<CustomElevatedButton> {
     return Ink(
       decoration: widget.backgroundImage != ''
           ? BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: widget.borderRadius,
               image: DecorationImage(
                 image: AssetImage(
                   widget.backgroundImage,
@@ -56,7 +58,7 @@ class _CustomButtonState extends State<CustomElevatedButton> {
             )
           : BoxDecoration(
               // color: const Color(0xff3d3d3d),
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: widget.borderRadius,
               gradient: const LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -69,7 +71,7 @@ class _CustomButtonState extends State<CustomElevatedButton> {
       child: InkWell(
         onTap: widget.onPressed,
         customBorder: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: widget.borderRadius!,
         ),
         child: Padding(
           padding: widget.padding!,

@@ -147,52 +147,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   title: 'Try 3D & AR Demo',
                 ),
                 const SizedBox(height: 20.0),
-                CustomElevatedButton(
-                  onPressed: () => {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const DisordersScreen(),
-                      ),
-                    )
-                  },
-                  backgroundImage: 'assets/images/disorders.jpeg',
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
-                    child: Text('Browse Disorders'),
-                  ),
-                ),
-                const SizedBox(height: 20.0),
-                CustomElevatedButton(
-                  onPressed: () => {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const ExercisesScreen(),
-                      ),
-                    )
-                  },
-                  backgroundImage: 'assets/images/exercises.jpeg',
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
-                    child: Text('Browse Exercises'),
-                  ),
-                ),
                 Provider.of<AuthProvider>(context).currentUser != null
-                    ? Column(
-                        children: [
-                          const SizedBox(height: 20.0),
-                          CustomElevatedButton(
-                            onPressed: () => {},
-                            trailingIcon: Icons.arrow_forward,
-                            title: 'Continue Treatment',
-                          ),
-                        ],
+                    ? CustomElevatedButton(
+                        onPressed: () => {},
+                        trailingIcon: Icons.arrow_forward,
+                        title: 'Continue Treatment',
                       )
-                    : Column(
-                        children: [
-                          const SizedBox(height: 20.0),
-                          Container(),
-                        ],
-                      ),
+                    : Container(),
               ],
             ),
           ),

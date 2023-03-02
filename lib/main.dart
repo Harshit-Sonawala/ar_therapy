@@ -57,6 +57,11 @@ class ARTherapy extends StatelessWidget {
           ),
           bodyLarge: TextStyle(fontSize: 18.0), // old: 22
           bodyMedium: TextStyle(fontSize: 20.0), // old: 26
+          bodySmall: TextStyle(
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+            color: Color(0xff1D1D1D),
+          ),
         ),
         iconTheme: const IconThemeData(
           size: 28,
