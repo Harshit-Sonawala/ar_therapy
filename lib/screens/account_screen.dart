@@ -16,7 +16,7 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     if (Provider.of<AuthProvider>(context).currentUser != null) {
-      return const UserAccountScreen();
+      return UserAccountScreen(passedUserId: Provider.of<AuthProvider>(context).currentUser!.uid);
     } else {
       return const LoginScreen();
     }

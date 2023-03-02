@@ -6,33 +6,52 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class CloudstoreProvider with ChangeNotifier {
   get cloudFirestoreDB => FirebaseFirestore.instance;
 
-  void setUserData(User? passedCurrentUser, int passedCurrentAge) async {
-    debugPrint('Cloud Firestore setUserData passedCurrentUser: $passedCurrentUser');
+  Future<void> setUserData({
+    required String passedId,
+    required String passedName,
+    required String passedEmail,
+    required int passedAge,
+  }) async {
+    debugPrint('Cloud Firestore setUserData passedCurrentUser: $passedId');
     try {
-      await cloudFirestoreDB.collection('users').doc(passedCurrentUser!.uid).set(
+      await cloudFirestoreDB.collection('users').doc(passedId).set(
         {
-          "userName": passedCurrentUser.displayName,
-          "userEmail": passedCurrentUser.email,
-          "userAge": passedCurrentAge,
+          "userName": passedName,
+          "userEmail": passedEmail,
+          "userAge": passedAge,
         },
       ).then(
-        (DocumentReference docRef) => debugPrint('User doc created with ID: ${docRef.id}'),
+        (DocumentReference docRef) => {
+          debugPrint('User doc created with ID: ${docRef.id}'),
+          notifyListeners(),
+        },
       );
     } catch (error) {
       debugPrint('Cloud Firestore setUserData error: $error');
     }
   }
 
-  Future getUserData(User? passedCurrentUser) async {
+  // get currentUserDoc async {
+  //   var gotCurrentUserDoc = await getUserData();
+  //   return gotCurrentUserDoc;
+  // }
+
+  Future<Map<String, dynamic>?> getUserData(String? passedUserId) async {
+    Map<String, dynamic>? gotData;
     try {
-      await cloudFirestoreDB.collection('users').doc(passedCurrentUser!.uid).get().then(
-        (DocumentSnapshot gotDoc) {
-          final gotData = gotDoc.data() as Map<String, dynamic>;
-          return gotData;
+      await cloudFirestoreDB.collection('users').doc(passedUserId).get().then(
+        (docSnap) {
+          gotData = docSnap.data() as Map<String, dynamic>?;
+          debugPrint('Cloud Firestore getUserData got: $gotData');
         },
       );
+      // final Map<String, dynamic> gotData;
+      // await cloudFirestoreDB.collection('users').doc(passedCurrentUser!.uid).get().data().then(
+      // ) as Map<String, dynamic>;
+      // return gotData;
     } catch (error) {
       debugPrint('Cloud Firestore getUserData error: $error');
     }
+    return gotData;
   }
 }

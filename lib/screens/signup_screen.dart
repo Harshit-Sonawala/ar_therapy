@@ -27,6 +27,8 @@ class _SignupScreenState extends State<SignupScreen> {
   bool _passwordIsObscured = true;
   bool _confirmPasswordIsObscured = true;
 
+  String? _newUserId;
+
   @override
   void dispose() {
     _nameController.dispose();
@@ -284,20 +286,26 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     const SizedBox(height: 40),
                     CustomElevatedButton(
-                      onPressed: () => {
+                      onPressed: () async {
                         debugPrint(
                           'Email: ${_emailController.text.trim()}, Password: ${_passwordController.text.trim()}',
-                        ),
-                        Provider.of<AuthProvider>(context, listen: false).createUserWithEmailAndPassword(
+                        );
+                        _newUserId =
+                            await Provider.of<AuthProvider>(context, listen: false).createUserWithEmailAndPassword(
+                          passedName: _nameController.text.trim(),
                           passedEmail: _emailController.text.trim(),
                           passedPassword: _passwordController.text.trim(),
-                          passedName: _nameController.text.trim(),
-                        ),
-                        Provider.of<CloudstoreProvider>(context, listen: false).setUserData(
-                          Provider.of<AuthProvider>(context, listen: false).currentUser,
-                          int.parse(_ageController.text.trim()),
-                        ),
-                        Navigator.pop(context),
+                        );
+                        setState(() {});
+                        if (_newUserId != null) {
+                          Provider.of<CloudstoreProvider>(context, listen: false).setUserData(
+                            passedId: _newUserId!,
+                            passedName: _nameController.text.trim(),
+                            passedEmail: _emailController.text.trim(),
+                            passedAge: int.parse(_ageController.text.trim()),
+                          );
+                        }
+                        Navigator.pop(context);
                       },
                       title: 'Create Account',
                       mainAxisAlignment: MainAxisAlignment.center,

@@ -11,7 +11,7 @@ class AuthProvider with ChangeNotifier {
 
   Stream<User?> get authStateChanges => FirebaseAuth.instance.authStateChanges();
 
-  Future<void> createUserWithEmailAndPassword({
+  Future<String?> createUserWithEmailAndPassword({
     required String passedEmail,
     required String passedPassword,
     required String passedName,
@@ -32,6 +32,7 @@ class AuthProvider with ChangeNotifier {
     } catch (error) {
       debugPrint('createUserWithEmailAndPassword error: $error');
     }
+    return currentUser!.uid;
   }
 
   Future<void> signInWithEmailAndPassword({

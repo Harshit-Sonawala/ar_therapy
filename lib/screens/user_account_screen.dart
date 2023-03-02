@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -8,17 +9,27 @@ import '../widgets/custom_elevated_button.dart';
 import '../widgets/custom_text_button.dart';
 
 class UserAccountScreen extends StatefulWidget {
-  const UserAccountScreen({Key? key}) : super(key: key);
+  final String? passedUserId;
+  const UserAccountScreen({this.passedUserId, Key? key}) : super(key: key);
 
   @override
   State<UserAccountScreen> createState() => _UserAccountScreenState();
 }
 
 class _UserAccountScreenState extends State<UserAccountScreen> {
+  Map<String, dynamic>? _currentUserDoc;
+  @override
+  initState() {
+    CloudstoreProvider().getUserData(widget.passedUserId).then((gotData) {
+      setState(() {
+        _currentUserDoc = gotData;
+      });
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final userDocFromFirestore = Provider.of<CloudstoreProvider>(context, listen: false)
-        .getUserData(Provider.of<AuthProvider>(context, listen: false).currentUser);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -80,10 +91,11 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Age: ${userDocFromFirestore}',
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
+                  if (_currentUserDoc != null)
+                    Text(
+                      'Age: ${_currentUserDoc?['userAge']}',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
                   const SizedBox(width: 20),
                   Text(
                     'Gender: Male',
