@@ -36,12 +36,12 @@ class _HomeScreenState extends State<HomeScreen> {
       // ),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Row(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
@@ -85,122 +85,116 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0),
-                child: Column(
-                  children: [
-                    CustomCard(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            Provider.of<AuthProvider>(context).currentUser != null
-                                ? 'Welcome to AR Therapy,\n${Provider.of<AuthProvider>(context).currentUser!.displayName}!'
-                                : 'Welcome to AR Therapy!',
-                            style: Theme.of(context).textTheme.displayLarge,
-                          ),
-                          const SizedBox(height: 10.0),
-                          Text(
-                            'The perfect personal companion app to support your physical therapy',
-                            style: Theme.of(context).textTheme.bodyLarge,
-                          ),
-                        ],
+                const SizedBox(height: 20),
+                CustomCard(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        Provider.of<AuthProvider>(context).currentUser != null
+                            ? 'Welcome to AR Therapy,\n${Provider.of<AuthProvider>(context).currentUser!.displayName}!'
+                            : 'Welcome to AR Therapy!',
+                        style: Theme.of(context).textTheme.displayLarge,
                       ),
-                    ),
-                    const SizedBox(height: 20),
-                    CustomCard(
-                      child: Text(
-                        'Solve all of your physiotherapy related problems using state of the art Augmented Reality Technology',
+                      const SizedBox(height: 10.0),
+                      Text(
+                        'The perfect personal companion app to support your physical therapy',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
-                    ),
-                    const SizedBox(height: 20.0),
-                    // CustomElevatedButton(
-                    //   onPressed: () => {
-                    //     Navigator.push(
-                    //       context,
-                    //       MaterialPageRoute(
-                    //         builder: (context) => const DemoScreen3D(
-                    //             // parameters to pass, example
-                    //             // passedNotice: NoticeModel(
-                    //             //   noticeId: 1,
-                    //             //   noticeTitle: 'Notice Title',
-                    //             //   noticeDate: DateTime.now(),
-                    //             //   noticePosterName: 'John Doe',
-                    //             //   noticePosterEmail: 'johndoe@mail.com',
-                    //             // ),
-                    //             ),
-                    //       ),
-                    //     )
-                    //   },
-                    //   icon: Icons.threed_rotation_rounded,
-                    //   iconSize: 28,
-                    //   title: 'View 3D Demo',
-                    // ),
-                    // const SizedBox(height: 20.0),
-                    CustomElevatedButton(
-                      onPressed: () => {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const ModelViewerScreen(),
-                          ),
-                        )
-                      },
-                      icon: Icons.view_in_ar,
-                      title: 'Try 3D & AR Demo',
-                    ),
-                    const SizedBox(height: 20.0),
-                    CustomElevatedButton(
-                      onPressed: () => {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const DisordersScreen(),
-                          ),
-                        )
-                      },
-                      backgroundImage: 'assets/images/disorders.jpeg',
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
-                        child: Text('Browse Disorders'),
-                      ),
-                    ),
-                    const SizedBox(height: 20.0),
-                    CustomElevatedButton(
-                      onPressed: () => {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const ExercisesScreen(),
-                          ),
-                        )
-                      },
-                      backgroundImage: 'assets/images/exercises.jpeg',
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
-                        child: Text('Browse Exercises'),
-                      ),
-                    ),
-                    Provider.of<AuthProvider>(context).currentUser != null
-                        ? Column(
-                            children: [
-                              const SizedBox(height: 20.0),
-                              CustomElevatedButton(
-                                onPressed: () => {},
-                                trailingIcon: Icons.arrow_forward,
-                                title: 'Continue Treatment',
-                              ),
-                            ],
-                          )
-                        : Column(
-                            children: [
-                              const SizedBox(height: 20.0),
-                              Container(),
-                            ],
-                          ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                const SizedBox(height: 20),
+                CustomCard(
+                  child: Text(
+                    'Solve all of your physiotherapy related problems using state of the art Augmented Reality Technology',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                ),
+                const SizedBox(height: 20.0),
+                // CustomElevatedButton(
+                //   onPressed: () => {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(
+                //         builder: (context) => const DemoScreen3D(
+                //             // parameters to pass, example
+                //             // passedNotice: NoticeModel(
+                //             //   noticeId: 1,
+                //             //   noticeTitle: 'Notice Title',
+                //             //   noticeDate: DateTime.now(),
+                //             //   noticePosterName: 'John Doe',
+                //             //   noticePosterEmail: 'johndoe@mail.com',
+                //             // ),
+                //             ),
+                //       ),
+                //     )
+                //   },
+                //   icon: Icons.threed_rotation_rounded,
+                //   iconSize: 28,
+                //   title: 'View 3D Demo',
+                // ),
+                // const SizedBox(height: 20.0),
+                CustomElevatedButton(
+                  onPressed: () => {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const ModelViewerScreen(),
+                      ),
+                    )
+                  },
+                  icon: Icons.view_in_ar,
+                  title: 'Try 3D & AR Demo',
+                ),
+                const SizedBox(height: 20.0),
+                CustomElevatedButton(
+                  onPressed: () => {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const DisordersScreen(),
+                      ),
+                    )
+                  },
+                  backgroundImage: 'assets/images/disorders.jpeg',
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+                    child: Text('Browse Disorders'),
+                  ),
+                ),
+                const SizedBox(height: 20.0),
+                CustomElevatedButton(
+                  onPressed: () => {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const ExercisesScreen(),
+                      ),
+                    )
+                  },
+                  backgroundImage: 'assets/images/exercises.jpeg',
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+                    child: Text('Browse Exercises'),
+                  ),
+                ),
+                Provider.of<AuthProvider>(context).currentUser != null
+                    ? Column(
+                        children: [
+                          const SizedBox(height: 20.0),
+                          CustomElevatedButton(
+                            onPressed: () => {},
+                            trailingIcon: Icons.arrow_forward,
+                            title: 'Continue Treatment',
+                          ),
+                        ],
+                      )
+                    : Column(
+                        children: [
+                          const SizedBox(height: 20.0),
+                          Container(),
+                        ],
+                      ),
+              ],
+            ),
           ),
         ),
       ),

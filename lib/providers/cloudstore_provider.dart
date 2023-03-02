@@ -22,7 +22,7 @@ class CloudstoreProvider with ChangeNotifier {
         },
       ).then(
         (DocumentReference docRef) => {
-          debugPrint('User doc created with ID: ${docRef.id}'),
+          debugPrint('User doc created with ID: $docRef'),
           notifyListeners(),
         },
       );
