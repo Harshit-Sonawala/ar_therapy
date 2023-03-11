@@ -39,6 +39,8 @@ dependencies:
   firebase_auth: ^4.2.5
   cloud_firestore: ^4.4.3
   webview_flutter: ^3.0.4
+  camera: ^0.10.3+2
+  tflite: ^1.1.2
 
 dev_dependencies:
   flutter_test:

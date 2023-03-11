@@ -16,9 +16,10 @@ class DisorderListProvider with ChangeNotifier {
         'Burning or tingling down the leg',
         'Weakness, numbness, or a hard time moving the leg or foot',
         'A constant pain on one side of the rear'
+            'A shooting pain that makes it hard to stand up'
       ],
       disItemExerciseList: [
-        'exerciseItem1',
+        'exerciseItem3',
       ],
       disItemImagePaths: [
         'assets/images/disorders/sciatica1.jpeg',
@@ -39,11 +40,29 @@ class DisorderListProvider with ChangeNotifier {
         'Tenderness around the scapula, especially at the top or medial border along with fatigue of repetitive injuries, especially overhead movements.'
       ],
       disItemExerciseList: [
-        'exerciseItem1',
+        'exerciseItem2',
       ],
       disItemImagePaths: [
-        'assets/images/disorders/sciatica1.jpeg',
-        'assets/images/disorders/sciatica2.jpeg',
+        'assets/images/disorders/scapular_dyskinesis1.jpg',
+      ],
+    ),
+    DisorderItem(
+      disItemId: 'disorderItem3',
+      disItemTitle: 'Cervical Spondilytis',
+      disItemDescription:
+          'It is a term that encompasses a wide range of progressive degenerative changes that affect all the components of the cervical spine. It is a natural process of aging around 40 years',
+      disItemSymptoms: [
+        'Neck pain and neck stiffness usually by compression of neural structures',
+        'Pain is generally in the upper limbs and the neck usually shoulders and chest or breasts',
+        'Degenerative changes around surrounding structures such as joints or ligaments',
+        'Tingling, numbness and weakness in the arms and feet',
+        'Loss of bladder or bowel control',
+      ],
+      disItemExerciseList: [
+        'exerciseItem10',
+      ],
+      disItemImagePaths: [
+        'assets/images/disorders/scapular_dyskinesis1.jpg',
       ],
     ),
   ];

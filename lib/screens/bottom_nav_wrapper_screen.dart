@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 
+import '../main.dart';
 import './home_screen.dart';
 import './explore_screen.dart';
 import './search_screen.dart';
@@ -11,17 +12,17 @@ import './wip_screen.dart';
 import '../widgets/custom_card.dart';
 
 class BottomNavWrapperScreen extends StatefulWidget {
-  const BottomNavWrapperScreen({super.key});
+  const BottomNavWrapperScreen(cameras, {super.key});
   @override
   State<BottomNavWrapperScreen> createState() => _BottomNavWrapperScreenState();
 }
 
 class _BottomNavWrapperScreenState extends State<BottomNavWrapperScreen> {
-  final List<Map<String, Object>> _screenData = const [
-    {"page": HomeScreen()},
-    {"page": ExploreScreen()},
-    {"page": SearchScreen()},
-    {"page": WipScreen(screenName: 'My Exercises')},
+  final List<Map<String, Object>> _screenData = [
+    {"page": HomeScreen(cameras!)},
+    {"page": const ExploreScreen()},
+    {"page": const SearchScreen()},
+    {"page": const WipScreen(screenName: 'My Exercises')},
   ];
 
   int _selectedScreenIndex = 0;

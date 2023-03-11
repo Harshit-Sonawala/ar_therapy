@@ -1,6 +1,8 @@
+import 'package:ar_therapy/ai/pushed_pageS.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
+import '../main.dart';
 import '../providers/auth_provider.dart';
 
 import '../widgets/custom_drawer.dart';
@@ -13,7 +15,7 @@ import 'model_viewer_screen.dart';
 // import 'exercises_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen(cameras, {Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -145,6 +147,21 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   icon: Icons.view_in_ar,
                   title: 'Try 3D & AR Demo',
+                ),
+                const SizedBox(height: 20.0),
+                CustomElevatedButton(
+                  onPressed: () => {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => PushedPageS(
+                          cameras: cameras!,
+                          title: 'posenet',
+                        ),
+                      ),
+                    )
+                  },
+                  icon: Icons.auto_awesome,
+                  title: 'Try AI Mapping',
                 ),
                 const SizedBox(height: 20.0),
                 Provider.of<AuthProvider>(context).currentUser != null

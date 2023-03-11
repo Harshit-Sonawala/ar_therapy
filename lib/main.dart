@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -10,9 +11,18 @@ import 'providers/cloudstore_provider.dart';
 
 import 'screens/bottom_nav_wrapper_screen.dart';
 
+List<CameraDescription>? cameras;
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  try {
+    cameras = await availableCameras();
+  } on CameraException catch (e) {
+    print('Error: $e.code\nError Message: $e.message');
+  }
+
   await Firebase.initializeApp();
+
   runApp(
     MultiProvider(
       providers: [
@@ -80,7 +90,7 @@ class ARTherapy extends StatelessWidget {
       //       ),
       //       child: const HomeScreen());
       // }
-      home: const BottomNavWrapperScreen(),
+      home: BottomNavWrapperScreen(cameras!),
     );
   }
 }
