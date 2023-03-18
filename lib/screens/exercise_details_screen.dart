@@ -8,6 +8,7 @@ import 'package:model_viewer_plus/model_viewer_plus.dart';
 import '../widgets/custom_card.dart';
 import '../widgets/custom_text_button.dart';
 import '../widgets/custom_divider.dart';
+import '../widgets/custom_elevated_button.dart';
 
 class ExerciseDetailsScreen extends StatefulWidget {
   final int exerciseIndex;
@@ -26,34 +27,33 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Row(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                CustomTextButton(
-                  onPressed: () => {
-                    Navigator.pop(context),
-                  },
-                  padding: const EdgeInsets.all(5),
-                  icon: Icons.arrow_back,
-                  borderRadius: 50,
-                ),
-                const SizedBox(width: 10),
-                const Text('Exercise Details'),
-              ],
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
+                Row(
                   children: [
+                    CustomTextButton(
+                      onPressed: () => {
+                        Navigator.pop(context),
+                      },
+                      padding: const EdgeInsets.all(5),
+                      icon: Icons.arrow_back,
+                      borderRadius: 50,
+                    ),
+                    const SizedBox(width: 10),
                     Text(
                       Provider.of<ExerciseListProvider>(context, listen: false)
                           .globalExerciseList[widget.exerciseIndex]
                           .exItemTitle,
                       style: Theme.of(context).textTheme.displayLarge,
                     ),
+                  ],
+                ),
+                Column(
+                  children: [
                     const CustomDivider(),
                     const SizedBox(height: 20),
                     CustomCard(
@@ -74,7 +74,8 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    Expanded(
+                    SizedBox(
+                      height: 600,
                       child: CustomCard(
                         child: ModelViewer(
                           // src: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
@@ -131,53 +132,61 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 20),
+                    CustomElevatedButton(
+                      onPressed: () => {
+                        debugPrint('Add Plan to Firestore User List'),
+                      },
+                      icon: Icons.add,
+                      title: 'Add Treatment Plan',
+                    ),
                   ],
                 ),
-              ),
+                // CustomCard(
+                //   child: Column(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     crossAxisAlignment: CrossAxisAlignment.start,
+                //     children: [
+                //       Text(
+                //         'Procedure',
+                //         style: TextStyle(
+                //           color: Theme.of(context).primaryColor,
+                //         ),
+                //       ),
+                //       for (var eachSymptom in Provider.of<ExerciseList>(context, listen: false)
+                //           .globalExerciseList[widget.exerciseIndex]
+                //           .exItemProcedure)
+                //         Padding(
+                //           padding: const EdgeInsets.all(4.0),
+                //           child: Text('- $eachSymptom', style: Theme.of(context).textTheme.bodyLarge),
+                //         )
+                //     ],
+                //   ),
+                // ),
+                // const SizedBox(height: 20),
+                // Expanded(
+                //   child: ListView.builder(
+                //     itemCount: Provider.of<DisorderList>(context, listen: false)
+                //         .globalDisorderList[widget.disorderIndex]
+                //         .disItemImagePaths
+                //         .length,
+                //     itemBuilder: (context, disorderImageIndex) => Container(
+                //       height: 200,
+                //       decoration: BoxDecoration(
+                //         image: DecorationImage(
+                //           image: AssetImage(
+                //             Provider.of<DisorderList>(context, listen: false)
+                //                 .globalDisorderList[widget.disorderIndex]
+                //                 .disItemImagePaths[disorderImageIndex],
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // ),
+              ],
             ),
-            // CustomCard(
-            //   child: Column(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     crossAxisAlignment: CrossAxisAlignment.start,
-            //     children: [
-            //       Text(
-            //         'Procedure',
-            //         style: TextStyle(
-            //           color: Theme.of(context).primaryColor,
-            //         ),
-            //       ),
-            //       for (var eachSymptom in Provider.of<ExerciseList>(context, listen: false)
-            //           .globalExerciseList[widget.exerciseIndex]
-            //           .exItemProcedure)
-            //         Padding(
-            //           padding: const EdgeInsets.all(4.0),
-            //           child: Text('- $eachSymptom', style: Theme.of(context).textTheme.bodyLarge),
-            //         )
-            //     ],
-            //   ),
-            // ),
-            // const SizedBox(height: 20),
-            // Expanded(
-            //   child: ListView.builder(
-            //     itemCount: Provider.of<DisorderList>(context, listen: false)
-            //         .globalDisorderList[widget.disorderIndex]
-            //         .disItemImagePaths
-            //         .length,
-            //     itemBuilder: (context, disorderImageIndex) => Container(
-            //       height: 200,
-            //       decoration: BoxDecoration(
-            //         image: DecorationImage(
-            //           image: AssetImage(
-            //             Provider.of<DisorderList>(context, listen: false)
-            //                 .globalDisorderList[widget.disorderIndex]
-            //                 .disItemImagePaths[disorderImageIndex],
-            //           ),
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
-          ],
+          ),
         ),
       ),
     );
