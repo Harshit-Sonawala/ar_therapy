@@ -7,6 +7,9 @@ import '../widgets/custom_divider.dart';
 import '../widgets/custom_text_button.dart';
 import '../widgets/custom_card.dart';
 
+import 'package:photo_view/photo_view.dart';
+import 'package:photo_view/photo_view_gallery.dart';
+
 class DisorderDetailsScreen extends StatefulWidget {
   final int disorderIndex;
 
@@ -53,6 +56,38 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                       style: Theme.of(context).textTheme.displayLarge,
                     ),
                     const CustomDivider(),
+                    const SizedBox(height: 10),
+                    // SizedBox(
+                    //   height: 250,
+                    //   child: CustomCard(
+                    //     child: PhotoViewGallery.builder(
+                    //       scrollPhysics: const BouncingScrollPhysics(),
+                    //       itemCount: Provider.of<DisorderListProvider>(context, listen: false)
+                    //           .globalDisorderList[widget.disorderIndex]
+                    //           .disItemImagePaths
+                    //           .length,
+                    //       builder: (BuildContext context, int photoViewGalleryIndex) => PhotoViewGalleryPageOptions(
+                    //         imageProvider: AssetImage(
+                    //           Provider.of<DisorderListProvider>(context, listen: false)
+                    //               .globalDisorderList[widget.disorderIndex]
+                    //               .disItemImagePaths[photoViewGalleryIndex],
+                    //         ),
+                    //         // initialScale: PhotoViewComputedScale.contained * 0.8,
+                    //         heroAttributes: PhotoViewHeroAttributes(tag: photoViewGalleryIndex),
+                    //       ),
+                    //       loadingBuilder: (context, event) => Center(
+                    //         child: SizedBox(
+                    //           height: 30,
+                    //           width: 30,
+                    //           child: CircularProgressIndicator(
+                    //             color: Theme.of(context).primaryColor,
+                    //             value: event == null ? 0 : event.cumulativeBytesLoaded / event.expectedTotalBytes!,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                     CustomCard(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
