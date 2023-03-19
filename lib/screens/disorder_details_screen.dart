@@ -159,8 +159,10 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                           for (var eachSymptom in Provider.of<DisorderListProvider>(context, listen: false)
                               .globalDisorderList[widget.disorderIndex]
                               .disItemSymptoms)
-                            Padding(
-                              padding: const EdgeInsets.all(4.0),
+                            CustomCard(
+                              color: Color(0xff4d4d4d),
+                              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
+                              margin: const EdgeInsets.only(bottom: 6.0),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
