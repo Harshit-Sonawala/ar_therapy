@@ -27,7 +27,7 @@ class _ModelViewerScreenState extends State<ModelViewerScreen> {
                     onPressed: () => {
                       Navigator.pop(context),
                     },
-                    padding: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(6.0),
                     icon: Icons.arrow_back,
                     // title: 'Forward Flexion',
                     borderRadius: 50,

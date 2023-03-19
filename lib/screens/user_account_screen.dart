@@ -34,7 +34,7 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                       onPressed: () => {
                         Navigator.pop(context),
                       },
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(6.0),
                       icon: Icons.arrow_back,
                       borderRadius: 50,
                     ),
@@ -48,7 +48,7 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                     if (fetchedDataSnapshot.connectionState == ConnectionState.waiting) {
                       return Center(
                         child: CustomCard(
-                          padding: const EdgeInsets.all(20.0),
+                          padding: const EdgeInsets.all(40.0),
                           child: CircularProgressIndicator(
                             color: Theme.of(context).primaryColor,
                           ),

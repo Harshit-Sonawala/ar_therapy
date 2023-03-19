@@ -1,3 +1,4 @@
+import 'package:ar_therapy/screens/photo_view_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -7,8 +8,8 @@ import '../widgets/custom_divider.dart';
 import '../widgets/custom_text_button.dart';
 import '../widgets/custom_card.dart';
 
-import 'package:photo_view/photo_view.dart';
-import 'package:photo_view/photo_view_gallery.dart';
+// import 'package:photo_view/photo_view.dart';
+// import 'package:photo_view/photo_view_gallery.dart';
 
 class DisorderDetailsScreen extends StatefulWidget {
   final int disorderIndex;
@@ -37,7 +38,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                     onPressed: () => {
                       Navigator.pop(context),
                     },
-                    padding: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(6.0),
                     icon: Icons.arrow_back,
                     borderRadius: 50,
                   ),
@@ -57,9 +58,50 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                     ),
                     const CustomDivider(),
                     const SizedBox(height: 10),
-                    // SizedBox(
-                    //   height: 250,
-                    //   child: CustomCard(
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        color: const Color(0xff4d4d4d),
+                        height: 250,
+                        child: PageView.builder(
+                          itemCount: Provider.of<DisorderListProvider>(context, listen: false)
+                              .globalDisorderList[widget.disorderIndex]
+                              .disItemImagePaths
+                              .length,
+                          itemBuilder: (context, pageViewIndex) => InkWell(
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PhotoViewScreen(
+                                    passedImageList: Provider.of<DisorderListProvider>(context, listen: false)
+                                        .globalDisorderList[widget.disorderIndex]
+                                        .disItemImagePaths,
+                                    passedSelectedIndex: pageViewIndex),
+                              ),
+                            ),
+                            child: Container(
+                              height: 200,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    Provider.of<DisorderListProvider>(context, listen: false)
+                                        .globalDisorderList[widget.disorderIndex]
+                                        .disItemImagePaths[pageViewIndex],
+                                  ),
+                                  fit: BoxFit.fitHeight,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    // ClipRRect(
+                    //   borderRadius: BorderRadius.circular(10),
+                    //   child: Container(
+                    //     color: const Color(0xff3d3d3d),
+                    //     height: 250,
                     //     child: PhotoViewGallery.builder(
                     //       scrollPhysics: const BouncingScrollPhysics(),
                     //       itemCount: Provider.of<DisorderListProvider>(context, listen: false)
@@ -73,7 +115,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                     //               .disItemImagePaths[photoViewGalleryIndex],
                     //         ),
                     //         // initialScale: PhotoViewComputedScale.contained * 0.8,
-                    //         heroAttributes: PhotoViewHeroAttributes(tag: photoViewGalleryIndex),
+                    //         // heroAttributes: PhotoViewHeroAttributes(tag: photoViewGalleryIndex),
                     //       ),
                     //       loadingBuilder: (context, event) => Center(
                     //         child: SizedBox(
@@ -85,46 +127,40 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                     //           ),
                     //         ),
                     //       ),
+                    //       backgroundDecoration: const BoxDecoration(color: Color.fromARGB(255, 59, 59, 59)),
                     //     ),
                     //   ),
                     // ),
-                    CustomCard(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // Text(
-                          //   'Images',
-                          //   style: Theme.of(context).textTheme.displaySmall,
-                          // ),
-                          // const CustomDivider(),
-                          Column(
-                            children: Provider.of<DisorderListProvider>(context, listen: false)
-                                .globalDisorderList[widget.disorderIndex]
-                                .disItemImagePaths
-                                .map<Widget>(
-                                  (eachDisorderItemImagePath) => Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 5),
-                                    child: Container(
-                                      height: 200,
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                            eachDisorderItemImagePath,
-                                            // Provider.of<DisorderList>(context, listen: false)
-                                            //     .globalDisorderList[widget.disorderIndex]
-                                            //     .disItemImagePaths[disorderImageIndex],
-                                          ),
-                                          fit: BoxFit.fitHeight,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                )
-                                .toList(),
-                          ),
-                        ],
-                      ),
-                    ),
+                    // CustomCard(
+                    //   padding: const EdgeInsets.all(4.0),
+                    //   child: SingleChildScrollView(
+                    //     scrollDirection: Axis.horizontal,
+                    //     child: Row(
+                    //       children: Provider.of<DisorderListProvider>(context, listen: false)
+                    //           .globalDisorderList[widget.disorderIndex]
+                    //           .disItemImagePaths
+                    //           .map<Widget>(
+                    //             (eachDisorderItemImagePath) => Container(
+                    //               height: 200,
+                    //               width: 200,
+                    //               margin: const EdgeInsets.all(4.0),
+                    //               decoration: BoxDecoration(
+                    //                 image: DecorationImage(
+                    //                   image: AssetImage(
+                    //                     eachDisorderItemImagePath,
+                    //                     // Provider.of<DisorderList>(context, listen: false)
+                    //                     //     .globalDisorderList[widget.disorderIndex]
+                    //                     //     .disItemImagePaths[disorderImageIndex],
+                    //                   ),
+                    //                   fit: BoxFit.fitHeight,
+                    //                 ),
+                    //               ),
+                    //             ),
+                    //           )
+                    //           .toList(),
+                    //     ),
+                    //   ),
+                    // ),
                     const SizedBox(height: 20),
                     CustomCard(
                       child: Column(
@@ -160,8 +196,8 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                               .globalDisorderList[widget.disorderIndex]
                               .disItemSymptoms)
                             CustomCard(
-                              color: Color(0xff4d4d4d),
-                              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
+                              color: const Color(0xff4d4d4d),
+                              padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 8.0),
                               margin: const EdgeInsets.only(bottom: 6.0),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -175,7 +211,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                                     child: Text(
                                       eachSymptom,
                                       style: Theme.of(context).textTheme.bodyLarge,
-                                      textAlign: TextAlign.justify,
+                                      textAlign: TextAlign.start,
                                     ),
                                   ),
                                 ],

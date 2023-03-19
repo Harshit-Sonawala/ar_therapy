@@ -55,7 +55,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     onPressed: () => {
                       Navigator.pop(context),
                     },
-                    padding: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(6.0),
                     icon: Icons.arrow_back,
                     borderRadius: 50,
                   ),
@@ -263,7 +263,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               }
                             }),
                           },
-                          padding: const EdgeInsets.all(5),
+                          padding: const EdgeInsets.all(6.0),
                           icon: Icons.keyboard_arrow_up,
                           border: const BorderSide(width: 1, color: Colors.grey),
                           borderRadius: 10,
@@ -277,7 +277,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               }
                             }),
                           },
-                          padding: const EdgeInsets.all(5),
+                          padding: const EdgeInsets.all(6.0),
                           icon: Icons.keyboard_arrow_down,
                           border: const BorderSide(width: 1, color: Colors.grey),
                           borderRadius: 10,

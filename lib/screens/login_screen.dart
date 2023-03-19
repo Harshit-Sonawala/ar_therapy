@@ -40,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     onPressed: () => {
                       Navigator.pop(context),
                     },
-                    padding: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(6.0),
                     icon: Icons.arrow_back,
                     borderRadius: 50,
                   ),

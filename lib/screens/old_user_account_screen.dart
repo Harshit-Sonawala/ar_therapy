@@ -41,7 +41,7 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                     onPressed: () => {
                       Navigator.pop(context),
                     },
-                    padding: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(6.0),
                     icon: Icons.arrow_back,
                     borderRadius: 50,
                   ),
