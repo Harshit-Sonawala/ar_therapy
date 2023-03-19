@@ -80,8 +80,9 @@ class _CustomListItemState extends State<CustomListItem> {
                       ),
                     if (widget.images == null) const CustomDivider(),
                     Text(
-                      '${widget.body!.substring(0, 81)}...',
+                      '${widget.body!.substring(0, 71)}...',
                       style: Theme.of(context).textTheme.bodyLarge,
+                      textAlign: TextAlign.justify,
                     ),
                   ],
                 ),

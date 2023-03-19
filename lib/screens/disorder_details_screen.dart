@@ -53,6 +53,43 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                       style: Theme.of(context).textTheme.displayLarge,
                     ),
                     const CustomDivider(),
+                    CustomCard(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Text(
+                          //   'Images',
+                          //   style: Theme.of(context).textTheme.displaySmall,
+                          // ),
+                          // const CustomDivider(),
+                          Column(
+                            children: Provider.of<DisorderListProvider>(context, listen: false)
+                                .globalDisorderList[widget.disorderIndex]
+                                .disItemImagePaths
+                                .map<Widget>(
+                                  (eachDisorderItemImagePath) => Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: 5),
+                                    child: Container(
+                                      height: 200,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                            eachDisorderItemImagePath,
+                                            // Provider.of<DisorderList>(context, listen: false)
+                                            //     .globalDisorderList[widget.disorderIndex]
+                                            //     .disItemImagePaths[disorderImageIndex],
+                                          ),
+                                          fit: BoxFit.fitHeight,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                                .toList(),
+                          ),
+                        ],
+                      ),
+                    ),
                     const SizedBox(height: 20),
                     CustomCard(
                       child: Column(
@@ -68,6 +105,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                                 .globalDisorderList[widget.disorderIndex]
                                 .disItemDescription,
                             style: Theme.of(context).textTheme.bodyLarge,
+                            textAlign: TextAlign.justify,
                           ),
                         ],
                       ),
@@ -88,46 +126,24 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                               .disItemSymptoms)
                             Padding(
                               padding: const EdgeInsets.all(4.0),
-                              child: Text('- $eachSymptom', style: Theme.of(context).textTheme.bodyLarge),
-                            )
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    CustomCard(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Images',
-                            style: Theme.of(context).textTheme.displaySmall,
-                          ),
-                          const CustomDivider(),
-                          Column(
-                            children: Provider.of<DisorderListProvider>(context, listen: false)
-                                .globalDisorderList[widget.disorderIndex]
-                                .disItemImagePaths
-                                .map<Widget>(
-                                  (eachDisorderItemImagePath) => Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 10),
-                                    child: Container(
-                                      height: 200,
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                            eachDisorderItemImagePath,
-                                            // Provider.of<DisorderList>(context, listen: false)
-                                            //     .globalDisorderList[widget.disorderIndex]
-                                            //     .disItemImagePaths[disorderImageIndex],
-                                          ),
-                                          fit: BoxFit.fitHeight,
-                                        ),
-                                      ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '• ',
+                                    style: Theme.of(context).textTheme.bodyLarge,
+                                  ),
+                                  const SizedBox(width: 5),
+                                  Expanded(
+                                    child: Text(
+                                      eachSymptom,
+                                      style: Theme.of(context).textTheme.bodyLarge,
+                                      textAlign: TextAlign.justify,
                                     ),
                                   ),
-                                )
-                                .toList(),
-                          ),
+                                ],
+                              ),
+                            )
                         ],
                       ),
                     ),

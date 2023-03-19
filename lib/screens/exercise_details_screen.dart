@@ -75,7 +75,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                     ),
                     const SizedBox(height: 20),
                     SizedBox(
-                      height: 600,
+                      height: 500,
                       child: CustomCard(
                         child: ModelViewer(
                           // src: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',

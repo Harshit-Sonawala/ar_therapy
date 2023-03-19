@@ -23,6 +23,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   GlobalKey<ScaffoldState> homeScreenScaffoldKey = GlobalKey<ScaffoldState>(); // for opening the drawer
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,13 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const AccountScreen(
-                                // parameters to pass, example
-                                // passedNotice: NoticeModel(
-                                //   noticeId: 1,
-                                //   noticeTitle: 'Notice Title',
-                                // ),
-                                ),
+                            builder: (context) => const AccountScreen(),
                           ),
                         )
                       },

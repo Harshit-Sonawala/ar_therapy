@@ -15,8 +15,8 @@ class DisorderListProvider with ChangeNotifier {
         'Hip pain',
         'Burning or tingling down the leg',
         'Weakness, numbness, or a hard time moving the leg or foot',
-        'A constant pain on one side of the rear'
-            'A shooting pain that makes it hard to stand up'
+        'A constant pain on one side of the rear',
+        'A shooting pain that makes it hard to stand up',
       ],
       disItemExerciseList: [
         'exerciseItem3',
