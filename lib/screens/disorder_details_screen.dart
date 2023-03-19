@@ -83,13 +83,14 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                               height: 200,
                               width: 200,
                               decoration: BoxDecoration(
+                                borderRadius: const BorderRadius.all(Radius.circular(10)),
                                 image: DecorationImage(
                                   image: AssetImage(
                                     Provider.of<DisorderListProvider>(context, listen: false)
                                         .globalDisorderList[widget.disorderIndex]
                                         .disItemImagePaths[pageViewIndex],
                                   ),
-                                  fit: BoxFit.fitHeight,
+                                  fit: BoxFit.contain,
                                 ),
                               ),
                             ),
@@ -97,40 +98,6 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                         ),
                       ),
                     ),
-                    // ClipRRect(
-                    //   borderRadius: BorderRadius.circular(10),
-                    //   child: Container(
-                    //     color: const Color(0xff3d3d3d),
-                    //     height: 250,
-                    //     child: PhotoViewGallery.builder(
-                    //       scrollPhysics: const BouncingScrollPhysics(),
-                    //       itemCount: Provider.of<DisorderListProvider>(context, listen: false)
-                    //           .globalDisorderList[widget.disorderIndex]
-                    //           .disItemImagePaths
-                    //           .length,
-                    //       builder: (BuildContext context, int photoViewGalleryIndex) => PhotoViewGalleryPageOptions(
-                    //         imageProvider: AssetImage(
-                    //           Provider.of<DisorderListProvider>(context, listen: false)
-                    //               .globalDisorderList[widget.disorderIndex]
-                    //               .disItemImagePaths[photoViewGalleryIndex],
-                    //         ),
-                    //         // initialScale: PhotoViewComputedScale.contained * 0.8,
-                    //         // heroAttributes: PhotoViewHeroAttributes(tag: photoViewGalleryIndex),
-                    //       ),
-                    //       loadingBuilder: (context, event) => Center(
-                    //         child: SizedBox(
-                    //           height: 30,
-                    //           width: 30,
-                    //           child: CircularProgressIndicator(
-                    //             color: Theme.of(context).primaryColor,
-                    //             value: event == null ? 0 : event.cumulativeBytesLoaded / event.expectedTotalBytes!,
-                    //           ),
-                    //         ),
-                    //       ),
-                    //       backgroundDecoration: const BoxDecoration(color: Color.fromARGB(255, 59, 59, 59)),
-                    //     ),
-                    //   ),
-                    // ),
                     // CustomCard(
                     //   padding: const EdgeInsets.all(4.0),
                     //   child: SingleChildScrollView(
