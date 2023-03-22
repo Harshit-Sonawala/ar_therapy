@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CloudstoreProvider with ChangeNotifier {
@@ -53,5 +52,13 @@ class CloudstoreProvider with ChangeNotifier {
       debugPrint('Cloud Firestore getUserData error: $error');
     }
     return gotData;
+  }
+
+  void setUserDataById(String? passedUserId, Map<String, dynamic> passedData) async {
+    try {
+      await cloudFirestoreDB.collection('users').doc(passedUserId).set(passedData);
+    } catch (error) {
+      debugPrint('Cloud Firestore getUserById error: $error');
+    }
   }
 }

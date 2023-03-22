@@ -46,13 +46,16 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                   future: CloudstoreProvider().getUserData(widget.passedUserId),
                   builder: (BuildContext context, AsyncSnapshot fetchedDataSnapshot) {
                     if (fetchedDataSnapshot.connectionState == ConnectionState.waiting) {
-                      return Center(
-                        child: CustomCard(
-                          padding: const EdgeInsets.all(40.0),
-                          child: CircularProgressIndicator(
-                            color: Theme.of(context).primaryColor,
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CustomCard(
+                            padding: const EdgeInsets.all(40.0),
+                            child: CircularProgressIndicator(
+                              color: Theme.of(context).primaryColor,
+                            ),
                           ),
-                        ),
+                        ],
                       );
                     } else {
                       return Column(

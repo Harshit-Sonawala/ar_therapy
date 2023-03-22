@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 import '../providers/exercise_list_provider.dart';
+import '../providers/auth_provider.dart';
+import '../providers/cloudstore_provider.dart';
 
 import 'package:model_viewer_plus/model_viewer_plus.dart';
 
@@ -133,13 +135,29 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    CustomElevatedButton(
-                      onPressed: () => {
-                        debugPrint('Add Plan to Firestore User List'),
-                      },
-                      icon: Icons.add,
-                      title: 'Add Treatment Plan',
-                    ),
+                    Provider.of<AuthProvider>(context).currentUser != null
+                        ? CustomElevatedButton(
+                            onPressed: () => {
+                              debugPrint(
+                                'Add Plan to Firestore User List, ${Provider.of<AuthProvider>(context, listen: false).currentUser?.uid}',
+                              ),
+                              Provider.of<CloudstoreProvider>(context, listen: false).setUserDataById(
+                                Provider.of<AuthProvider>(context, listen: false).currentUser!.uid,
+                                {
+                                  "tempList": [false, false, true],
+                                },
+                              )
+                              //   Provider.of<CloudstoreProvider>(context, listen: false).setUserData(
+                              //   passedId: _newUserId!,
+                              //   passedName: _nameController.text.trim(),
+                              //   passedEmail: _emailController.text.trim(),
+                              //   passedAge: int.parse(_ageController.text.trim()),
+                              // );
+                            },
+                            icon: Icons.add,
+                            title: 'Add Treatment Plan',
+                          )
+                        : Container(),
                   ],
                 ),
                 // CustomCard(
