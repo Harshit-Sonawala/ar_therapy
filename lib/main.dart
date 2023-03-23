@@ -18,7 +18,7 @@ void main() async {
   try {
     cameras = await availableCameras();
   } on CameraException catch (e) {
-    print('Error: $e.code\nError Message: $e.message');
+    debugPrint('Error: $e.code\nError Message: $e.message');
   }
 
   await Firebase.initializeApp();

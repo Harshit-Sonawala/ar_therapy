@@ -1,3 +1,4 @@
+import 'package:ar_therapy/screens/photo_view_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -6,6 +7,9 @@ import '../providers/disorder_list_provider.dart';
 import '../widgets/custom_divider.dart';
 import '../widgets/custom_text_button.dart';
 import '../widgets/custom_card.dart';
+
+// import 'package:photo_view/photo_view.dart';
+// import 'package:photo_view/photo_view_gallery.dart';
 
 class DisorderDetailsScreen extends StatefulWidget {
   final int disorderIndex;
@@ -34,7 +38,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                     onPressed: () => {
                       Navigator.pop(context),
                     },
-                    padding: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(6.0),
                     icon: Icons.arrow_back,
                     borderRadius: 50,
                   ),
@@ -53,6 +57,77 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                       style: Theme.of(context).textTheme.displayLarge,
                     ),
                     const CustomDivider(),
+                    const SizedBox(height: 10),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        color: const Color(0xff4d4d4d),
+                        height: 250,
+                        child: PageView.builder(
+                          itemCount: Provider.of<DisorderListProvider>(context, listen: false)
+                              .globalDisorderList[widget.disorderIndex]
+                              .disItemImagePaths
+                              .length,
+                          itemBuilder: (context, pageViewIndex) => InkWell(
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PhotoViewScreen(
+                                    passedImageList: Provider.of<DisorderListProvider>(context, listen: false)
+                                        .globalDisorderList[widget.disorderIndex]
+                                        .disItemImagePaths,
+                                    passedSelectedIndex: pageViewIndex),
+                              ),
+                            ),
+                            child: Container(
+                              height: 200,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    Provider.of<DisorderListProvider>(context, listen: false)
+                                        .globalDisorderList[widget.disorderIndex]
+                                        .disItemImagePaths[pageViewIndex],
+                                  ),
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    // CustomCard(
+                    //   padding: const EdgeInsets.all(4.0),
+                    //   child: SingleChildScrollView(
+                    //     scrollDirection: Axis.horizontal,
+                    //     child: Row(
+                    //       children: Provider.of<DisorderListProvider>(context, listen: false)
+                    //           .globalDisorderList[widget.disorderIndex]
+                    //           .disItemImagePaths
+                    //           .map<Widget>(
+                    //             (eachDisorderItemImagePath) => Container(
+                    //               height: 200,
+                    //               width: 200,
+                    //               margin: const EdgeInsets.all(4.0),
+                    //               decoration: BoxDecoration(
+                    //                 image: DecorationImage(
+                    //                   image: AssetImage(
+                    //                     eachDisorderItemImagePath,
+                    //                     // Provider.of<DisorderList>(context, listen: false)
+                    //                     //     .globalDisorderList[widget.disorderIndex]
+                    //                     //     .disItemImagePaths[disorderImageIndex],
+                    //                   ),
+                    //                   fit: BoxFit.fitHeight,
+                    //                 ),
+                    //               ),
+                    //             ),
+                    //           )
+                    //           .toList(),
+                    //     ),
+                    //   ),
+                    // ),
                     const SizedBox(height: 20),
                     CustomCard(
                       child: Column(
@@ -68,6 +143,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                                 .globalDisorderList[widget.disorderIndex]
                                 .disItemDescription,
                             style: Theme.of(context).textTheme.bodyLarge,
+                            textAlign: TextAlign.justify,
                           ),
                         ],
                       ),
@@ -86,48 +162,28 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                           for (var eachSymptom in Provider.of<DisorderListProvider>(context, listen: false)
                               .globalDisorderList[widget.disorderIndex]
                               .disItemSymptoms)
-                            Padding(
-                              padding: const EdgeInsets.all(4.0),
-                              child: Text('- $eachSymptom', style: Theme.of(context).textTheme.bodyLarge),
-                            )
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    CustomCard(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Images',
-                            style: Theme.of(context).textTheme.displaySmall,
-                          ),
-                          const CustomDivider(),
-                          Column(
-                            children: Provider.of<DisorderListProvider>(context, listen: false)
-                                .globalDisorderList[widget.disorderIndex]
-                                .disItemImagePaths
-                                .map<Widget>(
-                                  (eachDisorderItemImagePath) => Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 10),
-                                    child: Container(
-                                      height: 200,
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                            eachDisorderItemImagePath,
-                                            // Provider.of<DisorderList>(context, listen: false)
-                                            //     .globalDisorderList[widget.disorderIndex]
-                                            //     .disItemImagePaths[disorderImageIndex],
-                                          ),
-                                          fit: BoxFit.fitHeight,
-                                        ),
-                                      ),
+                            CustomCard(
+                              color: const Color(0xff4d4d4d),
+                              padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 8.0),
+                              margin: const EdgeInsets.only(bottom: 6.0),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '• ',
+                                    style: Theme.of(context).textTheme.bodyLarge,
+                                  ),
+                                  const SizedBox(width: 5),
+                                  Expanded(
+                                    child: Text(
+                                      eachSymptom,
+                                      style: Theme.of(context).textTheme.bodyLarge,
+                                      textAlign: TextAlign.start,
                                     ),
                                   ),
-                                )
-                                .toList(),
-                          ),
+                                ],
+                              ),
+                            )
                         ],
                       ),
                     ),

@@ -43,7 +43,6 @@ class _CustomListItemState extends State<CustomListItem> {
             children: [
               if (widget.images != null)
                 Container(
-                  padding: const EdgeInsets.all(20),
                   height: 160,
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
@@ -57,13 +56,26 @@ class _CustomListItemState extends State<CustomListItem> {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  child: Align(
+                  child: Container(
                     alignment: Alignment.bottomLeft,
-                    child: Text(
-                      widget.title!,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 28,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: <Color>[
+                          Colors.black.withAlpha(0),
+                          Colors.black38,
+                        ],
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Text(
+                        widget.title!,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 26,
+                        ),
                       ),
                     ),
                   ),
@@ -80,8 +92,9 @@ class _CustomListItemState extends State<CustomListItem> {
                       ),
                     if (widget.images == null) const CustomDivider(),
                     Text(
-                      '${widget.body!.substring(0, 81)}...',
+                      '${widget.body!.substring(0, 71)}...',
                       style: Theme.of(context).textTheme.bodyLarge,
+                      textAlign: TextAlign.justify,
                     ),
                   ],
                 ),
