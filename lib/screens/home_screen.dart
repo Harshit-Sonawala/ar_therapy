@@ -9,9 +9,10 @@ import '../providers/auth_provider.dart';
 import '../widgets/custom_drawer.dart';
 import '../widgets/custom_elevated_button.dart';
 import '../widgets/custom_card.dart';
-import't-pose.dart';
+import '../widgets/custom_text_button.dart';
 import 'account_screen.dart';
-import 'model_viewer_screen.dart';
+import 't-pose.dart';
+// import 'model_viewer_screen.dart';
 // import 'disorders_screen.dart';
 // import 'exercises_screen.dart';
 
@@ -99,15 +100,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         'The perfect personal companion app to support your physical therapy',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
-
-                      
                     ],
                   ),
-                
                 ),
 
-               
-               // const SizedBox(height: 20.0),
+                // const SizedBox(height: 20.0),
                 // CustomElevatedButton(
                 //   onPressed: () => {
                 //     Navigator.push(
@@ -131,9 +128,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 //   title: 'View 3D Demo',
                 // ),
                 // const SizedBox(height: 20.0),
-                const SizedBox(height: 20),               
+                const SizedBox(height: 20),
+                CustomCard(
+                  child: Text(
+                    'Solve all of your physiotherapy related problems using state of the art Augmented Reality Technology',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                ),
+                const SizedBox(height: 20),
                 SizedBox(
-                  height: 500,
+                  height: 400,
                   child: CustomCard(
                     child: Stack(
                       children: [
@@ -142,59 +146,47 @@ class _HomeScreenState extends State<HomeScreen> {
                           autoRotate: false,
                           cameraControls: true,
                           disableZoom: true,
-                          disablePan: false,
-                          ),
+                          disablePan: true,
+                          ar: false,
+                        ),
                         Positioned(
-                        bottom: 50,
-                        left: -5,
-                        child: TextButton(onPressed: () {  },style: TextButton.styleFrom(
-                        foregroundColor: Colors.grey,
-                       ),
-                       child: const Text("Hamstring"),
-                      ), 
-                      ),
-                      Positioned(
-                        top: 50,
-                        left: -5,
-                        child: TextButton(onPressed: () {  },style: TextButton.styleFrom(
-                        foregroundColor: Colors.grey,
-                       ),
-                       child: const Text("Back"),
-                      ), 
-                      ),
-                      Positioned(
-                        bottom: 50,
-                        right: -5,
-                        child: TextButton(onPressed: () {  },style: TextButton.styleFrom(
-                        foregroundColor: Colors.grey,
-                       ),
-                       child: const Text("Neck"),
-                      ), 
-                      ),
-                      Positioned(
-                        top: 50,
-                        right: -5,
-                        child: TextButton(onPressed: () {  },style: TextButton.styleFrom(
-                        foregroundColor: Colors.grey,
-                       ),
-                       child: const Text("Shoulder"),
-                      ), 
-                      ),
-                                       
-
-
-
-
+                          top: 0,
+                          left: 0,
+                          child: CustomTextButton(
+                            onPressed: () => {},
+                            childPadding: const EdgeInsets.all(4),
+                            title: 'Back',
+                          ),
+                        ),
+                        Positioned(
+                          top: 0,
+                          right: 0,
+                          child: CustomTextButton(
+                            onPressed: () => {},
+                            childPadding: const EdgeInsets.all(4),
+                            title: 'Shoulder',
+                          ),
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          left: 0,
+                          child: CustomTextButton(
+                            onPressed: () => {},
+                            childPadding: const EdgeInsets.all(4),
+                            title: 'Hamstring',
+                          ),
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: CustomTextButton(
+                            onPressed: () => {},
+                            childPadding: const EdgeInsets.all(4),
+                            title: 'Neck',
+                          ),
+                        ),
                       ],
-                      
                     ),
-                  ),
-                ),
-                 const SizedBox(height: 20),
-                CustomCard(
-                  child: Text(
-                    'Solve all of your physiotherapy related problems using state of the art Augmented Reality Technology',
-                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
                 const SizedBox(height: 20),

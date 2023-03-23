@@ -6,6 +6,7 @@ import '../providers/auth_provider.dart';
 import '../providers/cloudstore_provider.dart';
 
 import 'package:model_viewer_plus/model_viewer_plus.dart';
+import 'package:cloud_firestore/cloud_firestore.dart'; // used for Timestamp.now()
 
 import '../widgets/custom_card.dart';
 import '../widgets/custom_text_button.dart';
@@ -144,7 +145,14 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                               Provider.of<CloudstoreProvider>(context, listen: false).setUserDataById(
                                 Provider.of<AuthProvider>(context, listen: false).currentUser!.uid,
                                 {
-                                  "tempList": [false, false, true],
+                                  'exList': [
+                                    {
+                                      'exListItemId': Provider.of<ExerciseListProvider>(context, listen: false)
+                                          .globalExerciseList[widget.exerciseIndex]
+                                          .exItemId,
+                                      'exListItemTimestamp': Timestamp.now()
+                                    },
+                                  ],
                                 },
                               )
                               //   Provider.of<CloudstoreProvider>(context, listen: false).setUserData(
