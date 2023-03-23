@@ -56,9 +56,14 @@ class CloudstoreProvider with ChangeNotifier {
 
   void setUserDataById(String? passedUserId, Map<String, dynamic> passedData) async {
     try {
-      await cloudFirestoreDB.collection('users').doc(passedUserId).set(passedData);
+      Map<String, dynamic>? gotData = await getUserData(passedUserId);
+      Map<String, dynamic>? finalData = {
+        ...gotData!,
+        ...passedData,
+      };
+      await cloudFirestoreDB.collection('users').doc(passedUserId).set(finalData);
     } catch (error) {
-      debugPrint('Cloud Firestore getUserById error: $error');
+      debugPrint('Cloud Firestore setUserDataById error: $error');
     }
   }
 }
