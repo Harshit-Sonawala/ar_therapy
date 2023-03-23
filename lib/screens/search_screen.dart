@@ -147,7 +147,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               const Icon(
                                 Icons.manage_search,
                                 size: 60.0,
-                                weight: 5.0,
+                               
                                 color: Colors.grey,
                               ),
                               const SizedBox(height: 20),
