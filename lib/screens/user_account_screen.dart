@@ -107,16 +107,23 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              CustomCard(
-                                child: Text(
-                                  'Age: ${fetchedDataSnapshot.data['userAge']}',
-                                  style: Theme.of(context).textTheme.bodyLarge,
+                              Expanded(
+                                child: CustomCard(
+                                  child: Text(
+                                    'Age: ${fetchedDataSnapshot.data['userAge']}',
+                                    style: Theme.of(context).textTheme.bodyLarge,
+                                    textAlign: TextAlign.center,
+                                  ),
                                 ),
                               ),
-                              CustomCard(
-                                child: Text(
-                                  'Gender: Male',
-                                  style: Theme.of(context).textTheme.bodyLarge,
+                              const SizedBox(width: 20),
+                              Expanded(
+                                child: CustomCard(
+                                  child: Text(
+                                    'Gender: Male',
+                                    style: Theme.of(context).textTheme.bodyLarge,
+                                    textAlign: TextAlign.center,
+                                  ),
                                 ),
                               ),
                             ],
@@ -125,50 +132,62 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              CustomCard(
-                                child: Text(
-                                  'Height: 5 ft, 6 in',
-                                  style: Theme.of(context).textTheme.bodyLarge,
+                              Expanded(
+                                child: CustomCard(
+                                  child: Text(
+                                    'Height: 5 ft, 6 in',
+                                    style: Theme.of(context).textTheme.bodyLarge,
+                                    textAlign: TextAlign.center,
+                                  ),
                                 ),
                               ),
-                              CustomCard(
-                                child: Text(
-                                  'Weight: 75Kg',
-                                  style: Theme.of(context).textTheme.bodyLarge,
+                              const SizedBox(width: 20),
+                              Expanded(
+                                child: CustomCard(
+                                  child: Text(
+                                    'Weight: 75Kg',
+                                    style: Theme.of(context).textTheme.bodyLarge,
+                                    textAlign: TextAlign.center,
+                                  ),
                                 ),
                               ),
                             ],
                           ),
-                          const SizedBox(height: 30),
+                          const SizedBox(height: 60),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              CustomElevatedButton(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 10,
-                                  horizontal: 16,
+                              Expanded(
+                                child: CustomElevatedButton(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 10,
+                                    horizontal: 16,
+                                  ),
+                                  onPressed: () => {
+                                    Provider.of<AuthProvider>(context, listen: false).signOut(),
+                                    Navigator.pop(context),
+                                  },
+                                  icon: Icons.logout,
+                                  iconSize: 20,
+                                  title: 'Logout',
+                                  fontSize: 18,
                                 ),
-                                onPressed: () => {
-                                  Provider.of<AuthProvider>(context, listen: false).signOut(),
-                                  Navigator.pop(context),
-                                },
-                                icon: Icons.logout,
-                                iconSize: 20,
-                                title: 'Logout',
-                                fontSize: 18,
                               ),
-                              CustomElevatedButton(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 10,
-                                  horizontal: 16,
+                              const SizedBox(width: 20),
+                              Expanded(
+                                child: CustomElevatedButton(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 10,
+                                    horizontal: 16,
+                                  ),
+                                  onPressed: () => {
+                                    debugPrint('Edit Details Pressed'),
+                                  },
+                                  icon: Icons.edit,
+                                  iconSize: 20,
+                                  title: 'Edit Details',
+                                  fontSize: 18,
                                 ),
-                                onPressed: () => {
-                                  debugPrint('Edit Details Pressed'),
-                                },
-                                icon: Icons.edit,
-                                iconSize: 20,
-                                title: 'Edit Details',
-                                fontSize: 18,
                               ),
                             ],
                           ),
