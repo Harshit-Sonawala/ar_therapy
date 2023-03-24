@@ -64,7 +64,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'About',
+                            'Summary',
                             style: Theme.of(context).textTheme.displaySmall,
                           ),
                           const CustomDivider(),
@@ -73,6 +73,53 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                                   .globalExerciseList[widget.exerciseIndex]
                                   .exItemDescription,
                               style: Theme.of(context).textTheme.bodyLarge),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    CustomCard(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Steps to Perform',
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
+                          const CustomDivider(),
+                          ...Provider.of<ExerciseListProvider>(context, listen: false)
+                              .globalExerciseList[widget.exerciseIndex]
+                              .exItemProcedure
+                              .asMap()
+                              .entries
+                              .map(
+                                (eachStep) => CustomCard(
+                                  color: const Color(0xff4d4d4d),
+                                  padding: const EdgeInsets.all(8.0),
+                                  margin: const EdgeInsets.only(bottom: 8.0),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        '${eachStep.key + 1}) ',
+                                        style: Theme.of(context).textTheme.bodyLarge,
+                                      ),
+                                      const SizedBox(width: 5),
+                                      Expanded(
+                                        child: Text(
+                                          eachStep.value,
+                                          style: Theme.of(context).textTheme.bodyLarge,
+                                          textAlign: TextAlign.start,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              )
+                              .toList(),
+                          // for (var eachCause in Provider.of<ExerciseListProvider>(context, listen: false)
+                          //     .globalExerciseList[widget.exerciseIndex]
+                          //     .exItemProcedure)
                         ],
                       ),
                     ),

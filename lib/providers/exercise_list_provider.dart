@@ -46,7 +46,7 @@ class ExerciseListProvider with ChangeNotifier {
       exItemId: 'exerciseItem3',
       exItemTitle: 'Knees Stretch',
       exItemDescription:
-          'This exercise if for facilitating better movement of the leg and the movement of the knees. You slowly lift your legs so as to gradually bend at the knees',
+          'This exercise is for facilitating better movement of the leg and the movement of the knees. You slowly lift your legs so as to gradually bend at the knees',
       exItemProcedure: [
         'Stand Straight',
         'Put your hands behind your head',
