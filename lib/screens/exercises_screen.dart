@@ -65,7 +65,6 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                               ),
                             ),
                           },
-
                           title: Provider.of<ExerciseListProvider>(context, listen: false)
                               .globalExerciseList[exerciseIndex]
                               .exItemTitle,

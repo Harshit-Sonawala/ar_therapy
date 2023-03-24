@@ -58,7 +58,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                 Column(
                   children: [
                     const CustomDivider(),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
                     CustomCard(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
