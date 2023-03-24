@@ -1,4 +1,5 @@
 import 'package:ar_therapy/ai/pushed_pageS.dart';
+import 'package:ar_therapy/screens/model_viewer_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:model_viewer_plus/model_viewer_plus.dart';
 
@@ -194,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   onPressed: () => {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const MyWidget(),
+                        builder: (context) => const ModelViewerScreen(),
                       ),
                     )
                   },
