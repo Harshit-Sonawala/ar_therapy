@@ -134,7 +134,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'About',
+                            'Summary',
                             style: Theme.of(context).textTheme.displaySmall,
                           ),
                           const CustomDivider(),
@@ -145,6 +145,45 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                             style: Theme.of(context).textTheme.bodyLarge,
                             textAlign: TextAlign.justify,
                           ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    CustomCard(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Causes',
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
+                          const CustomDivider(),
+                          for (var eachCause in Provider.of<DisorderListProvider>(context, listen: false)
+                              .globalDisorderList[widget.disorderIndex]
+                              .disItemCauses)
+                            CustomCard(
+                              color: const Color(0xff4d4d4d),
+                              padding: const EdgeInsets.all(8.0),
+                              margin: const EdgeInsets.only(bottom: 8.0),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '• ',
+                                    style: Theme.of(context).textTheme.bodyLarge,
+                                  ),
+                                  const SizedBox(width: 5),
+                                  Expanded(
+                                    child: Text(
+                                      eachCause,
+                                      style: Theme.of(context).textTheme.bodyLarge,
+                                      textAlign: TextAlign.start,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
                         ],
                       ),
                     ),

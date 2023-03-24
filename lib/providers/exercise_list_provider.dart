@@ -21,11 +21,11 @@ class ExerciseListProvider with ChangeNotifier {
       exItemDisorderList: [
         'disorderItem1',
       ],
-      exItemModelPath: 'assets/forward_flexion.glb',
+      exItemModelPath: 'assets/3d_models/forward_flexion.glb',
     ),
     ExerciseItem(
       exItemId: 'exerciseItem2',
-      exItemTitle: 'Scalpular Retractions',
+      exItemTitle: 'Scapular Retractions',
       exItemDescription:
           'Scapular retraction is the medical term for squeezing your shoulder blades together. The proper name for shoulder blades is scapulae (or scapula if referring to only one). And the actual motion of retraction is just that, retracting. Put together and you have scapular retraction.',
       exItemProcedure: [
@@ -35,12 +35,12 @@ class ExerciseListProvider with ChangeNotifier {
         'Slowly move arms from the left, to the center and then to the right',
       ],
       exItemFocusAreas: [
-        'Upper Back, Scalpular',
+        'Upper Back, Scapular',
       ],
       exItemDisorderList: [
         'disorderItem1',
       ],
-      exItemModelPath: 'assets/scalpular.glb',
+      exItemModelPath: 'assets/3d_models/scapular.glb',
     ),
     ExerciseItem(
       exItemId: 'exerciseItem3',
@@ -59,7 +59,7 @@ class ExerciseListProvider with ChangeNotifier {
       exItemDisorderList: [
         'disorderItem1',
       ],
-      exItemModelPath: 'assets/knees_stretch.glb',
+      exItemModelPath: 'assets/3d_models/knees_stretch.glb',
     ),
   ];
 

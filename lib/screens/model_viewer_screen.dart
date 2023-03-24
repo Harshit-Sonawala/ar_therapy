@@ -46,7 +46,7 @@ class _ModelViewerScreenState extends State<ModelViewerScreen> {
                     // src: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
                     //src: 'assets/3Dmodels/final.glb', // Human with given skeleton
                     // src: 'assets/3D models/back_exercise.glb',
-                    src: 'assets/chin_chest.glb',
+                    src: 'assets/3d_models/chin_chest.glb',
                     alt: "Animated 3D model of exercise",
                     ar: true,
                     autoRotate: true,

@@ -104,31 +104,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
-
-                // const SizedBox(height: 20.0),
-                // CustomElevatedButton(
-                //   onPressed: () => {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //         builder: (context) => const DemoScreen3D(
-                //             // parameters to pass, example
-                //             // passedNotice: NoticeModel(
-                //             //   noticeId: 1,
-                //             //   noticeTitle: 'Notice Title',
-                //             //   noticeDate: DateTime.now(),
-                //             //   noticePosterName: 'John Doe',
-                //             //   noticePosterEmail: 'johndoe@mail.com',
-                //             // ),
-                //             ),
-                //       ),
-                //     )
-                //   },
-                //   icon: Icons.threed_rotation_rounded,
-                //   iconSize: 28,
-                //   title: 'View 3D Demo',
-                // ),
-                // const SizedBox(height: 20.0),
                 const SizedBox(height: 20),
                 CustomCard(
                   child: Text(
@@ -143,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Stack(
                       children: [
                         ModelViewer(
-                          src: 'assets/tpose.glb',
+                          src: 'assets/3d_models/tpose.glb',
                           autoRotate: false,
                           cameraControls: true,
                           disableZoom: true,
@@ -155,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           left: 0,
                           child: CustomTextButton(
                             onPressed: () => {},
-                            childPadding: const EdgeInsets.all(4),
+                            childPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 4),
                             title: 'Back',
                           ),
                         ),
@@ -164,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           right: 0,
                           child: CustomTextButton(
                             onPressed: () => {},
-                            childPadding: const EdgeInsets.all(4),
+                            childPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 4),
                             title: 'Shoulder',
                           ),
                         ),
@@ -173,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           left: 0,
                           child: CustomTextButton(
                             onPressed: () => {},
-                            childPadding: const EdgeInsets.all(4),
+                            childPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 4),
                             title: 'Hamstring',
                           ),
                         ),
@@ -182,7 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           right: 0,
                           child: CustomTextButton(
                             onPressed: () => {},
-                            childPadding: const EdgeInsets.all(4),
+                            childPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 4),
                             title: 'Neck',
                           ),
                         ),

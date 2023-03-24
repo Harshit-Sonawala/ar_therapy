@@ -85,7 +85,6 @@ class _CustomListItemState extends State<CustomListItem> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                   
                     if (widget.images == null)
                       Text(
                         widget.title!,

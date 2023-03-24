@@ -68,6 +68,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/images/disorders/
+    - assets/3d_models/
 
   fonts:
     - family: Montserrat
