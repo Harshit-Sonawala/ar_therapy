@@ -189,19 +189,28 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                               debugPrint(
                                 'Add Plan to Firestore User List, ${Provider.of<AuthProvider>(context, listen: false).currentUser?.uid}',
                               ),
-                              Provider.of<CloudstoreProvider>(context, listen: false).setUserDataById(
+                              Provider.of<CloudstoreProvider>(context, listen: false).addToUserExListById(
                                 Provider.of<AuthProvider>(context, listen: false).currentUser!.uid,
                                 {
-                                  'exList': [
-                                    {
-                                      'exListItemId': Provider.of<ExerciseListProvider>(context, listen: false)
-                                          .globalExerciseList[widget.exerciseIndex]
-                                          .exItemId,
-                                      'exListItemTimestamp': Timestamp.now()
-                                    },
-                                  ],
+                                  'exListItemId': Provider.of<ExerciseListProvider>(context, listen: false)
+                                      .globalExerciseList[widget.exerciseIndex]
+                                      .exItemId,
+                                  'exListItemTimestamp': Timestamp.now()
                                 },
-                              )
+                              ),
+                              // Provider.of<CloudstoreProvider>(context, listen: false).setUserDataById(
+                              //   Provider.of<AuthProvider>(context, listen: false).currentUser!.uid,
+                              //   {
+                              //     'exList': [
+                              //       {
+                              //         'exListItemId': Provider.of<ExerciseListProvider>(context, listen: false)
+                              //             .globalExerciseList[widget.exerciseIndex]
+                              //             .exItemId,
+                              //         'exListItemTimestamp': Timestamp.now()
+                              //       },
+                              //     ],
+                              //   },
+                              // ),
                               //   Provider.of<CloudstoreProvider>(context, listen: false).setUserData(
                               //   passedId: _newUserId!,
                               //   passedName: _nameController.text.trim(),

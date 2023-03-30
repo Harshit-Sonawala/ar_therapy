@@ -131,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: CustomTextButton(
                             onPressed: () => {},
                             childPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 4),
-                            title: 'Back',
+                            title: 'Neck',
                           ),
                         ),
                         Positioned(
@@ -149,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: CustomTextButton(
                             onPressed: () => {},
                             childPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 4),
-                            title: 'Hamstring',
+                            title: 'Back',
                           ),
                         ),
                         Positioned(
@@ -158,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: CustomTextButton(
                             onPressed: () => {},
                             childPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 4),
-                            title: 'Neck',
+                            title: 'Hamstring',
                           ),
                         ),
                       ],

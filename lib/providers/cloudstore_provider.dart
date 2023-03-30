@@ -57,13 +57,39 @@ class CloudstoreProvider with ChangeNotifier {
   void setUserDataById(String? passedUserId, Map<String, dynamic> passedData) async {
     try {
       Map<String, dynamic>? gotData = await getUserData(passedUserId);
-      Map<String, dynamic>? finalData = {
+      Map<String, dynamic> finalData = {
         ...gotData!,
         ...passedData,
       };
       await cloudFirestoreDB.collection('users').doc(passedUserId).set(finalData);
     } catch (error) {
       debugPrint('Cloud Firestore setUserDataById error: $error');
+    }
+  }
+
+  void addToUserExListById(String? passedUserId, Map<String, dynamic> passedExercise) async {
+    try {
+      List<dynamic> finalList;
+      Map<String, dynamic> finalData;
+      Map<String, dynamic>? gotData = await getUserData(passedUserId);
+      if (gotData!['exList'] != null && gotData['exList'].length > 0) {
+        finalList = gotData['exList'];
+        finalList.add(passedExercise);
+        finalData = {
+          ...gotData,
+          'exList': finalList,
+        };
+      } else {
+        finalData = {
+          ...gotData,
+          'exList': [
+            passedExercise,
+          ],
+        };
+      }
+      await cloudFirestoreDB.collection('users').doc(passedUserId).set(finalData);
+    } catch (error) {
+      debugPrint('Cloud Firestore addToUserExListById error: $error');
     }
   }
 }
