@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 
 import '../main.dart';
+import '../widgets/custom_drawer.dart';
 import './home_screen.dart';
 import './explore_screen.dart';
 import './search_screen.dart';
@@ -18,6 +19,8 @@ class BottomNavWrapperScreen extends StatefulWidget {
 }
 
 class _BottomNavWrapperScreenState extends State<BottomNavWrapperScreen> {
+  GlobalKey<ScaffoldState> bottomNavWrapperScaffoldKey = GlobalKey<ScaffoldState>();
+
   final List<Map<String, Object>> _screenData = [
     {"page": HomeScreen(cameras!)},
     {"page": const ExploreScreen()},
@@ -30,7 +33,9 @@ class _BottomNavWrapperScreenState extends State<BottomNavWrapperScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: bottomNavWrapperScaffoldKey,
       extendBody: true, // needed for transparent background of the bottomNavigationBar
+      drawer: const CustomDrawer(),
       body: _screenData[_selectedScreenIndex]['page'] as Widget,
       bottomNavigationBar: CustomCard(
         margin: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),

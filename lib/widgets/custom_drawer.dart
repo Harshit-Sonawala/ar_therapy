@@ -48,29 +48,29 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
           ),
-          ListTile(
-            onTap: () => {},
-            leading: const Icon(Icons.home, size: 24),
-            title: Text(
-              'Home',
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-          ),
-          ListTile(
-            onTap: () => {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const UserAccountScreen(),
-                ),
-              ),
-            },
-            leading: const Icon(Icons.accessibility, size: 24.0),
-            title: Text(
-              'My Exercises',
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-          ),
+          // ListTile(
+          //   onTap: () => {},
+          //   leading: const Icon(Icons.home, size: 24),
+          //   title: Text(
+          //     'Home',
+          //     style: Theme.of(context).textTheme.bodyLarge,
+          //   ),
+          // ),
+          // ListTile(
+          //   onTap: () => {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(
+          //         builder: (context) => const UserAccountScreen(),
+          //       ),
+          //     ),
+          //   },
+          //   leading: const Icon(Icons.accessibility, size: 24.0),
+          //   title: Text(
+          //     'My Exercises',
+          //     style: Theme.of(context).textTheme.bodyLarge,
+          //   ),
+          // ),
           ListTile(
             onTap: () => {
               // Navigator.push(

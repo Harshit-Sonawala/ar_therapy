@@ -12,7 +12,7 @@ import '../widgets/custom_elevated_button.dart';
 import '../widgets/custom_card.dart';
 import '../widgets/custom_text_button.dart';
 import 'account_screen.dart';
-import 't-pose.dart';
+// import 't-pose.dart';
 // import 'model_viewer_screen.dart';
 // import 'disorders_screen.dart';
 // import 'exercises_screen.dart';
@@ -25,13 +25,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  GlobalKey<ScaffoldState> homeScreenScaffoldKey = GlobalKey<ScaffoldState>(); // for opening the drawer
+  // GlobalKey<ScaffoldState> homeScreenScaffoldKey = GlobalKey<ScaffoldState>(); // for opening the drawer
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: homeScreenScaffoldKey, // for opening the drawer
-      drawer: const CustomDrawer(),
+      // key: homeScreenScaffoldKey, // for opening the drawer
       // floatingActionButton: FloatingActionButton(
       //   onPressed: () => {
       //     print(
@@ -54,7 +53,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         IconButton(
                           onPressed: () => {
-                            homeScreenScaffoldKey.currentState?.openDrawer(),
+                            // widget.passedKey.currentState?.openDrawer(),
+                            Scaffold.of(context).openDrawer(),
                           },
                           icon: const Icon(
                             Icons.menu,
