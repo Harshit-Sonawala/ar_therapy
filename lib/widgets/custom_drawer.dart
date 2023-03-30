@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../screens/wip_screen.dart';
-import '../screens/user_account_screen.dart';
+// import '../screens/user_account_screen.dart';
 // import '../screens/test_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -33,13 +33,22 @@ class CustomDrawer extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'AR Therapy',
-                        style: Theme.of(context).textTheme.displayMedium,
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.view_in_ar,
+                            size: 36,
+                          ),
+                          const SizedBox(width: 5.0),
+                          Text(
+                            'AR Therapy',
+                            style: Theme.of(context).textTheme.displayMedium,
+                          ),
+                        ],
                       ),
                       const SizedBox(height: 10.0),
                       Text(
-                        'Version 0.4.2',
+                        'Version 0.4.3',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ],

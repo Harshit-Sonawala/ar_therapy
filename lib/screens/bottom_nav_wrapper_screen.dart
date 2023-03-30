@@ -43,15 +43,24 @@ class _BottomNavWrapperScreenState extends State<BottomNavWrapperScreen> {
         child: BottomNavigationBar(
           items: [
             const BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Icon(
+                Icons.home,
+                size: 30,
+              ),
               label: 'Home',
             ),
             const BottomNavigationBarItem(
-              icon: Icon(Icons.explore),
+              icon: Icon(
+                Icons.explore,
+                size: 30,
+              ),
               label: 'Explore',
             ),
             const BottomNavigationBarItem(
-              icon: Icon(Icons.search),
+              icon: Icon(
+                Icons.search,
+                size: 30,
+              ),
               label: 'Search',
             ),
             // if (context.watch<AuthProvider>().currentUser != null)
