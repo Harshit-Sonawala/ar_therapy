@@ -51,7 +51,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   },
                   backgroundImage: 'assets/images/disorders.jpeg',
                   child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+                    padding: EdgeInsets.symmetric(vertical: 80, horizontal: 20),
                     child: Text('Browse Disorders'),
                   ),
                 ),
@@ -66,7 +66,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   },
                   backgroundImage: 'assets/images/exercises.jpeg',
                   child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+                    padding: EdgeInsets.symmetric(vertical: 80, horizontal: 20),
                     child: Text('Browse Exercises'),
                   ),
                 ),

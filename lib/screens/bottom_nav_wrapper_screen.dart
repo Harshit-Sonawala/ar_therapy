@@ -8,8 +8,9 @@ import '../widgets/custom_drawer.dart';
 import './home_screen.dart';
 import './explore_screen.dart';
 import './search_screen.dart';
+import './my_exercises_screen.dart';
 // import './user_account_screen.dart';
-import './wip_screen.dart';
+// import './wip_screen.dart';
 import '../widgets/custom_card.dart';
 
 class BottomNavWrapperScreen extends StatefulWidget {
@@ -25,7 +26,7 @@ class _BottomNavWrapperScreenState extends State<BottomNavWrapperScreen> {
     {"page": HomeScreen(cameras!)},
     {"page": const ExploreScreen()},
     {"page": const SearchScreen()},
-    {"page": const WipScreen(screenName: 'My Exercises')},
+    {"page": const MyExercisesScreen()},
   ];
 
   int _selectedScreenIndex = 0;
@@ -45,28 +46,31 @@ class _BottomNavWrapperScreenState extends State<BottomNavWrapperScreen> {
             const BottomNavigationBarItem(
               icon: Icon(
                 Icons.home,
-                size: 30,
+                size: 26,
               ),
               label: 'Home',
             ),
             const BottomNavigationBarItem(
               icon: Icon(
                 Icons.explore,
-                size: 30,
+                size: 26,
               ),
               label: 'Explore',
             ),
             const BottomNavigationBarItem(
               icon: Icon(
                 Icons.search,
-                size: 30,
+                size: 26,
               ),
               label: 'Search',
             ),
             // if (context.watch<AuthProvider>().currentUser != null)
             if (Provider.of<AuthProvider>(context).currentUser != null)
               const BottomNavigationBarItem(
-                icon: Icon(Icons.accessibility_new),
+                icon: Icon(
+                  Icons.accessibility_new,
+                  size: 26,
+                ),
                 label: 'My Exercises',
               ),
           ],

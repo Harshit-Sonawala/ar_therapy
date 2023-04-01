@@ -29,6 +29,7 @@ class DisorderListProvider with ChangeNotifier {
       disItemImagePaths: [
         'assets/images/disorders/disorderItem1_1.jpeg',
         'assets/images/disorders/disorderItem1_2.jpeg',
+        'assets/images/disorders/disorderItem1_3.jpeg',
       ],
     ),
     DisorderItem(
@@ -80,9 +81,9 @@ class DisorderListProvider with ChangeNotifier {
         'exerciseItem10',
       ],
       disItemImagePaths: [
-        'assets/images/disorders/disorderItem2_1.jpg',
-        'assets/images/disorders/disorderItem2_2.jpeg',
-        'assets/images/disorders/disorderItem2_3.jpeg',
+        'assets/images/disorders/disorderItem3_1.jpeg',
+        'assets/images/disorders/disorderItem3_2.jpeg',
+        'assets/images/disorders/disorderItem3_3.jpeg',
       ],
     ),
     DisorderItem(
@@ -108,9 +109,10 @@ class DisorderListProvider with ChangeNotifier {
         'exerciseItem10',
       ],
       disItemImagePaths: [
-        'assets/images/disorders/disorderItem2_1.jpg',
-        'assets/images/disorders/disorderItem2_2.jpeg',
-        'assets/images/disorders/disorderItem2_3.jpeg',
+        'assets/images/disorders/disorderItem4_1.jpeg',
+        'assets/images/disorders/disorderItem4_2.png',
+        'assets/images/disorders/disorderItem4_3.jpeg',
+        'assets/images/disorders/disorderItem4_4.jpeg',
       ],
     ),
     DisorderItem(
@@ -134,9 +136,11 @@ class DisorderListProvider with ChangeNotifier {
         'exerciseItem10',
       ],
       disItemImagePaths: [
-        'assets/images/disorders/disorderItem2_1.jpg',
-        'assets/images/disorders/disorderItem2_2.jpeg',
-        'assets/images/disorders/disorderItem2_3.jpeg',
+        'assets/images/disorders/disorderItem5_1.jpg',
+        'assets/images/disorders/disorderItem5_2.jpg',
+        'assets/images/disorders/disorderItem5_3.jpg',
+        'assets/images/disorders/disorderItem5_4.jpg',
+        'assets/images/disorders/disorderItem5_5.jpg',
       ],
     ),
     DisorderItem(
@@ -161,9 +165,10 @@ class DisorderListProvider with ChangeNotifier {
         'exerciseItem10',
       ],
       disItemImagePaths: [
-        'assets/images/disorders/disorderItem2_1.jpg',
-        'assets/images/disorders/disorderItem2_2.jpeg',
-        'assets/images/disorders/disorderItem2_3.jpeg',
+        'assets/images/disorders/disorderItem6_1.jpg',
+        'assets/images/disorders/disorderItem6_2.jpg',
+        'assets/images/disorders/disorderItem6_3.jpg',
+        'assets/images/disorders/disorderItem6_4.jpg',
       ],
     ),
     DisorderItem(
@@ -185,9 +190,12 @@ class DisorderListProvider with ChangeNotifier {
         'exerciseItem10',
       ],
       disItemImagePaths: [
-        'assets/images/disorders/disorderItem2_1.jpg',
-        'assets/images/disorders/disorderItem2_2.jpeg',
-        'assets/images/disorders/disorderItem2_3.jpeg',
+        'assets/images/disorders/disorderItem7_1.jpg',
+        'assets/images/disorders/disorderItem7_2.jpg',
+        'assets/images/disorders/disorderItem7_3.jpg',
+        'assets/images/disorders/disorderItem7_4.jpg',
+        'assets/images/disorders/disorderItem7_5.jpg',
+        'assets/images/disorders/disorderItem7_6.jpg',
       ],
     ),
     DisorderItem(
@@ -209,9 +217,15 @@ class DisorderListProvider with ChangeNotifier {
         'exerciseItem10',
       ],
       disItemImagePaths: [
-        'assets/images/disorders/disorderItem2_1.jpg',
-        'assets/images/disorders/disorderItem2_2.jpeg',
-        'assets/images/disorders/disorderItem2_3.jpeg',
+        'assets/images/disorders/disorderItem10_1.jpg',
+        'assets/images/disorders/disorderItem10_2.jpg',
+        'assets/images/disorders/disorderItem10_3.jpg',
+        'assets/images/disorders/disorderItem10_4.jpg',
+        'assets/images/disorders/disorderItem10_5.jpg',
+        'assets/images/disorders/disorderItem10_6.jpg',
+        'assets/images/disorders/disorderItem10_7.jpg',
+        'assets/images/disorders/disorderItem10_8.jpg',
+        'assets/images/disorders/disorderItem10_9.jpg',
       ],
     ),
   ];

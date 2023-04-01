@@ -90,7 +90,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                                         .globalDisorderList[widget.disorderIndex]
                                         .disItemImagePaths[pageViewIndex],
                                   ),
-                                  fit: BoxFit.contain,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ),
