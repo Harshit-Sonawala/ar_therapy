@@ -9,6 +9,7 @@ import '../providers/cloudstore_provider.dart';
 // import '../widgets/custom_text_button.dart';
 import '../widgets/custom_card.dart';
 import '../widgets/custom_list_item.dart';
+import '../widgets/custom_circular_loader.dart';
 
 import 'exercise_details_screen.dart';
 
@@ -27,6 +28,7 @@ class _MyExercisesScreenState extends State<MyExercisesScreen> {
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Row(
                 children: [
@@ -40,7 +42,7 @@ class _MyExercisesScreenState extends State<MyExercisesScreen> {
               const SizedBox(height: 20),
               CustomCard(
                 child: Text(
-                  'Exercises added to your list are displayed here:',
+                  'Exercises added to favourites are here:',
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
@@ -49,12 +51,7 @@ class _MyExercisesScreenState extends State<MyExercisesScreen> {
                 future: CloudstoreProvider().getUserData(Provider.of<AuthProvider>(context).currentUser!.uid),
                 builder: (BuildContext context, AsyncSnapshot fetchedDataSnapshot) {
                   if (fetchedDataSnapshot.connectionState == ConnectionState.waiting) {
-                    return CustomCard(
-                      padding: const EdgeInsets.all(40.0),
-                      child: CircularProgressIndicator(
-                        color: Theme.of(context).primaryColor,
-                      ),
-                    );
+                    return const CustomCircularLoader(title: 'Loading Exercises...');
                   } else {
                     List<String> filterExIdsList = List<String>.from(fetchedDataSnapshot.data['exList']
                         .map((eachExListItem) => '${eachExListItem['exListItemId']}')

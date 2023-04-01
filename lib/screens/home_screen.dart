@@ -193,13 +193,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   title: 'Try AI Mapping',
                 ),
                 const SizedBox(height: 20.0),
-                Provider.of<AuthProvider>(context).currentUser != null
-                    ? CustomElevatedButton(
-                        onPressed: () => {},
-                        trailingIcon: Icons.arrow_forward,
-                        title: 'Continue Treatment',
-                      )
-                    : Container(),
+                // Provider.of<AuthProvider>(context).currentUser != null
+                //     ? CustomElevatedButton(
+                //         onPressed: () => {},
+                //         trailingIcon: Icons.arrow_forward,
+                //         title: 'Continue Treatment',
+                //       )
+                //     : Container(),
               ],
             ),
           ),

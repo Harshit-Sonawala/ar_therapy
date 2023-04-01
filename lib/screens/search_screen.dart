@@ -5,6 +5,7 @@ import './webview_screen.dart';
 
 import '../widgets/custom_card.dart';
 import '../widgets/custom_elevated_button.dart';
+import '../widgets/custom_circular_loader.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -111,30 +112,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
                 const SizedBox(height: 20.0),
                 _searchController.text.trim() != ''
-                    ? Center(
-                        child: CustomCard(
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 60.0,
-                            horizontal: 60.0,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Center(
-                                child: CircularProgressIndicator(
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                              ),
-                              const SizedBox(height: 20),
-                              Text(
-                                'Loading results...',
-                                style: Theme.of(context).textTheme.bodyLarge,
-                                textAlign: TextAlign.center,
-                              )
-                            ],
-                          ),
-                        ),
-                      )
+                    ? const CustomCircularLoader(title: 'Loading Search Results...')
                     : Center(
                         child: CustomCard(
                           padding: const EdgeInsets.symmetric(

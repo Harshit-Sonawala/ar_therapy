@@ -8,10 +8,15 @@ import '../widgets/custom_card.dart';
 import '../widgets/custom_divider.dart';
 import '../widgets/custom_elevated_button.dart';
 import '../widgets/custom_text_button.dart';
+import '../widgets/custom_circular_loader.dart';
 
 class UserAccountScreen extends StatefulWidget {
   final String? passedUserId;
-  const UserAccountScreen({this.passedUserId, Key? key}) : super(key: key);
+
+  const UserAccountScreen({
+    required this.passedUserId,
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<UserAccountScreen> createState() => _UserAccountScreenState();
@@ -42,17 +47,11 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                     const Text('My Account'),
                   ],
                 ),
-                const SizedBox(height: 20),
                 FutureBuilder(
                   future: CloudstoreProvider().getUserData(widget.passedUserId),
                   builder: (BuildContext context, AsyncSnapshot fetchedDataSnapshot) {
                     if (fetchedDataSnapshot.connectionState == ConnectionState.waiting) {
-                      return CustomCard(
-                        padding: const EdgeInsets.all(40.0),
-                        child: CircularProgressIndicator(
-                          color: Theme.of(context).primaryColor,
-                        ),
-                      );
+                      return const CustomCircularLoader(title: 'Loading User Details...');
                     } else {
                       return Column(
                         children: [
