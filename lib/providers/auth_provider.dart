@@ -10,6 +10,7 @@ class AuthProvider with ChangeNotifier {
   Stream<User?> get authStateChanges => FirebaseAuth.instance.authStateChanges();
 
   Future<String?> createUserWithEmailAndPassword({
+    required BuildContext context,
     required String passedEmail,
     required String passedPassword,
     required String passedName,
@@ -27,13 +28,38 @@ class AuthProvider with ChangeNotifier {
           );
       debugPrint('Successfully created user: ${currentUser!.displayName}, ${currentUser!.uid}');
       notifyListeners();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: Text(
+            'Successfully created user',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          backgroundColor: const Color(0xff3d3d3d),
+          closeIconColor: Theme.of(context).primaryColor,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        ),
+      );
     } catch (error) {
       debugPrint('createUserWithEmailAndPassword error: $error');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: Text(
+            '$error',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          backgroundColor: const Color(0xff3d3d3d),
+          closeIconColor: Theme.of(context).primaryColor,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        ),
+      );
     }
     return currentUser!.uid;
   }
 
   Future<void> signInWithEmailAndPassword({
+    required BuildContext context,
     required String passedEmail,
     required String passedPassword,
   }) async {
@@ -43,17 +69,65 @@ class AuthProvider with ChangeNotifier {
         password: passedPassword,
       );
       notifyListeners();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: Text(
+            'Successfully Signed In As: ${currentUser!.displayName}',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          backgroundColor: const Color(0xff3d3d3d),
+          closeIconColor: Theme.of(context).primaryColor,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        ),
+      );
     } catch (error) {
       debugPrint('signInWithEmailAndPassword error: $error');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: Text(
+            '$error',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          backgroundColor: const Color(0xff3d3d3d),
+          closeIconColor: Theme.of(context).primaryColor,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        ),
+      );
     }
   }
 
-  Future<void> signOut() async {
+  Future<void> signOut({required BuildContext context}) async {
     try {
       await FirebaseAuth.instance.signOut();
       notifyListeners();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: Text(
+            'Successfully Signed Out',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          backgroundColor: const Color(0xff3d3d3d),
+          closeIconColor: Theme.of(context).primaryColor,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        ),
+      );
     } catch (error) {
       debugPrint('signOut error: $error');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: Text(
+            '$error',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          backgroundColor: const Color(0xff3d3d3d),
+          closeIconColor: Theme.of(context).primaryColor,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        ),
+      );
     }
   }
 

@@ -59,14 +59,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 10,
                     ),
                     Text(
-                      'Login here:',
-                      style: Theme.of(context).textTheme.bodyLarge,
+                      'Login with your existing account details:',
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     const SizedBox(height: 40),
                     TextField(
                       controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
-                      style: Theme.of(context).textTheme.bodyLarge,
+                      style: Theme.of(context).textTheme.bodyMedium,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
                         labelText: 'Email Address',
@@ -98,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     TextField(
                       obscureText: _passIsObscured,
                       controller: _passwordController,
-                      style: Theme.of(context).textTheme.bodyLarge,
+                      style: Theme.of(context).textTheme.bodyMedium,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
                         labelText: 'Password',
@@ -142,6 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           'Email: ${_emailController.text.trim()}, Password: ${_passwordController.text.trim()}',
                         ),
                         Provider.of<AuthProvider>(context, listen: false).signInWithEmailAndPassword(
+                          context: context,
                           passedEmail: _emailController.text.trim(),
                           passedPassword: _passwordController.text.trim(),
                         ),
@@ -149,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       title: 'Submit',
                       mainAxisAlignment: MainAxisAlignment.center,
                     ),
-                    const SizedBox(height: 40),
+                    const SizedBox(height: 20),
                     CustomTextButton(
                       onPressed: () => {
                         Navigator.of(context).pushReplacement(

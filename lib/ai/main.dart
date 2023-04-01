@@ -1,12 +1,11 @@
-import 'package:flutter/material.dart';  
+import 'package:flutter/material.dart';
 import 'dart:async';
-  import 'package:camera/camera.dart';
-  import 'pushed_pageS.dart';
+import 'package:camera/camera.dart';
+import 'pushed_pageS.dart';
 
 List<CameraDescription>? cameras;
-Future<Null> main() async
-{
-   WidgetsFlutterBinding.ensureInitialized();
+Future<Null> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   try {
     cameras = await availableCameras();
   } on CameraException catch (e) {
@@ -14,8 +13,6 @@ Future<Null> main() async
   }
 
   runApp(New2());
-
-
 }
 
 class New2 extends StatelessWidget {
@@ -23,40 +20,29 @@ class New2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
-   
     return MaterialApp(
       title: 'AI MAPPING',
       debugShowCheckedModeBanner: false,
       home: MainScreen(cameras),
       routes: {
         MainScreen.id: (context) => MainScreen(cameras!),
-    
+
         //DemoScreen.id: (context) => DemoScreen(),
       },
-                
     );
-
   }
-  
-  
 }
 
-
 class MainScreen extends StatelessWidget {
-  
-  
-   const MainScreen(cameras, {Key? key}) : super(key: key);
+  const MainScreen(cameras, {Key? key}) : super(key: key);
 
   static const String id = 'main_screen';
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
     Size screen = MediaQuery.of(context).size;
-    
 
     return Scaffold(
-      
       // floatingActionButton: FloatingActionButton(
       //   onPressed: () => {
       //     print(
@@ -78,9 +64,7 @@ class MainScreen extends StatelessWidget {
                     Row(
                       children: [
                         IconButton(
-                          onPressed: () => {
-                           
-                          },
+                          onPressed: () => {},
                           icon: const Icon(
                             Icons.menu,
                             size: 34,
@@ -99,16 +83,14 @@ class MainScreen extends StatelessWidget {
                             // ),
                             Text(
                               'AR Therapy',
-                              style: Theme.of(context).textTheme.bodyText2,
+                              style: Theme.of(context).textTheme.bodyLarge,
                             ),
                           ],
                         ),
                       ],
                     ),
                     IconButton(
-                      onPressed: () => {
-                        
-                      },
+                      onPressed: () => {},
                       icon: Icon(
                         Icons.account_circle,
                         color: Theme.of(context).primaryColor,
@@ -140,7 +122,7 @@ class MainScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-               
+
                 // CustomElevatedButton(
                 //   onPressed: () => {
                 //     Navigator.push(
@@ -164,12 +146,11 @@ class MainScreen extends StatelessWidget {
                 //   title: 'View 3D Demo',
                 // ),
                 // const SizedBox(height: 20.0),
-                   ElevatedButton(onPressed: () =>
-                              onSelectS(context: context, modelName: 'posenet'), child: const Text('Enable'), ),
-               
-                 
-                
-                
+                ElevatedButton(
+                  onPressed: () => onSelectS(context: context, modelName: 'posenet'),
+                  child: const Text('Enable'),
+                ),
+
                 // Expanded(
                 //   child: ModelViewer(
                 //     src: 'assets/final_rigmodel.glb',
@@ -187,12 +168,10 @@ class MainScreen extends StatelessWidget {
         ),
       ),
     );
-  }}
+  }
+}
 
-
-
-  
-void onSelectS({required BuildContext context,required String modelName}) async {
+void onSelectS({required BuildContext context, required String modelName}) async {
   Navigator.push(
     context,
     MaterialPageRoute(

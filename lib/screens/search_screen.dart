@@ -55,7 +55,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       onPressed: () => {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => WebviewScreen(),
+                            builder: (context) => const WebviewScreen(),
                           ),
                         )
                       },
@@ -72,14 +72,14 @@ class _SearchScreenState extends State<SearchScreen> {
                 CustomCard(
                   child: Text(
                     'Search for any disorders or exercises you wish to learn more about',
-                    style: Theme.of(context).textTheme.bodyLarge,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
                 const SizedBox(height: 20),
                 TextField(
                   onChanged: (newString) => setState(() {}),
                   controller: _searchController,
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: Theme.of(context).textTheme.bodyMedium,
                   cursorColor: Theme.of(context).primaryColor,
                   decoration: InputDecoration(
                     labelText: 'Enter Search Query...',
@@ -130,7 +130,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               const SizedBox(height: 20),
                               Text(
                                 'Please enter a search query',
-                                style: Theme.of(context).textTheme.bodyLarge,
+                                style: Theme.of(context).textTheme.bodyMedium,
                                 textAlign: TextAlign.center,
                               )
                             ],

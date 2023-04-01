@@ -33,7 +33,7 @@ class _CustomCircularLoaderState extends State<CustomCircularLoader> {
             const SizedBox(height: 20),
             Text(
               widget.title,
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: Theme.of(context).textTheme.bodyMedium,
               textAlign: TextAlign.center,
             ),
           ],

@@ -49,7 +49,7 @@ class CustomDrawer extends StatelessWidget {
                       const SizedBox(height: 10.0),
                       Text(
                         'Version 0.4.3',
-                        style: Theme.of(context).textTheme.bodyLarge,
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ],
                   ),
@@ -62,7 +62,7 @@ class CustomDrawer extends StatelessWidget {
           //   leading: const Icon(Icons.home, size: 24),
           //   title: Text(
           //     'Home',
-          //     style: Theme.of(context).textTheme.bodyLarge,
+          //     style: Theme.of(context).textTheme.bodyMedium,
           //   ),
           // ),
           // ListTile(
@@ -77,7 +77,7 @@ class CustomDrawer extends StatelessWidget {
           //   leading: const Icon(Icons.accessibility, size: 24.0),
           //   title: Text(
           //     'My Exercises',
-          //     style: Theme.of(context).textTheme.bodyLarge,
+          //     style: Theme.of(context).textTheme.bodyMedium,
           //   ),
           // ),
           ListTile(
@@ -100,7 +100,7 @@ class CustomDrawer extends StatelessWidget {
             leading: const Icon(Icons.settings, size: 24.0),
             title: Text(
               'Settings',
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
           ListTile(
@@ -117,7 +117,7 @@ class CustomDrawer extends StatelessWidget {
             leading: const Icon(Icons.info_outlined, size: 24.0),
             title: Text(
               'About',
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
         ],

@@ -44,7 +44,10 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                       borderRadius: 50,
                     ),
                     const SizedBox(width: 10),
-                    const Text('My Account'),
+                    Text(
+                      'My Account',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
                   ],
                 ),
                 FutureBuilder(
@@ -105,7 +108,7 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                                 child: CustomCard(
                                   child: Text(
                                     'Age: ${fetchedDataSnapshot.data['userAge']}',
-                                    style: Theme.of(context).textTheme.bodyLarge,
+                                    style: Theme.of(context).textTheme.bodyMedium,
                                     textAlign: TextAlign.center,
                                   ),
                                 ),
@@ -115,7 +118,7 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                                 child: CustomCard(
                                   child: Text(
                                     'Gender: Male',
-                                    style: Theme.of(context).textTheme.bodyLarge,
+                                    style: Theme.of(context).textTheme.bodyMedium,
                                     textAlign: TextAlign.center,
                                   ),
                                 ),
@@ -130,7 +133,7 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                                 child: CustomCard(
                                   child: Text(
                                     'Height: 5 ft, 6 in',
-                                    style: Theme.of(context).textTheme.bodyLarge,
+                                    style: Theme.of(context).textTheme.bodyMedium,
                                     textAlign: TextAlign.center,
                                   ),
                                 ),
@@ -140,7 +143,7 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                                 child: CustomCard(
                                   child: Text(
                                     'Weight: 75Kg',
-                                    style: Theme.of(context).textTheme.bodyLarge,
+                                    style: Theme.of(context).textTheme.bodyMedium,
                                     textAlign: TextAlign.center,
                                   ),
                                 ),
@@ -158,7 +161,7 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                                     horizontal: 16,
                                   ),
                                   onPressed: () => {
-                                    Provider.of<AuthProvider>(context, listen: false).signOut(),
+                                    Provider.of<AuthProvider>(context, listen: false).signOut(context: context),
                                     Navigator.pop(context),
                                   },
                                   icon: Icons.logout,

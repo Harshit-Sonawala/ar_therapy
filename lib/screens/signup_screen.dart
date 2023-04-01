@@ -75,13 +75,13 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     Text(
                       'Enter your details and create an account:',
-                      style: Theme.of(context).textTheme.bodyLarge,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     const SizedBox(height: 40),
                     TextField(
                       controller: _nameController,
                       keyboardType: TextInputType.name,
-                      style: Theme.of(context).textTheme.bodyLarge,
+                      style: Theme.of(context).textTheme.bodyMedium,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
                         labelText: 'Your Name *',
@@ -113,7 +113,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     TextField(
                       controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
-                      style: Theme.of(context).textTheme.bodyLarge,
+                      style: Theme.of(context).textTheme.bodyMedium,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
                         labelText: 'Email Address *',
@@ -145,7 +145,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     TextField(
                       obscureText: _passwordIsObscured,
                       controller: _passwordController,
-                      style: Theme.of(context).textTheme.bodyLarge,
+                      style: Theme.of(context).textTheme.bodyMedium,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
                         labelText: 'Choose a Password *',
@@ -186,7 +186,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     TextField(
                       obscureText: _confirmPasswordIsObscured,
                       controller: _confirmPasswordController,
-                      style: Theme.of(context).textTheme.bodyLarge,
+                      style: Theme.of(context).textTheme.bodyMedium,
                       cursorColor: Theme.of(context).primaryColor,
                       decoration: InputDecoration(
                         labelText: 'Confirm Password *',
@@ -230,7 +230,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           child: TextField(
                             controller: _ageController,
                             keyboardType: TextInputType.number,
-                            style: Theme.of(context).textTheme.bodyLarge,
+                            style: Theme.of(context).textTheme.bodyMedium,
                             cursorColor: Theme.of(context).primaryColor,
                             decoration: InputDecoration(
                               labelText: 'Your Age',
@@ -292,6 +292,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         );
                         _newUserId =
                             await Provider.of<AuthProvider>(context, listen: false).createUserWithEmailAndPassword(
+                          context: context,
                           passedName: _nameController.text.trim(),
                           passedEmail: _emailController.text.trim(),
                           passedPassword: _passwordController.text.trim(),

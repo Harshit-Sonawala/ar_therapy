@@ -46,7 +46,10 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                     borderRadius: 50,
                   ),
                   const SizedBox(width: 10),
-                  const Text('My Account'),
+                  Text(
+                    'My Account',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
                 ],
               ),
               const SizedBox(height: 20),
@@ -103,12 +106,12 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                   if (_currentUserDoc != null)
                     Text(
                       'Age: ${_currentUserDoc?['userAge']}',
-                      style: Theme.of(context).textTheme.bodyLarge,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   const SizedBox(width: 20),
                   Text(
                     'Gender: Male',
-                    style: Theme.of(context).textTheme.bodyLarge,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ],
               ),
@@ -118,12 +121,12 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                 children: [
                   Text(
                     'Height: 5 ft, 6 in',
-                    style: Theme.of(context).textTheme.bodyLarge,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   const SizedBox(width: 20),
                   Text(
                     'Weight: 75Kg',
-                    style: Theme.of(context).textTheme.bodyLarge,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ],
               ),
@@ -137,7 +140,7 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                       horizontal: 16,
                     ),
                     onPressed: () => {
-                      Provider.of<AuthProvider>(context, listen: false).signOut(),
+                      Provider.of<AuthProvider>(context, listen: false).signOut(context: context),
                       Navigator.pop(context),
                     },
                     icon: Icons.logout,

@@ -43,7 +43,10 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                     borderRadius: 50,
                   ),
                   const SizedBox(width: 10),
-                  const Text('Disorder Details'),
+                  Text(
+                    'Disorder Details',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
                 ],
               ),
               Padding(
@@ -142,7 +145,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                             Provider.of<DisorderListProvider>(context, listen: false)
                                 .globalDisorderList[widget.disorderIndex]
                                 .disItemDescription,
-                            style: Theme.of(context).textTheme.bodyLarge,
+                            style: Theme.of(context).textTheme.bodyMedium,
                             textAlign: TextAlign.justify,
                           ),
                         ],
@@ -171,13 +174,13 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                                 children: [
                                   Text(
                                     '• ',
-                                    style: Theme.of(context).textTheme.bodyLarge,
+                                    style: Theme.of(context).textTheme.bodyMedium,
                                   ),
                                   const SizedBox(width: 5),
                                   Expanded(
                                     child: Text(
                                       eachCause,
-                                      style: Theme.of(context).textTheme.bodyLarge,
+                                      style: Theme.of(context).textTheme.bodyMedium,
                                       textAlign: TextAlign.start,
                                     ),
                                   ),
@@ -210,13 +213,13 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                                 children: [
                                   Text(
                                     '• ',
-                                    style: Theme.of(context).textTheme.bodyLarge,
+                                    style: Theme.of(context).textTheme.bodyMedium,
                                   ),
                                   const SizedBox(width: 5),
                                   Expanded(
                                     child: Text(
                                       eachSymptom,
-                                      style: Theme.of(context).textTheme.bodyLarge,
+                                      style: Theme.of(context).textTheme.bodyMedium,
                                       textAlign: TextAlign.start,
                                     ),
                                   ),

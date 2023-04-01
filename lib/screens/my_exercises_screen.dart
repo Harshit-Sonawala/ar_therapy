@@ -43,7 +43,7 @@ class _MyExercisesScreenState extends State<MyExercisesScreen> {
               CustomCard(
                 child: Text(
                   'Exercises added to favourites are here:',
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ),
               const SizedBox(height: 20),

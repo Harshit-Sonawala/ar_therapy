@@ -35,7 +35,10 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                   borderRadius: 50,
                 ),
                 const SizedBox(width: 10),
-                const Text('Exercises'),
+                Text(
+                  'Exercises',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
               ],
             ),
             Expanded(
@@ -46,7 +49,7 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                     CustomCard(
                       child: Text(
                         'Browse through various exercises and tap to view their 3D and AR View',
-                        style: Theme.of(context).textTheme.bodyLarge,
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ),
                     const SizedBox(height: 20.0),

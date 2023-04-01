@@ -72,7 +72,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                               Provider.of<ExerciseListProvider>(context, listen: false)
                                   .globalExerciseList[widget.exerciseIndex]
                                   .exItemDescription,
-                              style: Theme.of(context).textTheme.bodyLarge),
+                              style: Theme.of(context).textTheme.bodyMedium),
                         ],
                       ),
                     ),
@@ -102,13 +102,13 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                                     children: [
                                       Text(
                                         '${eachStep.key + 1}) ',
-                                        style: Theme.of(context).textTheme.bodyLarge,
+                                        style: Theme.of(context).textTheme.bodyMedium,
                                       ),
                                       const SizedBox(width: 5),
                                       Expanded(
                                         child: Text(
                                           eachStep.value,
-                                          style: Theme.of(context).textTheme.bodyLarge,
+                                          style: Theme.of(context).textTheme.bodyMedium,
                                           textAlign: TextAlign.start,
                                         ),
                                       ),
@@ -240,7 +240,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                 //           .exItemProcedure)
                 //         Padding(
                 //           padding: const EdgeInsets.all(4.0),
-                //           child: Text('- $eachSymptom', style: Theme.of(context).textTheme.bodyLarge),
+                //           child: Text('- $eachSymptom', style: Theme.of(context).textTheme.bodyMedium),
                 //         )
                 //     ],
                 //   ),

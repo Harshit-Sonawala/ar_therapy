@@ -35,7 +35,7 @@ class _ModelViewerScreenState extends State<ModelViewerScreen> {
                   const SizedBox(width: 10),
                   Text(
                     '3D View with Scenes',
-                    style: Theme.of(context).textTheme.bodyMedium,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ],
               ),

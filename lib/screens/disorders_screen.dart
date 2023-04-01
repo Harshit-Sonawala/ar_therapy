@@ -21,31 +21,34 @@ class _DisordersScreenState extends State<DisordersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                CustomTextButton(
-                  onPressed: () => {
-                    Navigator.pop(context),
-                  },
-                  padding: const EdgeInsets.all(6.0),
-                  icon: Icons.arrow_back,
-                  borderRadius: 50,
-                ),
-                const SizedBox(width: 10),
-                const Text('Disorders'),
-              ],
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  CustomTextButton(
+                    onPressed: () => {
+                      Navigator.pop(context),
+                    },
+                    padding: const EdgeInsets.all(6.0),
+                    icon: Icons.arrow_back,
+                    borderRadius: 50,
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    'Disorders',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                ],
+              ),
+              Expanded(
                 child: Column(
                   children: [
                     CustomCard(
                       child: Text(
                         'Browse through various physical disorders and tap to learn more about them',
-                        style: Theme.of(context).textTheme.bodyLarge,
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ),
                     const SizedBox(height: 20.0),
@@ -78,8 +81,8 @@ class _DisordersScreenState extends State<DisordersScreen> {
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

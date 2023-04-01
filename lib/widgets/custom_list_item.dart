@@ -11,7 +11,7 @@ class CustomListItem extends StatefulWidget {
   final List<String>? images;
   final List<String>? chips;
 
-  const CustomListItem( {
+  const CustomListItem({
     required this.onPressed,
     this.padding = const EdgeInsets.all(0.0),
     this.child,
@@ -83,7 +83,6 @@ class _CustomListItemState extends State<CustomListItem> {
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(
-                  
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     if (widget.images == null)
@@ -94,7 +93,7 @@ class _CustomListItemState extends State<CustomListItem> {
                     if (widget.images == null) const CustomDivider(),
                     Text(
                       '${widget.body!.substring(0, 71)}...',
-                      style: Theme.of(context).textTheme.bodyLarge,
+                      style: Theme.of(context).textTheme.bodyMedium,
                       textAlign: TextAlign.justify,
                     ),
                   ],
