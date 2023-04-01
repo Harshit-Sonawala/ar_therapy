@@ -65,10 +65,6 @@ class ExerciseListProvider with ChangeNotifier {
 
   List<ExerciseItem> get globalExerciseList => _globalExerciseList;
 
-  List<ExerciseItem> getFilteredExerciseList(List<String> passedExItemIdsList) {
-    List<ExerciseItem> finalList = [];
-    finalList =
-        globalExerciseList.where((eachExercise) => passedExItemIdsList.contains(eachExercise.exItemId)).toList();
-    return finalList;
-  }
+  List<ExerciseItem> getFilteredExerciseList(List<String> passedExItemIdsList) =>
+      globalExerciseList.where((eachExercise) => passedExItemIdsList.contains(eachExercise.exItemId)).toList();
 }

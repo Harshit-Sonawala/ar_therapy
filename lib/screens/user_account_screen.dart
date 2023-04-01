@@ -42,25 +42,20 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                     const Text('My Account'),
                   ],
                 ),
+                const SizedBox(height: 20),
                 FutureBuilder(
                   future: CloudstoreProvider().getUserData(widget.passedUserId),
                   builder: (BuildContext context, AsyncSnapshot fetchedDataSnapshot) {
                     if (fetchedDataSnapshot.connectionState == ConnectionState.waiting) {
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          CustomCard(
-                            padding: const EdgeInsets.all(40.0),
-                            child: CircularProgressIndicator(
-                              color: Theme.of(context).primaryColor,
-                            ),
-                          ),
-                        ],
+                      return CustomCard(
+                        padding: const EdgeInsets.all(40.0),
+                        child: CircularProgressIndicator(
+                          color: Theme.of(context).primaryColor,
+                        ),
                       );
                     } else {
                       return Column(
                         children: [
-                          const SizedBox(height: 20),
                           const SizedBox(
                             height: 100,
                             width: 100,

@@ -51,32 +51,30 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                     ),
                     const SizedBox(height: 20.0),
                     Expanded(
-                        child: ListView.builder(
-                      itemCount: Provider.of<ExerciseListProvider>(context, listen: false).globalExerciseList.length,
-                      itemBuilder: (context, exerciseIndex) => Padding(
-                        padding: const EdgeInsets.only(bottom: 20.0),
-                        child: CustomListItem(
-                          onPressed: () => {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) => ExerciseDetailsScreen(
-                                  exerciseIndex: exerciseIndex,
+                      child: ListView.builder(
+                        itemCount: Provider.of<ExerciseListProvider>(context, listen: false).globalExerciseList.length,
+                        itemBuilder: (context, exerciseIndex) => Padding(
+                          padding: const EdgeInsets.only(bottom: 20.0),
+                          child: CustomListItem(
+                            onPressed: () => {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => ExerciseDetailsScreen(
+                                    exerciseIndex: exerciseIndex,
+                                  ),
                                 ),
                               ),
-                            ),
-                          },
-                          title: Provider.of<ExerciseListProvider>(context, listen: false)
-                              .globalExerciseList[exerciseIndex]
-                              .exItemTitle,
-                          body: Provider.of<ExerciseListProvider>(context, listen: false)
-                              .globalExerciseList[exerciseIndex]
-                              .exItemDescription,
-                          // modelPath: Provider.of<ExerciseList>(context, listen: false)
-                          //     .globalExerciseList[disorderIndex]
-                          //     .exItemModelPath,
+                            },
+                            title: Provider.of<ExerciseListProvider>(context, listen: false)
+                                .globalExerciseList[exerciseIndex]
+                                .exItemTitle,
+                            body: Provider.of<ExerciseListProvider>(context, listen: false)
+                                .globalExerciseList[exerciseIndex]
+                                .exItemDescription,
+                          ),
                         ),
                       ),
-                    )),
+                    ),
                   ],
                 ),
               ),
