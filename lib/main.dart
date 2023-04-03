@@ -69,7 +69,7 @@ class ARTherapy extends StatelessWidget {
           bodyLarge: TextStyle(fontSize: 20.0), // old: 26
           bodySmall: TextStyle(
             fontSize: 16.0,
-            fontWeight: FontWeight.bold,
+            // fontWeight: FontWeight.bold,
             // color: Color(0xff1D1D1D),
             color: Colors.white,
           ),

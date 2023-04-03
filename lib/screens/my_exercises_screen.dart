@@ -21,6 +21,8 @@ class MyExercisesScreen extends StatefulWidget {
 }
 
 class _MyExercisesScreenState extends State<MyExercisesScreen> {
+  int finalIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,14 +66,14 @@ class _MyExercisesScreenState extends State<MyExercisesScreen> {
                         itemBuilder: (context, exerciseIndex) => Padding(
                           padding: const EdgeInsets.only(bottom: 20.0),
                           child: CustomListItem(
-                            onPressed: () => {
+                            onPressed: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (context) => ExerciseDetailsScreen(
                                     exerciseIndex: exerciseIndex,
                                   ),
                                 ),
-                              ),
+                              );
                             },
                             title: filteredExerciseList[exerciseIndex].exItemTitle,
                             body: filteredExerciseList[exerciseIndex].exItemDescription,

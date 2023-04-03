@@ -67,29 +67,101 @@ class CloudstoreProvider with ChangeNotifier {
     }
   }
 
-  void addToUserExListById(String? passedUserId, Map<String, dynamic> passedExercise) async {
+  void addToUserExListById(BuildContext context, String? passedUserId, String passedExItemId) async {
     try {
       List<dynamic> finalList;
       Map<String, dynamic> finalData;
       Map<String, dynamic>? gotData = await getUserData(passedUserId);
+      bool exAlreadyExists = false;
+
+      Map<String, dynamic> finalExercise = {
+        "exListItemId": passedExItemId,
+        "exListItemTimestamp": Timestamp.now(),
+      };
+
       if (gotData!['exList'] != null && gotData['exList'].length > 0) {
-        finalList = gotData['exList'];
-        finalList.add(passedExercise);
-        finalData = {
-          ...gotData,
-          'exList': finalList,
-        };
+        // List length > 0 so take existing and append new exercise
+        gotData['exList']
+            .map((eachExercise) => {
+                  debugPrint('Specific: ${eachExercise['exListItemId']}'),
+                  if (eachExercise['exListItemId'] == passedExItemId)
+                    {
+                      exAlreadyExists = true,
+                    }
+                })
+            .toList();
+        if (exAlreadyExists) {
+          debugPrint('Reached Already Exists Code');
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              behavior: SnackBarBehavior.floating,
+              content: Text(
+                'Exercise already exists in your list',
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              backgroundColor: const Color(0xff3d3d3d),
+              closeIconColor: Theme.of(context).primaryColor,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            ),
+          );
+        } else {
+          debugPrint('Reached Does Not Already Exist Code');
+          finalList = gotData['exList'];
+          finalList.add(finalExercise);
+          finalData = {
+            ...gotData,
+            'exList': finalList,
+          };
+          await cloudFirestoreDB.collection('users').doc(passedUserId).set(finalData);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              behavior: SnackBarBehavior.floating,
+              content: Text(
+                'Added exercise to your list',
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              backgroundColor: const Color(0xff3d3d3d),
+              closeIconColor: Theme.of(context).primaryColor,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            ),
+          );
+        }
       } else {
+        // List is null/empty so simply add the new exercise
         finalData = {
           ...gotData,
           'exList': [
-            passedExercise,
+            finalExercise,
           ],
         };
+        await cloudFirestoreDB.collection('users').doc(passedUserId).set(finalData);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            behavior: SnackBarBehavior.floating,
+            content: Text(
+              'Added exercise to your list',
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+            backgroundColor: const Color(0xff3d3d3d),
+            closeIconColor: Theme.of(context).primaryColor,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+          ),
+        );
       }
-      await cloudFirestoreDB.collection('users').doc(passedUserId).set(finalData);
     } catch (error) {
       debugPrint('Cloud Firestore addToUserExListById error: $error');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: Text(
+            '$error',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          backgroundColor: const Color(0xff3d3d3d),
+          closeIconColor: Theme.of(context).primaryColor,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        ),
+      );
     }
   }
 }

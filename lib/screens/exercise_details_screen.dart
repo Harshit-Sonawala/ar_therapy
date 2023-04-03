@@ -187,16 +187,21 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                         ? CustomElevatedButton(
                             onPressed: () => {
                               debugPrint(
-                                'Add Plan to Firestore User List, ${Provider.of<AuthProvider>(context, listen: false).currentUser?.uid}',
+                                'Add exercise to Firestore List of: ${Provider.of<AuthProvider>(context, listen: false).currentUser?.uid}',
                               ),
                               Provider.of<CloudstoreProvider>(context, listen: false).addToUserExListById(
-                                Provider.of<AuthProvider>(context, listen: false).currentUser!.uid,
-                                {
-                                  'exListItemId': Provider.of<ExerciseListProvider>(context, listen: false)
-                                      .globalExerciseList[widget.exerciseIndex]
-                                      .exItemId,
-                                  'exListItemTimestamp': Timestamp.now()
-                                },
+                                context,
+                                Provider.of<AuthProvider>(context, listen: false).currentUser?.uid,
+                                Provider.of<ExerciseListProvider>(context, listen: false)
+                                    .globalExerciseList[widget.exerciseIndex]
+                                    .exItemId,
+                                // Provider.of<AuthProvider>(context, listen: false).currentUser!.uid,
+                                // {
+                                //   'exListItemId': Provider.of<ExerciseListProvider>(context, listen: false)
+                                //       .globalExerciseList[widget.exerciseIndex]
+                                //       .exItemId,
+                                //   'exListItemTimestamp': Timestamp.now()
+                                // },
                               ),
                               // Provider.of<CloudstoreProvider>(context, listen: false).setUserDataById(
                               //   Provider.of<AuthProvider>(context, listen: false).currentUser!.uid,
