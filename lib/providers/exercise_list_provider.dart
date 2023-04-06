@@ -68,4 +68,7 @@ class ExerciseListProvider with ChangeNotifier {
   // Pass a list of exItemIds like: ['exerciseItem3', 'exerciseItem1'] and get the filtered List<ExerciseItems>
   List<ExerciseItem> getFilteredExerciseList(List<String> passedExItemIdsList) =>
       globalExerciseList.where((eachExercise) => passedExItemIdsList.contains(eachExercise.exItemId)).toList();
+
+  List<ExerciseItem> searchExerciseList(List<String> searchWords) =>
+      globalExerciseList.where((eachExercise) => searchWords.contains(eachExercise.exItemTitle)).toList();
 }

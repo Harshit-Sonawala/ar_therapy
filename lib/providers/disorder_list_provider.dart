@@ -232,4 +232,7 @@ class DisorderListProvider with ChangeNotifier {
 
   // Encapsulation for safety
   List<DisorderItem> get globalDisorderList => _globalDisorderList;
+
+  List<DisorderItem> searchDisorderList(List<String> searchWords) =>
+      globalDisorderList.where((eachDisorder) => searchWords.contains(eachDisorder.disItemTitle)).toList();
 }

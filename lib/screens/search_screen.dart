@@ -63,7 +63,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       borderRadius: BorderRadius.circular(50.0),
                       child: Text(
                         'Search the Web',
-                        style: Theme.of(context).textTheme.bodySmall,
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ),
                   ],
@@ -91,7 +91,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       color: Theme.of(context).primaryColor,
                     ),
                     suffixIcon: IconButton(
-                      onPressed: () => {debugPrint('')},
+                      onPressed: () => {debugPrint('Search Query: ${_searchController.text}')},
                       icon: Icon(
                         Icons.search,
                         color: Theme.of(context).primaryColor,
