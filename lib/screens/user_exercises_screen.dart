@@ -70,7 +70,7 @@ class _UserExercisesScreenState extends State<UserExercisesScreen> {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (context) => ExerciseDetailsScreen(
-                                    exerciseIndex: exerciseIndex,
+                                    exerciseId: filteredExerciseList[exerciseIndex].exItemId,
                                   ),
                                 ),
                               );

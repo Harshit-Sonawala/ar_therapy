@@ -50,9 +50,12 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     )
                   },
                   backgroundImage: 'assets/images/disorders.jpeg',
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 80, horizontal: 20),
-                    child: Text('Browse Disorders'),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
+                    child: Text(
+                      'Browse Disorders',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 20.0),
@@ -65,9 +68,12 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     )
                   },
                   backgroundImage: 'assets/images/exercises.jpeg',
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 80, horizontal: 20),
-                    child: Text('Browse Exercises'),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
+                    child: Text(
+                      'Browse Exercises',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
                   ),
                 ),
               ],

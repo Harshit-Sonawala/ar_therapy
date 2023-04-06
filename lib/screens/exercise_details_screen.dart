@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
+import '../models/exercise_item.dart';
 import '../providers/exercise_list_provider.dart';
 import '../providers/auth_provider.dart';
 import '../providers/cloudstore_provider.dart';
 
 import 'package:model_viewer_plus/model_viewer_plus.dart';
-import 'package:cloud_firestore/cloud_firestore.dart'; // used for Timestamp.now()
+// import 'package:cloud_firestore/cloud_firestore.dart'; // used for Timestamp.now()
 
 import '../widgets/custom_card.dart';
 import '../widgets/custom_text_button.dart';
@@ -14,11 +15,11 @@ import '../widgets/custom_divider.dart';
 import '../widgets/custom_elevated_button.dart';
 
 class ExerciseDetailsScreen extends StatefulWidget {
-  final int exerciseIndex;
+  final String exerciseId;
 
   const ExerciseDetailsScreen({
     Key? key,
-    required this.exerciseIndex,
+    required this.exerciseId,
   }) : super(key: key);
 
   @override
@@ -26,8 +27,13 @@ class ExerciseDetailsScreen extends StatefulWidget {
 }
 
 class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
+  late ExerciseItem finalExercise;
+
   @override
   Widget build(BuildContext context) {
+    List<ExerciseItem> filteredExercises =
+        Provider.of<ExerciseListProvider>(context).getFilteredExerciseList([widget.exerciseId]);
+    finalExercise = filteredExercises[0];
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -48,9 +54,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                     ),
                     const SizedBox(width: 10),
                     Text(
-                      Provider.of<ExerciseListProvider>(context, listen: false)
-                          .globalExerciseList[widget.exerciseIndex]
-                          .exItemTitle,
+                      finalExercise.exItemTitle,
                       style: Theme.of(context).textTheme.displayLarge,
                     ),
                   ],
@@ -68,11 +72,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                             style: Theme.of(context).textTheme.displaySmall,
                           ),
                           const CustomDivider(),
-                          Text(
-                              Provider.of<ExerciseListProvider>(context, listen: false)
-                                  .globalExerciseList[widget.exerciseIndex]
-                                  .exItemDescription,
-                              style: Theme.of(context).textTheme.bodyMedium),
+                          Text(finalExercise.exItemDescription, style: Theme.of(context).textTheme.bodyMedium),
                         ],
                       ),
                     ),
@@ -87,9 +87,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                             style: Theme.of(context).textTheme.displaySmall,
                           ),
                           const CustomDivider(),
-                          ...Provider.of<ExerciseListProvider>(context, listen: false)
-                              .globalExerciseList[widget.exerciseIndex]
-                              .exItemProcedure
+                          ...finalExercise.exItemProcedure
                               .asMap()
                               .entries
                               .map(
@@ -131,9 +129,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                           // src: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
                           //src: 'assets/3Dmodels/final.glb', // Human with given skeleton
                           // src: 'assets/3D models/back_exercise.glb',
-                          src: Provider.of<ExerciseListProvider>(context, listen: false)
-                              .globalExerciseList[widget.exerciseIndex]
-                              .exItemModelPath,
+                          src: finalExercise.exItemModelPath,
                           alt: "Animated 3D model of exercise",
                           ar: true,
                           autoRotate: true,
@@ -192,9 +188,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                               Provider.of<CloudstoreProvider>(context, listen: false).addToUserExListById(
                                 context,
                                 Provider.of<AuthProvider>(context, listen: false).currentUser?.uid,
-                                Provider.of<ExerciseListProvider>(context, listen: false)
-                                    .globalExerciseList[widget.exerciseIndex]
-                                    .exItemId,
+                                finalExercise.exItemId,
                                 // Provider.of<AuthProvider>(context, listen: false).currentUser!.uid,
                                 // {
                                 //   'exListItemId': Provider.of<ExerciseListProvider>(context, listen: false)

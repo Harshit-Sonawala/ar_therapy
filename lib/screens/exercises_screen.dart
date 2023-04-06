@@ -63,7 +63,9 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (context) => ExerciseDetailsScreen(
-                                    exerciseIndex: exerciseIndex,
+                                    exerciseId: Provider.of<ExerciseListProvider>(context, listen: false)
+                                        .globalExerciseList[exerciseIndex]
+                                        .exItemId,
                                   ),
                                 ),
                               ),
