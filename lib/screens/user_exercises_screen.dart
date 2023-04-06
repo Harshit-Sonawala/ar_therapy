@@ -13,14 +13,14 @@ import '../widgets/custom_circular_loader.dart';
 
 import 'exercise_details_screen.dart';
 
-class MyExercisesScreen extends StatefulWidget {
-  const MyExercisesScreen({super.key});
+class UserExercisesScreen extends StatefulWidget {
+  const UserExercisesScreen({super.key});
 
   @override
-  State<MyExercisesScreen> createState() => _MyExercisesScreenState();
+  State<UserExercisesScreen> createState() => _UserExercisesScreenState();
 }
 
-class _MyExercisesScreenState extends State<MyExercisesScreen> {
+class _UserExercisesScreenState extends State<UserExercisesScreen> {
   int finalIndex = 0;
 
   @override

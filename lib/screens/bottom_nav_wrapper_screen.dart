@@ -8,7 +8,7 @@ import '../widgets/custom_drawer.dart';
 import './home_screen.dart';
 import './explore_screen.dart';
 import './search_screen.dart';
-import './my_exercises_screen.dart';
+import './user_exercises_screen.dart';
 // import './user_account_screen.dart';
 // import './wip_screen.dart';
 import '../widgets/custom_card.dart';
@@ -26,7 +26,7 @@ class _BottomNavWrapperScreenState extends State<BottomNavWrapperScreen> {
     {"page": HomeScreen(cameras!)},
     {"page": const ExploreScreen()},
     {"page": const SearchScreen()},
-    {"page": const MyExercisesScreen()},
+    {"page": const UserExercisesScreen()},
   ];
 
   int _selectedScreenIndex = 0;
