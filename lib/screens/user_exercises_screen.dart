@@ -60,30 +60,74 @@ class _UserExercisesScreenState extends State<UserExercisesScreen> {
                         .toList());
                     List<ExerciseItem> filteredExerciseList =
                         ExerciseListProvider().getFilteredExerciseList(filterExIdsList);
-                    return Expanded(
-                      child: ListView.builder(
-                        itemCount: filteredExerciseList.length,
-                        itemBuilder: (context, exerciseIndex) => Padding(
-                          padding: const EdgeInsets.only(bottom: 20.0),
-                          child: CustomListItem(
-                            onPressed: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) => ExerciseDetailsScreen(
-                                    exerciseId: filteredExerciseList[exerciseIndex].exItemId,
+                    if (filteredExerciseList.isEmpty) {
+                      // list is empty
+                      return CustomCard(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 40.0,
+                          horizontal: 40.0,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            const Icon(
+                              Icons.search_off,
+                              size: 60.0,
+                              color: Colors.grey,
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              'Empty.',
+                              style: Theme.of(context).textTheme.displayLarge,
+                              textAlign: TextAlign.center,
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              'Please add exercises to your list by browsing for them',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                              textAlign: TextAlign.center,
+                            )
+                          ],
+                        ),
+                      );
+                    } else {
+                      return Expanded(
+                        child: ListView.builder(
+                          itemCount: filteredExerciseList.length,
+                          itemBuilder: (context, exerciseIndex) => Padding(
+                            padding: const EdgeInsets.only(bottom: 20.0),
+                            child: CustomListItem(
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => ExerciseDetailsScreen(
+                                      exerciseId: filteredExerciseList[exerciseIndex].exItemId,
+                                    ),
                                   ),
+                                );
+                              },
+                              // onLongPress: setState(() {
+
+                              // }),
+                              onLongPress: () => {
+                                debugPrint(
+                                  'Remove exercise $exerciseIndex from Firestore List of ${Provider.of<AuthProvider>(context, listen: false).currentUser?.displayName}',
                                 ),
-                              );
-                            },
-                            onLongPress: () => {
-                              debugPrint('Long Pressed'),
-                            },
-                            title: filteredExerciseList[exerciseIndex].exItemTitle,
-                            body: filteredExerciseList[exerciseIndex].exItemDescription,
+                                setState(() => {
+                                      Provider.of<CloudstoreProvider>(context, listen: false).removeFromUserExListById(
+                                        context,
+                                        Provider.of<AuthProvider>(context, listen: false).currentUser?.uid,
+                                        filteredExerciseList[exerciseIndex].exItemId,
+                                      ),
+                                    }),
+                              },
+                              title: filteredExerciseList[exerciseIndex].exItemTitle,
+                              body: filteredExerciseList[exerciseIndex].exItemDescription,
+                            ),
                           ),
                         ),
-                      ),
-                    );
+                      );
+                    }
                   }
                 },
               ),

@@ -36,7 +36,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                 const SizedBox(height: 20),
                 CustomCard(
                   child: Text(
-                    'Browse through the various disorders and exercises with their particulars',
+                    'Browse from numerous disorders and exercises and get their detailed information',
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),

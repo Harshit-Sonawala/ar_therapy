@@ -29,36 +29,32 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Row(
-                children: [
-                  CustomTextButton(
-                    onPressed: () => {
-                      Navigator.pop(context),
-                    },
-                    padding: const EdgeInsets.all(6.0),
-                    icon: Icons.arrow_back,
-                    borderRadius: 50,
-                  ),
-                  const SizedBox(width: 10),
-                  Text(
-                    'Disorder Details',
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
                   children: [
+                    CustomTextButton(
+                      onPressed: () => {
+                        Navigator.pop(context),
+                      },
+                      padding: const EdgeInsets.all(6.0),
+                      icon: Icons.arrow_back,
+                      borderRadius: 50,
+                    ),
+                    const SizedBox(width: 10),
                     Text(
                       Provider.of<DisorderListProvider>(context, listen: false)
                           .globalDisorderList[widget.disorderIndex]
                           .disItemTitle,
                       style: Theme.of(context).textTheme.displayLarge,
                     ),
+                  ],
+                ),
+                Column(
+                  children: [
                     const CustomDivider(),
                     const SizedBox(height: 10),
                     ClipRRect(
@@ -231,30 +227,30 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                     ),
                   ],
                 ),
-              ),
-              // Expanded(
-              //   child: CustomCard(
-              //     child: ListView.builder(
-              //       itemCount: Provider.of<DisorderList>(context, listen: false)
-              //           .globalDisorderList[widget.disorderIndex]
-              //           .disItemImagePaths
-              //           .length,
-              //       itemBuilder: (context, disorderImageIndex) => Container(
-              //         height: 200,
-              //         decoration: BoxDecoration(
-              //           image: DecorationImage(
-              //             image: AssetImage(
-              //               Provider.of<DisorderList>(context, listen: false)
-              //                   .globalDisorderList[widget.disorderIndex]
-              //                   .disItemImagePaths[disorderImageIndex],
-              //             ),
-              //           ),
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-              // ),
-            ],
+                // Expanded(
+                //   child: CustomCard(
+                //     child: ListView.builder(
+                //       itemCount: Provider.of<DisorderList>(context, listen: false)
+                //           .globalDisorderList[widget.disorderIndex]
+                //           .disItemImagePaths
+                //           .length,
+                //       itemBuilder: (context, disorderImageIndex) => Container(
+                //         height: 200,
+                //         decoration: BoxDecoration(
+                //           image: DecorationImage(
+                //             image: AssetImage(
+                //               Provider.of<DisorderList>(context, listen: false)
+                //                   .globalDisorderList[widget.disorderIndex]
+                //                   .disItemImagePaths[disorderImageIndex],
+                //             ),
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // ),
+              ],
+            ),
           ),
         ),
       ),

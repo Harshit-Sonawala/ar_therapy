@@ -22,28 +22,28 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                CustomTextButton(
-                  onPressed: () => {
-                    Navigator.pop(context),
-                  },
-                  padding: const EdgeInsets.all(6.0),
-                  icon: Icons.arrow_back,
-                  borderRadius: 50,
-                ),
-                const SizedBox(width: 10),
-                Text(
-                  'Exercises',
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-              ],
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  CustomTextButton(
+                    onPressed: () => {
+                      Navigator.pop(context),
+                    },
+                    padding: const EdgeInsets.all(6.0),
+                    icon: Icons.arrow_back,
+                    borderRadius: 50,
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    'Exercises',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                ],
+              ),
+              Expanded(
                 child: Column(
                   children: [
                     CustomCard(
@@ -83,8 +83,8 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

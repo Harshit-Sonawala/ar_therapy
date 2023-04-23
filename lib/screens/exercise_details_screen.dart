@@ -189,13 +189,6 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                                 context,
                                 Provider.of<AuthProvider>(context, listen: false).currentUser?.uid,
                                 finalExercise.exItemId,
-                                // Provider.of<AuthProvider>(context, listen: false).currentUser!.uid,
-                                // {
-                                //   'exListItemId': Provider.of<ExerciseListProvider>(context, listen: false)
-                                //       .globalExerciseList[widget.exerciseIndex]
-                                //       .exItemId,
-                                //   'exListItemTimestamp': Timestamp.now()
-                                // },
                               ),
                               // Provider.of<CloudstoreProvider>(context, listen: false).setUserDataById(
                               //   Provider.of<AuthProvider>(context, listen: false).currentUser!.uid,

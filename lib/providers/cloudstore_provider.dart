@@ -83,7 +83,7 @@ class CloudstoreProvider with ChangeNotifier {
         // List length > 0 so take existing and append new exercise
         gotData['exList']
             .map((eachExercise) => {
-                  debugPrint('Specific: ${eachExercise['exListItemId']}'),
+                  // debugPrint('Specific: ${eachExercise['exListItemId']}'),
                   if (eachExercise['exListItemId'] == passedExItemId)
                     {
                       exAlreadyExists = true,
@@ -91,7 +91,7 @@ class CloudstoreProvider with ChangeNotifier {
                 })
             .toList();
         if (exAlreadyExists) {
-          debugPrint('Reached Already Exists Code');
+          // debugPrint('Reached Already Exists Code');
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               behavior: SnackBarBehavior.floating,
@@ -105,7 +105,7 @@ class CloudstoreProvider with ChangeNotifier {
             ),
           );
         } else {
-          debugPrint('Reached Does Not Already Exist Code');
+          // debugPrint('Reached Does Not Already Exist Code');
           finalList = gotData['exList'];
           finalList.add(finalExercise);
           finalData = {
@@ -162,6 +162,95 @@ class CloudstoreProvider with ChangeNotifier {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         ),
       );
+    }
+  }
+
+  void removeFromUserExListById(BuildContext context, String? passedUserId, String passedExItemId) async {
+    try {
+      List<dynamic> finalList;
+      Map<String, dynamic> finalData;
+      Map<String, dynamic>? gotData = await getUserData(passedUserId);
+      bool exExists = false;
+
+      if (gotData!['exList'] != null && gotData['exList'].length > 0) {
+        // List length > 0 so check for exItem existing or not
+        gotData['exList']
+            .map((eachExercise) => {
+                  //debugPrint('Specific: ${eachExercise['exListItemId']}'),
+                  if (eachExercise['exListItemId'] == passedExItemId)
+                    {
+                      exExists = true,
+                    }
+                })
+            .toList();
+
+        if (exExists) {
+          // exItem found so remove it
+          finalList = gotData['exList'];
+          finalList.removeWhere(
+            (eachEx) => eachEx["exListItemId"] == passedExItemId,
+          );
+          finalData = {
+            ...gotData,
+            'exList': finalList,
+          };
+          await cloudFirestoreDB.collection('users').doc(passedUserId).set(finalData);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              behavior: SnackBarBehavior.floating,
+              content: Text(
+                'Exercise removed from your list',
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              backgroundColor: const Color(0xff3d3d3d),
+              closeIconColor: Theme.of(context).primaryColor,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            ),
+          );
+        } else {
+          // exItem not found so show SnackBar with error (will realistically never reach here)
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              behavior: SnackBarBehavior.floating,
+              content: Text(
+                'Exercise does not exist in your list',
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              backgroundColor: const Color(0xff3d3d3d),
+              closeIconColor: Theme.of(context).primaryColor,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            ),
+          );
+        }
+      } else {
+        // List is null/empty so simply show SnackBar with error (will realistically never reach here)
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            behavior: SnackBarBehavior.floating,
+            content: Text(
+              'Your exercises list is empty',
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+            backgroundColor: const Color(0xff3d3d3d),
+            closeIconColor: Theme.of(context).primaryColor,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+          ),
+        );
+      }
+    } catch (error) {
+      debugPrint('Cloud Firestore removeFromUserExListById error: $error');
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   SnackBar(
+      //     behavior: SnackBarBehavior.floating,
+      //     content: Text(
+      //       '$error',
+      //       style: Theme.of(context).textTheme.bodySmall,
+      //     ),
+      //     backgroundColor: const Color(0xff3d3d3d),
+      //     closeIconColor: Theme.of(context).primaryColor,
+      //     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+      //   ),
+      // );
     }
   }
 }

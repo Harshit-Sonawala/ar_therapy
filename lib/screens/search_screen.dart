@@ -116,7 +116,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     : Center(
                         child: CustomCard(
                           padding: const EdgeInsets.symmetric(
-                            vertical: 60.0,
+                            vertical: 40.0,
                             horizontal: 40.0,
                           ),
                           child: Column(
@@ -127,9 +127,15 @@ class _SearchScreenState extends State<SearchScreen> {
                                 size: 60.0,
                                 color: Colors.grey,
                               ),
-                              const SizedBox(height: 20),
+                              const SizedBox(height: 10),
                               Text(
-                                'Please enter a search query',
+                                'No Results.',
+                                style: Theme.of(context).textTheme.displayLarge,
+                                textAlign: TextAlign.center,
+                              ),
+                              const SizedBox(height: 10),
+                              Text(
+                                'Please enter a search query and submit',
                                 style: Theme.of(context).textTheme.bodyMedium,
                                 textAlign: TextAlign.center,
                               )
