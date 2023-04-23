@@ -42,18 +42,18 @@ class AuthProvider with ChangeNotifier {
       );
     } catch (error) {
       debugPrint('createUserWithEmailAndPassword error: $error');
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          behavior: SnackBarBehavior.floating,
-          content: Text(
-            '$error',
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-          backgroundColor: const Color(0xff3d3d3d),
-          closeIconColor: Theme.of(context).primaryColor,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-        ),
-      );
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   SnackBar(
+      //     behavior: SnackBarBehavior.floating,
+      //     content: Text(
+      //       '$error',
+      //       style: Theme.of(context).textTheme.bodySmall,
+      //     ),
+      //     backgroundColor: const Color(0xff3d3d3d),
+      //     closeIconColor: Theme.of(context).primaryColor,
+      //     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+      //   ),
+      // );
     }
     return currentUser!.uid;
   }
@@ -83,18 +83,18 @@ class AuthProvider with ChangeNotifier {
       );
     } catch (error) {
       debugPrint('signInWithEmailAndPassword error: $error');
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          behavior: SnackBarBehavior.floating,
-          content: Text(
-            '$error',
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-          backgroundColor: const Color(0xff3d3d3d),
-          closeIconColor: Theme.of(context).primaryColor,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-        ),
-      );
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   SnackBar(
+      //     behavior: SnackBarBehavior.floating,
+      //     content: Text(
+      //       '$error',
+      //       style: Theme.of(context).textTheme.bodySmall,
+      //     ),
+      //     backgroundColor: const Color(0xff3d3d3d),
+      //     closeIconColor: Theme.of(context).primaryColor,
+      //     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+      //   ),
+      // );
     }
   }
 
@@ -116,18 +116,18 @@ class AuthProvider with ChangeNotifier {
       );
     } catch (error) {
       debugPrint('signOut error: $error');
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          behavior: SnackBarBehavior.floating,
-          content: Text(
-            '$error',
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-          backgroundColor: const Color(0xff3d3d3d),
-          closeIconColor: Theme.of(context).primaryColor,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-        ),
-      );
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   SnackBar(
+      //     behavior: SnackBarBehavior.floating,
+      //     content: Text(
+      //       '$error',
+      //       style: Theme.of(context).textTheme.bodySmall,
+      //     ),
+      //     backgroundColor: const Color(0xff3d3d3d),
+      //     closeIconColor: Theme.of(context).primaryColor,
+      //     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+      //   ),
+      // );
     }
   }
 
