@@ -224,7 +224,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                           ),
                         )
                       },
-                      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                      // padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                       borderRadius: BorderRadius.circular(50.0),
                       child: Row(
                         children: [

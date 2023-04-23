@@ -79,7 +79,7 @@ class _SearchScreenState extends State<SearchScreen> {
                             Icons.travel_explore,
                             size: 24,
                           ),
-                          const SizedBox(width: 5),
+                          const SizedBox(width: 10),
                           Text(
                             'Web Search',
                             style: Theme.of(context).textTheme.bodyMedium,

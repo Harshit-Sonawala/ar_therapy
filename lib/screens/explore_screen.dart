@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+
 import './disorders_screen.dart';
 import './exercises_screen.dart';
 
@@ -74,6 +76,28 @@ class _ExploreScreenState extends State<ExploreScreen> {
                       'Browse Exercises',
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                CustomElevatedButton(
+                  onPressed: () async {
+                    final encodedQuery = Uri.encodeQueryComponent("Physiotherapist near me");
+                    final Uri url = Uri.parse("https://www.google.com/maps/search/?api=1&query=$encodedQuery");
+                    if (!await launchUrl(url)) {
+                      throw Exception('Could not launch $url');
+                    }
+                  },
+                  child: Row(
+                    children: [
+                      const Icon(Icons.location_on),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        'Physiotherapists Near Me',
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                    ],
                   ),
                 ),
               ],
