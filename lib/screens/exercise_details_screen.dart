@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 
+import 'package:model_viewer_plus/model_viewer_plus.dart';
+
 import 'package:provider/provider.dart';
 import '../models/exercise_item.dart';
 import '../providers/exercise_list_provider.dart';
 import '../providers/auth_provider.dart';
 import '../providers/cloudstore_provider.dart';
 
-import 'package:model_viewer_plus/model_viewer_plus.dart';
-// import 'package:cloud_firestore/cloud_firestore.dart'; // used for Timestamp.now()
-
 import '../widgets/custom_card.dart';
 import '../widgets/custom_text_button.dart';
 import '../widgets/custom_divider.dart';
 import '../widgets/custom_elevated_button.dart';
+
+import '../screens/webview_screen.dart';
 
 class ExerciseDetailsScreen extends StatefulWidget {
   final String exerciseId;
@@ -214,6 +215,30 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                             title: 'Add Treatment Plan',
                           )
                         : Container(),
+                    const SizedBox(height: 20),
+                    CustomElevatedButton(
+                      onPressed: () => {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => WebviewScreen(
+                              passedSearchQuery: finalExercise.exItemTitle,
+                            ),
+                          ),
+                        )
+                      },
+                      child: Row(
+                        children: [
+                          const Icon(Icons.travel_explore),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Search the Web',
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
                 // CustomCard(

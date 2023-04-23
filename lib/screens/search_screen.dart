@@ -61,9 +61,18 @@ class _SearchScreenState extends State<SearchScreen> {
                       },
                       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                       borderRadius: BorderRadius.circular(50.0),
-                      child: Text(
-                        'Search the Web',
-                        style: Theme.of(context).textTheme.bodyMedium,
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.travel_explore,
+                            size: 24,
+                          ),
+                          const SizedBox(width: 5),
+                          Text(
+                            'Web Search',
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        ],
                       ),
                     ),
                   ],

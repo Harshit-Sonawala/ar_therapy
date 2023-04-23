@@ -1,13 +1,15 @@
-import 'package:ar_therapy/screens/photo_view_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 import '../providers/disorder_list_provider.dart';
 
 import '../widgets/custom_divider.dart';
+import '../widgets/custom_elevated_button.dart';
 import '../widgets/custom_text_button.dart';
 import '../widgets/custom_card.dart';
 
+import '../screens/photo_view_screen.dart';
+import '../screens/webview_screen.dart';
 // import 'package:photo_view/photo_view.dart';
 // import 'package:photo_view/photo_view_gallery.dart';
 
@@ -222,6 +224,34 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                                 ],
                               ),
                             )
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    CustomElevatedButton(
+                      onPressed: () => {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => WebviewScreen(
+                              passedSearchQuery: Provider.of<DisorderListProvider>(context, listen: false)
+                                  .globalDisorderList[widget.disorderIndex]
+                                  .disItemTitle,
+                            ),
+                          ),
+                        )
+                      },
+                      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                      borderRadius: BorderRadius.circular(50.0),
+                      child: Row(
+                        children: [
+                          const Icon(Icons.travel_explore),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Search the Web',
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
                         ],
                       ),
                     ),
