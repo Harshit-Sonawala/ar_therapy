@@ -21,9 +21,10 @@ class _WebviewScreenState extends State<WebviewScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color(0xff2d2d2d),
         title: Text(
           widget.passedSearchQuery,
-          style: Theme.of(context).textTheme.displaySmall,
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),
       body: WebView(
