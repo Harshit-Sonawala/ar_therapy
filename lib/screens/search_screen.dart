@@ -174,52 +174,50 @@ class _SearchScreenState extends State<SearchScreen> {
                           ],
                         ),
                       )
-                    : SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Column(
-                              children: disorderItemSearchResults
-                                  .mapIndexed(
-                                    (disorderIndex, eachDisorderResult) => CustomListItem(
-                                      padding: const EdgeInsets.only(bottom: 20.0),
-                                      onPressed: () => {
-                                        Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                            builder: (context) => DisorderDetailsScreen(
-                                              passedDisorderItem: eachDisorderResult,
-                                            ),
+                    : Column(
+                        children: [
+                          Column(
+                            children: disorderItemSearchResults
+                                .mapIndexed(
+                                  (disorderIndex, eachDisorderResult) => CustomListItem(
+                                    padding: const EdgeInsets.only(bottom: 20.0),
+                                    onPressed: () => {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (context) => DisorderDetailsScreen(
+                                            passedDisorderItem: eachDisorderResult,
                                           ),
                                         ),
-                                      },
-                                      title: eachDisorderResult.disItemTitle,
-                                      body: eachDisorderResult.disItemDescription,
-                                      images: eachDisorderResult.disItemImagePaths,
-                                    ),
-                                  )
-                                  .toList(),
-                            ),
-                            Column(
-                              children: exerciseItemSearchResults
-                                  .mapIndexed(
-                                    (exerciseIndex, eachExerciseResult) => CustomListItem(
-                                      padding: const EdgeInsets.only(bottom: 20.0),
-                                      onPressed: () => {
-                                        Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                            builder: (context) => ExerciseDetailsScreen(
-                                              passedExerciseItem: eachExerciseResult,
-                                            ),
+                                      ),
+                                    },
+                                    title: eachDisorderResult.disItemTitle,
+                                    body: eachDisorderResult.disItemDescription,
+                                    images: eachDisorderResult.disItemImagePaths,
+                                  ),
+                                )
+                                .toList(),
+                          ),
+                          Column(
+                            children: exerciseItemSearchResults
+                                .mapIndexed(
+                                  (exerciseIndex, eachExerciseResult) => CustomListItem(
+                                    padding: const EdgeInsets.only(bottom: 20.0),
+                                    onPressed: () => {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (context) => ExerciseDetailsScreen(
+                                            passedExerciseItem: eachExerciseResult,
                                           ),
                                         ),
-                                      },
-                                      title: eachExerciseResult.exItemTitle,
-                                      body: eachExerciseResult.exItemDescription,
-                                    ),
-                                  )
-                                  .toList(),
-                            ),
-                          ],
-                        ),
+                                      ),
+                                    },
+                                    title: eachExerciseResult.exItemTitle,
+                                    body: eachExerciseResult.exItemDescription,
+                                  ),
+                                )
+                                .toList(),
+                          ),
+                        ],
                       ),
                 // : const CustomCircularLoader(title: 'Loading Search Results...')
                 if (_searchController.text.trim() != '')

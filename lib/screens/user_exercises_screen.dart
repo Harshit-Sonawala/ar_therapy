@@ -44,7 +44,7 @@ class _UserExercisesScreenState extends State<UserExercisesScreen> {
               const SizedBox(height: 20),
               CustomCard(
                 child: Text(
-                  'Exercises added to your list.\nPress and hold a card to remove it from your list.',
+                  'Exercises added to your list are found here. Press and hold a card to remove it from your list.',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ),
