@@ -44,7 +44,7 @@ class _UserExercisesScreenState extends State<UserExercisesScreen> {
               const SizedBox(height: 20),
               CustomCard(
                 child: Text(
-                  'Exercises added to favourites are here:',
+                  'Exercises added to your list:',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ),
@@ -74,6 +74,9 @@ class _UserExercisesScreenState extends State<UserExercisesScreen> {
                                   ),
                                 ),
                               );
+                            },
+                            onLongPress: () => {
+                              debugPrint('Long Pressed'),
                             },
                             title: filteredExerciseList[exerciseIndex].exItemTitle,
                             body: filteredExerciseList[exerciseIndex].exItemDescription,

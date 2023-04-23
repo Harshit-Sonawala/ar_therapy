@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import './custom_divider.dart';
 
 class CustomListItem extends StatefulWidget {
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
+  final VoidCallback? onLongPress;
   final EdgeInsets padding;
   final Widget? child;
   final String? title;
@@ -13,6 +14,7 @@ class CustomListItem extends StatefulWidget {
 
   const CustomListItem({
     required this.onPressed,
+    this.onLongPress,
     this.padding = const EdgeInsets.all(0.0),
     this.child,
     this.title,
@@ -38,6 +40,7 @@ class _CustomListItemState extends State<CustomListItem> {
         ),
         child: InkWell(
           onTap: widget.onPressed,
+          onLongPress: widget.onLongPress,
           borderRadius: BorderRadius.circular(10),
           child: Column(
             children: [

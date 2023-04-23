@@ -96,7 +96,7 @@ class CloudstoreProvider with ChangeNotifier {
             SnackBar(
               behavior: SnackBarBehavior.floating,
               content: Text(
-                'Exercise already exists in your list',
+                'Exercise already in your list',
                 style: Theme.of(context).textTheme.bodySmall,
               ),
               backgroundColor: const Color(0xff3d3d3d),
