@@ -61,7 +61,8 @@ class _DisordersScreenState extends State<DisordersScreen> {
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (context) => DisorderDetailsScreen(
-                                  disorderIndex: disorderIndex,
+                                  passedDisorderItem: Provider.of<DisorderListProvider>(context, listen: false)
+                                      .globalDisorderList[disorderIndex],
                                 ),
                               ),
                             ),

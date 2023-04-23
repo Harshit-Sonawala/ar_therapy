@@ -4,7 +4,6 @@ import 'package:model_viewer_plus/model_viewer_plus.dart';
 
 import 'package:provider/provider.dart';
 import '../models/exercise_item.dart';
-import '../providers/exercise_list_provider.dart';
 import '../providers/auth_provider.dart';
 import '../providers/cloudstore_provider.dart';
 
@@ -16,11 +15,11 @@ import '../widgets/custom_elevated_button.dart';
 import '../screens/webview_screen.dart';
 
 class ExerciseDetailsScreen extends StatefulWidget {
-  final String exerciseId;
+  final ExerciseItem passedExerciseItem;
 
   const ExerciseDetailsScreen({
     Key? key,
-    required this.exerciseId,
+    required this.passedExerciseItem,
   }) : super(key: key);
 
   @override
@@ -28,13 +27,11 @@ class ExerciseDetailsScreen extends StatefulWidget {
 }
 
 class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
-  late ExerciseItem finalExercise;
-
   @override
   Widget build(BuildContext context) {
-    List<ExerciseItem> filteredExercises =
-        Provider.of<ExerciseListProvider>(context).getFilteredExerciseList([widget.exerciseId]);
-    finalExercise = filteredExercises[0];
+    // List<ExerciseItem> filteredExercises =
+    //     Provider.of<ExerciseListProvider>(context).getFilteredExerciseList([widget.exerciseId]);
+    // finalExercise = filteredExercises[0];
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -55,7 +52,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                     ),
                     const SizedBox(width: 10),
                     Text(
-                      finalExercise.exItemTitle,
+                      widget.passedExerciseItem.exItemTitle,
                       style: Theme.of(context).textTheme.displayLarge,
                     ),
                   ],
@@ -73,7 +70,8 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                             style: Theme.of(context).textTheme.displaySmall,
                           ),
                           const CustomDivider(),
-                          Text(finalExercise.exItemDescription, style: Theme.of(context).textTheme.bodyMedium),
+                          Text(widget.passedExerciseItem.exItemDescription,
+                              style: Theme.of(context).textTheme.bodyMedium),
                         ],
                       ),
                     ),
@@ -88,7 +86,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                             style: Theme.of(context).textTheme.displaySmall,
                           ),
                           const CustomDivider(),
-                          ...finalExercise.exItemProcedure
+                          ...widget.passedExerciseItem.exItemProcedure
                               .asMap()
                               .entries
                               .map(
@@ -130,7 +128,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                           // src: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
                           //src: 'assets/3Dmodels/final.glb', // Human with given skeleton
                           // src: 'assets/3D models/back_exercise.glb',
-                          src: finalExercise.exItemModelPath,
+                          src: widget.passedExerciseItem.exItemModelPath,
                           alt: "Animated 3D model of exercise",
                           ar: true,
                           autoRotate: true,
@@ -189,7 +187,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                               Provider.of<CloudstoreProvider>(context, listen: false).addToUserExListById(
                                 context,
                                 Provider.of<AuthProvider>(context, listen: false).currentUser?.uid,
-                                finalExercise.exItemId,
+                                widget.passedExerciseItem.exItemId,
                               ),
                               // Provider.of<CloudstoreProvider>(context, listen: false).setUserDataById(
                               //   Provider.of<AuthProvider>(context, listen: false).currentUser!.uid,
@@ -221,7 +219,7 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => WebviewScreen(
-                              passedSearchQuery: finalExercise.exItemTitle,
+                              passedSearchQuery: widget.passedExerciseItem.exItemTitle,
                             ),
                           ),
                         )

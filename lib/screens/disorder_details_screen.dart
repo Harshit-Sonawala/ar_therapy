@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
+import '../models/disorder_item.dart';
 import '../providers/disorder_list_provider.dart';
 
 import '../widgets/custom_divider.dart';
@@ -14,11 +15,11 @@ import '../screens/webview_screen.dart';
 // import 'package:photo_view/photo_view_gallery.dart';
 
 class DisorderDetailsScreen extends StatefulWidget {
-  final int disorderIndex;
+  final DisorderItem passedDisorderItem;
 
   const DisorderDetailsScreen({
     Key? key,
-    required this.disorderIndex,
+    required this.passedDisorderItem,
   }) : super(key: key);
 
   @override
@@ -48,9 +49,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                     ),
                     const SizedBox(width: 10),
                     Text(
-                      Provider.of<DisorderListProvider>(context, listen: false)
-                          .globalDisorderList[widget.disorderIndex]
-                          .disItemTitle,
+                      widget.passedDisorderItem.disItemTitle,
                       style: Theme.of(context).textTheme.displayLarge,
                     ),
                   ],
@@ -65,18 +64,13 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                         color: const Color(0xff4d4d4d),
                         height: 250,
                         child: PageView.builder(
-                          itemCount: Provider.of<DisorderListProvider>(context, listen: false)
-                              .globalDisorderList[widget.disorderIndex]
-                              .disItemImagePaths
-                              .length,
+                          itemCount: widget.passedDisorderItem.disItemImagePaths.length,
                           itemBuilder: (context, pageViewIndex) => InkWell(
                             onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => PhotoViewScreen(
-                                    passedImageList: Provider.of<DisorderListProvider>(context, listen: false)
-                                        .globalDisorderList[widget.disorderIndex]
-                                        .disItemImagePaths,
+                                    passedImageList: widget.passedDisorderItem.disItemImagePaths,
                                     passedSelectedIndex: pageViewIndex),
                               ),
                             ),
@@ -87,9 +81,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                                 borderRadius: const BorderRadius.all(Radius.circular(10)),
                                 image: DecorationImage(
                                   image: AssetImage(
-                                    Provider.of<DisorderListProvider>(context, listen: false)
-                                        .globalDisorderList[widget.disorderIndex]
-                                        .disItemImagePaths[pageViewIndex],
+                                    widget.passedDisorderItem.disItemImagePaths[pageViewIndex],
                                   ),
                                   fit: BoxFit.cover,
                                 ),
@@ -140,9 +132,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                           ),
                           const CustomDivider(),
                           Text(
-                            Provider.of<DisorderListProvider>(context, listen: false)
-                                .globalDisorderList[widget.disorderIndex]
-                                .disItemDescription,
+                            widget.passedDisorderItem.disItemDescription,
                             style: Theme.of(context).textTheme.bodyMedium,
                             textAlign: TextAlign.justify,
                           ),
@@ -160,9 +150,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                             style: Theme.of(context).textTheme.displaySmall,
                           ),
                           const CustomDivider(),
-                          for (var eachCause in Provider.of<DisorderListProvider>(context, listen: false)
-                              .globalDisorderList[widget.disorderIndex]
-                              .disItemCauses)
+                          for (var eachCause in widget.passedDisorderItem.disItemCauses)
                             CustomCard(
                               color: const Color(0xff4d4d4d),
                               padding: const EdgeInsets.all(8.0),
@@ -199,9 +187,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                             style: Theme.of(context).textTheme.displaySmall,
                           ),
                           const CustomDivider(),
-                          for (var eachSymptom in Provider.of<DisorderListProvider>(context, listen: false)
-                              .globalDisorderList[widget.disorderIndex]
-                              .disItemSymptoms)
+                          for (var eachSymptom in widget.passedDisorderItem.disItemSymptoms)
                             CustomCard(
                               color: const Color(0xff4d4d4d),
                               padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 8.0),
@@ -233,9 +219,7 @@ class _DisorderDetailsScreenState extends State<DisorderDetailsScreen> {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => WebviewScreen(
-                              passedSearchQuery: Provider.of<DisorderListProvider>(context, listen: false)
-                                  .globalDisorderList[widget.disorderIndex]
-                                  .disItemTitle,
+                              passedSearchQuery: widget.passedDisorderItem.disItemTitle,
                             ),
                           ),
                         )

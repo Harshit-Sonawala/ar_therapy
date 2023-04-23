@@ -69,6 +69,23 @@ class ExerciseListProvider with ChangeNotifier {
   List<ExerciseItem> getFilteredExerciseList(List<String> passedExItemIdsList) =>
       globalExerciseList.where((eachExercise) => passedExItemIdsList.contains(eachExercise.exItemId)).toList();
 
-  List<ExerciseItem> searchExerciseList(List<String> searchWords) =>
-      globalExerciseList.where((eachExercise) => searchWords.contains(eachExercise.exItemTitle)).toList();
+  List<ExerciseItem> searchExerciseList(String searchQuery) {
+    List<String> finalSearchKeywordList = searchQuery.trim().toLowerCase().split(" ");
+
+    return globalExerciseList
+        .where(
+          (eachDisorder) => finalSearchKeywordList.any(
+            (eachKeyword) => eachDisorder.exItemTitle.trim().toLowerCase().split(" ").contains(eachKeyword),
+          ),
+        )
+        .toList();
+
+    // return globalExerciseList
+    //     .where(
+    //       (eachExercise) => searchWords.contains(
+    //         eachExercise.exItemTitle.toLowerCase(),
+    //       ),
+    //     )
+    //     .toList();
+  }
 }

@@ -233,6 +233,23 @@ class DisorderListProvider with ChangeNotifier {
   // Encapsulation for safety
   List<DisorderItem> get globalDisorderList => _globalDisorderList;
 
-  List<DisorderItem> searchDisorderList(List<String> searchWords) =>
-      globalDisorderList.where((eachDisorder) => searchWords.contains(eachDisorder.disItemTitle)).toList();
+  List<DisorderItem> searchDisorderList(String searchQuery) {
+    List<String> finalSearchKeywordList = searchQuery.trim().toLowerCase().split(" ");
+
+    return globalDisorderList
+        .where(
+          (eachDisorder) => finalSearchKeywordList.any(
+            (eachKeyword) => eachDisorder.disItemTitle.trim().toLowerCase().split(" ").contains(eachKeyword),
+          ),
+        )
+        .toList();
+
+    // return globalDisorderList
+    //     .where(
+    //       (eachDisorder) => searchWords.contains(
+    //         eachDisorder.disItemTitle.toLowerCase(),
+    //       ),
+    //     )
+    //     .toList();
+  }
 }

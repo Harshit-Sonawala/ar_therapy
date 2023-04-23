@@ -46,7 +46,7 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
                     const SizedBox(width: 10),
                     Text(
                       'My Account',
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],
                 ),

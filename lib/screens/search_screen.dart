@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:collection/collection.dart';
 
-// import './wip_screen.dart';
-import './webview_screen.dart';
+import '../models/disorder_item.dart';
+import '../models/exercise_item.dart';
+import '../providers/disorder_list_provider.dart';
+import '../providers/exercise_list_provider.dart';
 
 import '../widgets/custom_card.dart';
+import '../widgets/custom_text_button.dart';
 import '../widgets/custom_elevated_button.dart';
-import '../widgets/custom_circular_loader.dart';
+import '../widgets/custom_divider.dart';
+import '../widgets/custom_list_item.dart';
+
+import './webview_screen.dart';
+import './disorder_details_screen.dart';
+import './exercise_details_screen.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -16,6 +25,9 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   final TextEditingController _searchController = TextEditingController();
+  String finalSearchQuery = '';
+  List<DisorderItem> disorderItemSearchResults = [];
+  List<ExerciseItem> exerciseItemSearchResults = [];
 
   @override
   void dispose() {
@@ -100,7 +112,20 @@ class _SearchScreenState extends State<SearchScreen> {
                       color: Theme.of(context).primaryColor,
                     ),
                     suffixIcon: IconButton(
-                      onPressed: () => {debugPrint('Search Query: ${_searchController.text}')},
+                      onPressed: () => {
+                        finalSearchQuery = _searchController.text,
+                        debugPrint('Search Query: $finalSearchQuery'),
+                        setState(() {
+                          disorderItemSearchResults = DisorderListProvider().searchDisorderList(
+                            finalSearchQuery,
+                          );
+                          exerciseItemSearchResults = ExerciseListProvider().searchExerciseList(
+                            finalSearchQuery,
+                          );
+                          debugPrint(
+                              'DisorderItems: $disorderItemSearchResults, ExerciseItems: $exerciseItemSearchResults');
+                        }),
+                      },
                       icon: Icon(
                         Icons.search,
                         color: Theme.of(context).primaryColor,
@@ -119,39 +144,97 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20.0),
-                _searchController.text.trim() != ''
-                    ? const CustomCircularLoader(title: 'Loading Search Results...')
-                    : Center(
-                        child: CustomCard(
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 40.0,
-                            horizontal: 40.0,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              const Icon(
-                                Icons.manage_search,
-                                size: 60.0,
-                                color: Colors.grey,
-                              ),
-                              const SizedBox(height: 10),
-                              Text(
-                                'No Results.',
-                                style: Theme.of(context).textTheme.displayLarge,
-                                textAlign: TextAlign.center,
-                              ),
-                              const SizedBox(height: 10),
-                              Text(
-                                'Please enter a search query and submit',
-                                style: Theme.of(context).textTheme.bodyMedium,
-                                textAlign: TextAlign.center,
-                              )
-                            ],
-                          ),
+                const SizedBox(height: 20),
+                disorderItemSearchResults.isEmpty && exerciseItemSearchResults.isEmpty
+                    ? CustomCard(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 40.0,
+                          horizontal: 40.0,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            const Icon(
+                              Icons.manage_search,
+                              size: 60.0,
+                              color: Colors.grey,
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              'No Results.',
+                              style: Theme.of(context).textTheme.displayLarge,
+                              textAlign: TextAlign.center,
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              'Please enter a search query and submit',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                              textAlign: TextAlign.center,
+                            )
+                          ],
+                        ),
+                      )
+                    : SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Column(
+                              children: disorderItemSearchResults
+                                  .mapIndexed(
+                                    (disorderIndex, eachDisorderResult) => CustomListItem(
+                                      padding: const EdgeInsets.only(bottom: 20.0),
+                                      onPressed: () => {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (context) => DisorderDetailsScreen(
+                                              passedDisorderItem: eachDisorderResult,
+                                            ),
+                                          ),
+                                        ),
+                                      },
+                                      title: eachDisorderResult.disItemTitle,
+                                      body: eachDisorderResult.disItemDescription,
+                                      images: eachDisorderResult.disItemImagePaths,
+                                    ),
+                                  )
+                                  .toList(),
+                            ),
+                            Column(
+                              children: exerciseItemSearchResults
+                                  .mapIndexed(
+                                    (exerciseIndex, eachExerciseResult) => CustomListItem(
+                                      padding: const EdgeInsets.only(bottom: 20.0),
+                                      onPressed: () => {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (context) => ExerciseDetailsScreen(
+                                              passedExerciseItem: eachExerciseResult,
+                                            ),
+                                          ),
+                                        ),
+                                      },
+                                      title: eachExerciseResult.exItemTitle,
+                                      body: eachExerciseResult.exItemDescription,
+                                    ),
+                                  )
+                                  .toList(),
+                            ),
+                          ],
                         ),
                       ),
+                // : const CustomCircularLoader(title: 'Loading Search Results...')
+                if (_searchController.text.trim() != '')
+                  CustomTextButton(
+                    onPressed: () => {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => WebviewScreen(
+                            passedSearchQuery: _searchController.text.trim(),
+                          ),
+                        ),
+                      )
+                    },
+                    title: 'Search the Web for \'${_searchController.text.trim()}\'',
+                  ),
               ],
             ),
           ),

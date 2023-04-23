@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
-
 import '../providers/exercise_list_provider.dart';
 
 import 'exercise_details_screen.dart';
@@ -63,10 +62,8 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (context) => ExerciseDetailsScreen(
-                                    exerciseId: Provider.of<ExerciseListProvider>(context, listen: false)
-                                        .globalExerciseList[exerciseIndex]
-                                        .exItemId,
-                                  ),
+                                      passedExerciseItem: Provider.of<ExerciseListProvider>(context, listen: false)
+                                          .globalExerciseList[exerciseIndex]),
                                 ),
                               ),
                             },

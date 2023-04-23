@@ -44,7 +44,7 @@ class _UserExercisesScreenState extends State<UserExercisesScreen> {
               const SizedBox(height: 20),
               CustomCard(
                 child: Text(
-                  'Exercises added to your list:',
+                  'Exercises added to your list.\nPress and hold a card to remove it from your list.',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ),
@@ -101,7 +101,7 @@ class _UserExercisesScreenState extends State<UserExercisesScreen> {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                     builder: (context) => ExerciseDetailsScreen(
-                                      exerciseId: filteredExerciseList[exerciseIndex].exItemId,
+                                      passedExerciseItem: filteredExerciseList[exerciseIndex],
                                     ),
                                   ),
                                 );
@@ -113,13 +113,11 @@ class _UserExercisesScreenState extends State<UserExercisesScreen> {
                                 debugPrint(
                                   'Remove exercise $exerciseIndex from Firestore List of ${Provider.of<AuthProvider>(context, listen: false).currentUser?.displayName}',
                                 ),
-                                setState(() => {
-                                      Provider.of<CloudstoreProvider>(context, listen: false).removeFromUserExListById(
-                                        context,
-                                        Provider.of<AuthProvider>(context, listen: false).currentUser?.uid,
-                                        filteredExerciseList[exerciseIndex].exItemId,
-                                      ),
-                                    }),
+                                Provider.of<CloudstoreProvider>(context, listen: false).removeFromUserExListById(
+                                  context,
+                                  Provider.of<AuthProvider>(context, listen: false).currentUser?.uid,
+                                  filteredExerciseList[exerciseIndex].exItemId,
+                                ),
                               },
                               title: filteredExerciseList[exerciseIndex].exItemTitle,
                               body: filteredExerciseList[exerciseIndex].exItemDescription,
