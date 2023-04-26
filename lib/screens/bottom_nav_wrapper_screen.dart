@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
 
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
@@ -14,7 +15,8 @@ import './user_exercises_screen.dart';
 import '../widgets/custom_card.dart';
 
 class BottomNavWrapperScreen extends StatefulWidget {
-  const BottomNavWrapperScreen(cameras, {super.key});
+  List<CameraDescription>? cameras;
+  BottomNavWrapperScreen(this.cameras, {super.key});
   @override
   State<BottomNavWrapperScreen> createState() => _BottomNavWrapperScreenState();
 }
@@ -23,7 +25,7 @@ class _BottomNavWrapperScreenState extends State<BottomNavWrapperScreen> {
   GlobalKey<ScaffoldState> bottomNavWrapperScaffoldKey = GlobalKey<ScaffoldState>();
 
   final List<Map<String, Object>> _screenData = [
-    {"page": HomeScreen(cameras!)},
+    {"page": HomeScreen(cameras)},
     {"page": const ExploreScreen()},
     {"page": const SearchScreen()},
     {"page": const UserExercisesScreen()},

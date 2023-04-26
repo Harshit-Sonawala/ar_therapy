@@ -1,10 +1,12 @@
 import 'package:ar_therapy/ai/pushed_pageS.dart';
 import 'package:ar_therapy/screens/model_viewer_screen.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:model_viewer_plus/model_viewer_plus.dart';
 
 import 'package:provider/provider.dart';
-import '../main.dart';
+// import '../ai/main.dart';
+// import '../main.dart';
 import '../providers/auth_provider.dart';
 
 // import '../widgets/custom_drawer.dart';
@@ -12,10 +14,11 @@ import '../widgets/custom_elevated_button.dart';
 import '../widgets/custom_card.dart';
 import '../widgets/custom_text_button.dart';
 import 'account_screen.dart';
+
 // import 't-pose.dart';
 // import 'model_viewer_screen.dart';
 // import 'disorders_screen.dart';
-// import 'exercises_screen.dart';
+// import 'exercises_screen.dart;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen(cameras, {Key? key}) : super(key: key);
@@ -179,16 +182,33 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 20.0),
                 CustomElevatedButton(
-                  onPressed: () => {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => PushedPageS(
-                          cameras: cameras!,
-                          title: 'posenet',
+                  // onPressed: () => onSelectS(context: context, modelName: 'posenet'),
+                  onPressed: () async {
+                    try {
+                      List<CameraDescription>? new_cameras = await availableCameras();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PushedPageS(
+                            cameras: new_cameras,
+                            title: 'posenet',
+                          ),
                         ),
-                      ),
-                    )
+                      );
+                    } on CameraException catch (e) {
+                      print('Error: $e.code\nError Message: $e.message');
+                    }
                   },
+                  // onPressed: () => {
+                  //   Navigator.of(context).push(
+                  //     MaterialPageRoute(
+                  //       builder: (context) => PushedPageS(
+                  //         cameras: cameras!,
+                  //         title: 'posenet',
+                  //       ),
+                  //     ),
+                  //   )
+                  // },
                   icon: Icons.auto_awesome,
                   title: 'Try AI Mapping',
                 ),
@@ -207,4 +227,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  // void onSelectS({required BuildContext context, required String modelName}) async {
+
+  // }
 }

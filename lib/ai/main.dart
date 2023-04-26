@@ -150,7 +150,6 @@ class MainScreen extends StatelessWidget {
                   onPressed: () => onSelectS(context: context, modelName: 'posenet'),
                   child: const Text('Enable'),
                 ),
-
                 // Expanded(
                 //   child: ModelViewer(
                 //     src: 'assets/final_rigmodel.glb',
