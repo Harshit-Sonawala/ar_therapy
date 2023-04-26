@@ -49,8 +49,8 @@ class _ModelViewerScreenState extends State<ModelViewerScreen> {
                       //src: 'assets/3Dmodels/final.glb', // Human with given skeleton
                       // src: 'assets/3D models/back_exercise.glb',
                       id: "hotspot-camera-view-demo",
-                      // src: 'assets/3d_models/sceneview.glb',
-                      src: 'assets/3d_models/leg_raise.glb',
+                      src: 'assets/3d_models/sceneview.glb',
+                      // src: 'assets/3d_models/leg_raise.glb',
                       alt: "Animated 3D model of exercise",
                       ar: true,
                       autoRotate: true,
