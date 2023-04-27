@@ -61,6 +61,45 @@ class ExerciseListProvider with ChangeNotifier {
       ],
       exItemModelPath: 'assets/3d_models/knees_stretch.glb',
     ),
+    ExerciseItem(
+      exItemId: 'exerciseItem4',
+      exItemTitle: 'Seated Leg Raises',
+      exItemDescription:
+          'This exercise is for lower back pain. It is usually for helping with disorders such as Piriformis Syndrome and Sciatica. It helps to alleviate tight hamstrings and in turn also relieve tight nerves.',
+      exItemProcedure: [
+        'Sit on any surface with a back support',
+        'Put your hands on your knees',
+        'Slowly lift your leg up, raise it to you knee level till the entire leg is straightened.',
+        'Repeat with the other leg and continue onwards',
+      ],
+      exItemFocusAreas: [
+        'Lower Back',
+        'Hamstrings',
+      ],
+      exItemDisorderList: [
+        'disorderItem1',
+      ],
+      exItemModelPath: 'assets/3d_models/leg_raise.glb',
+    ),
+    ExerciseItem(
+      exItemId: 'exerciseItem5',
+      exItemTitle: 'Chin to Chest',
+      exItemDescription:
+          'This exercise is primarily for Cervical Spondilitis, relieving nerves in the neck region supporting movements. ',
+      exItemProcedure: [
+        'Stand Straight with the back against the wall',
+        'Look Straight and slowly rest your neck such that it touches the wall',
+        'As per your pain level, raise your chin and then gradually lower it till your chin touches your chest',
+        'Repeat 5 to 10 times as per your pain level',
+      ],
+      exItemFocusAreas: [
+        'Neck',
+      ],
+      exItemDisorderList: [
+        'disorderItem1',
+      ],
+      exItemModelPath: 'assets/3d_models/chin_chest.glb',
+    ),
   ];
 
   List<ExerciseItem> get globalExerciseList => _globalExerciseList;
