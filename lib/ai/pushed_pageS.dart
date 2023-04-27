@@ -9,7 +9,7 @@ import 'render_data.dart';
 class PushedPageS extends StatefulWidget {
   final List<CameraDescription> cameras;
   final String title;
-  const PushedPageS({required this.cameras,required this.title});
+  const PushedPageS({required this.cameras, required this.title});
   @override
   _PushedPageSState createState() => _PushedPageSState();
 }
@@ -39,8 +39,7 @@ class _PushedPageSState extends State<PushedPageS> {
   }
 
   loadModel() async {
-    return await Tflite.loadModel(
-        model: "assets/posenet_mv1_075_float_from_checkpoints.tflite");
+    return await Tflite.loadModel(model: "assets/posenet_mv1_075_float_from_checkpoints.tflite");
   }
 
   @override
@@ -48,11 +47,10 @@ class _PushedPageSState extends State<PushedPageS> {
     Size screen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('AlignAI Squat'),
+        title: Text('AI Mapping Squat'),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      
       body: Stack(
         children: <Widget>[
           Camera(
