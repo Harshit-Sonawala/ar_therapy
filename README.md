@@ -1,6 +1,6 @@
-![AR Therapy Logo](https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/artherapy_logo.png?raw=true)
+![AR Therapy Logo](screenshots\ar_therapy_logo.png)
 	
-An android application created using Flutter, Firebase and ARCore to facilitate improved physiotherapy treatments powered by Augmented Reality.
+### An android application created using Flutter, Firebase and ARCore to facilitate improved physiotherapy treatments powered by Augmented Reality.
 
 ## Features ##
 * Exercise Representations through interactive 3D and Augmented Reality models
@@ -20,7 +20,33 @@ An android application created using Flutter, Firebase and ARCore to facilitate 
 * Modern Flutter and Dart practices: null safety, const constructors, readable and reusable code with 7 new custom widgets
 
 ## Results ##
+Home and Explore Screens:  
+<img src="screenshots\ss_home.jpg" width="308"/>
+<img src="screenshots\ss_explore.jpg" width="300"/>  
 
+Home and Explore Screens:  
+<img src="screenshots\ss_disorder_details.jpg" width="300"/>
+<img src="screenshots\ss_exercise_details.jpg" width="300"/>  
+
+Augmented Reality View Screens:  
+<img src="screenshots\ss_ar_1.jpg" width="300"/>
+<img src="screenshots\ss_ar_2.jpg" width="300"/>  
+
+Login and Signup Screens:  
+<img src="screenshots\ss_login.jpg" width="300"/>
+<img src="screenshots\ss_signup.jpg" width="300"/>  
+
+Search and User Profile Screens:  
+<img src="screenshots\ss_search.jpg" width="300"/>
+<img src="screenshots\ss_user_profile.jpg" width="300"/>  
+
+TFlite PoseNet Mapping(beta):  
+<img src="screenshots\ss_ai_mapping_1.jpg" width="300"/>
+<img src="screenshots\ss_ai_mapping_2.jpg" width="300"/>  
+
+"Physiotherapists Near Me" Screens:  
+<img src="screenshots\ss_location_1.jpg" width="300"/>
+<img src="screenshots\ss_location_2.jpg" width="300"/>  
 
 ## Contributors ##
 Harshit Sonawala hssonawala@gmail.com  
