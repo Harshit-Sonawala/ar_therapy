@@ -1,4 +1,4 @@
-![AR Therapy Logo](screenshots\ar_therapy_logo.png)
+![AR Therapy Logo](.\screenshots\ar_therapy_logo.png)
 	
 ### An android application created using Flutter, Firebase and ARCore to facilitate improved physiotherapy treatments powered by Augmented Reality.
 
@@ -21,32 +21,32 @@
 
 ## Results ##
 Home and Explore Screens:  
-<img src="screenshots\ss_home.jpg" width="308"/>
-<img src="screenshots\ss_explore.jpg" width="300"/>  
+<img src=".\screenshots\ss_home.jpg" width="308"/>
+<img src=".\screenshots\ss_explore.jpg" width="300"/>  
 
 Home and Explore Screens:  
-<img src="screenshots\ss_disorder_details.jpg" width="300"/>
-<img src="screenshots\ss_exercise_details.jpg" width="300"/>  
+<img src=".\screenshots\ss_disorder_details.jpg" width="300"/>
+<img src=".\screenshots\ss_exercise_details.jpg" width="300"/>  
 
 Augmented Reality View Screens:  
-<img src="screenshots\ss_ar_1.jpg" width="300"/>
-<img src="screenshots\ss_ar_2.jpg" width="300"/>  
+<img src=".\screenshots\ss_ar_1.jpg" width="300"/>
+<img src=".\screenshots\ss_ar_2.jpg" width="300"/>  
 
 Login and Signup Screens:  
-<img src="screenshots\ss_login.jpg" width="300"/>
-<img src="screenshots\ss_signup.jpg" width="300"/>  
+<img src=".\screenshots\ss_login.jpg" width="300"/>
+<img src=".\screenshots\ss_signup.jpg" width="300"/>  
 
 Search and User Profile Screens:  
-<img src="screenshots\ss_search.jpg" width="300"/>
-<img src="screenshots\ss_user_profile.jpg" width="300"/>  
+<img src=".\screenshots\ss_search.jpg" width="300"/>
+<img src=".\screenshots\ss_user_profile.jpg" width="300"/>  
 
 TFlite PoseNet Mapping(beta):  
-<img src="screenshots\ss_ai_mapping_1.jpg" width="300"/>
-<img src="screenshots\ss_ai_mapping_2.jpg" width="300"/>  
+<img src=".\screenshots\ss_ai_mapping_1.jpg" width="300"/>
+<img src=".\screenshots\ss_ai_mapping_2.jpg" width="300"/>  
 
 "Physiotherapists Near Me" Screens:  
-<img src="screenshots\ss_location_1.jpg" width="300"/>
-<img src="screenshots\ss_location_2.jpg" width="300"/>  
+<img src=".\screenshots\ss_location_1.jpg" width="300"/>
+<img src=".\screenshots\ss_location_2.jpg" width="300"/>  
 
 ## Contributors ##
 Harshit Sonawala hssonawala@gmail.com  
