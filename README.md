@@ -1,6 +1,6 @@
-![AR Therapy Logo](https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ar_therapy_logo.png)
+![AR Therapy Logo](https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ar_therapy_logo.png?raw=true)
 	
-### An android application created using Flutter, Firebase and ARCore to facilitate improved physiotherapy treatments powered by Augmented Reality.
+An android application created using Flutter, Firebase and ARCore to facilitate improved physiotherapy treatments powered by Augmented Reality.
 
 ## Features ##
 * Exercise Representations through interactive 3D and Augmented Reality models
@@ -21,32 +21,32 @@
 
 ## Results ##
 Home and Explore Screens:  
-<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_home.jpg" width="308"/>
-<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_explore.jpg" width="300"/>  
+<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_home.jpg?raw=true" width="308"/>
+<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_explore.jpg?raw=true" width="300"/>  
 
 Home and Explore Screens:  
-<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_disorder_details.jpg" width="300"/>
-<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_exercise_details.jpg" width="300"/>  
+<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_disorder_details.jpg?raw=true" width="300"/>
+<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_exercise_details.jpg?raw=true" width="300"/>  
 
 Augmented Reality View Screens:  
 <img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_ar_1.jpg" width="300"/>
-<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_ar_2.jpg" width="300"/>  
+<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_ar_2.jpg?raw=true" width="300"/>  
 
 Login and Signup Screens:  
-<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_login.jpg" width="300"/>
-<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_signup.jpg" width="300"/>  
+<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_login.jpg?raw=true" width="300"/>
+<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_signup.jpg?raw=true" width="300"/>  
 
 Search and User Profile Screens:  
-<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_search.jpg" width="300"/>
-<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_user_profile.jpg" width="300"/>  
+<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_search.jpg?raw=true" width="300"/>
+<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_user_profile.jpg?raw=true" width="300"/>  
 
 TFlite PoseNet Mapping(beta):  
-<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_ai_mapping_1.jpg" width="300"/>
-<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_ai_mapping_2.jpg" width="300"/>  
+<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_ai_mapping_1.jpg?raw=true" width="300"/>
+<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_ai_mapping_2.jpg?raw=true" width="300"/>  
 
 "Physiotherapists Near Me" Screens:  
-<img src="https://github.com/Harshit-Sonawala/ar_therapy/screenshots/ss_location_1.jpg" width="300"/>
-<img src="https://github.com/Harshit-Sonawala/ar_therapy/screenshots/ss_location_2.jpg" width="300"/>  
+<img src="https://github.com/Harshit-Sonawala/ar_therapy/screenshots/ss_location_1.jpg?raw=true" width="300"/>
+<img src="https://github.com/Harshit-Sonawala/ar_therapy/screenshots/ss_location_2.jpg?raw=true" width="300"/>  
 
 ## Contributors ##
 Harshit Sonawala: hssonawala@gmail.com  
