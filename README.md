@@ -45,8 +45,8 @@ TFlite PoseNet Mapping(beta):
 <img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_ai_mapping_2.jpg?raw=true" width="300"/>  
 
 "Physiotherapists Near Me" Screens:  
-<img src="https://github.com/Harshit-Sonawala/ar_therapy/screenshots/ss_location_1.jpg?raw=true" width="300"/>
-<img src="https://github.com/Harshit-Sonawala/ar_therapy/screenshots/ss_location_2.jpg?raw=true" width="300"/>  
+<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_location_1.jpg?raw=true" width="300"/>
+<img src="https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/ss_location_2.jpg?raw=true" width="300"/>  
 
 ## Contributors ##
 Harshit Sonawala: hssonawala@gmail.com  
