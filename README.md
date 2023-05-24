@@ -1,4 +1,4 @@
-![AR Therapy Logo](https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/artherapy_logo.png)
+![AR Therapy Logo](https://github.com/Harshit-Sonawala/ar_therapy/blob/master/screenshots/artherapy_logo.png?raw=true)
 	
 An android application created using Flutter, Firebase and ARCore to facilitate improved physiotherapy treatments powered by Augmented Reality.
 
