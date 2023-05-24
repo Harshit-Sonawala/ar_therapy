@@ -1,16 +1,22 @@
-# ar_therapy
+# AR Therapy #
 	
-A new Flutter project.
+An android application created using Flutter, Firebase and ARCore to facilitate improved physiotherapy treatments powered by Augmented Reality.
 
-## Getting Started
+## Features ##
+- - - -
+* Exercise Representations through interactive 3D and Augmented Reality models
+* Browse for information related to disorders and exercises locally or on the web
+* AI Mapping for giving feedback about the exercise form (beta)
+* Find physiotherapists near the user based on their location
+* Users can bookmark the exercises and manage their profile info stored on the cloud (beta)
+* Modern and sleek interface
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Technologies ##
+- - - -
+* Flutter with [Provider](https://pub.dev/packages/provider) for state management
+* ARCore with [model_viewer_plus](https://pub.dev/packages/model_viewer_plus)
+* Firebase Authentication
+* Cloud Firestore 
+* TensorFlow Lite PoseNet - Pose Mapping with [tflite](https://pub.dev/packages/tflite)
+* Integrated web browsing functionality with [url_launcher](https://pub.dev/packages/url_launcher) and [webview_flutter](https://pub.dev/packages/webview_flutter)
+* Modern Flutter and Dart practices: null safety, const constructors, readable and reusable code with 7 new custom widgets
