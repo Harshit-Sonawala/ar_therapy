@@ -50,5 +50,5 @@ TFlite PoseNet Mapping(beta):
 
 ## Contributors ##
 Harshit Sonawala: hssonawala@gmail.com  
-Ishaan Mandliya: ishaan.mandliya@somaiya.edu  
+Ishaan Mandliya: ishanmandliya266@gmail.com
 Bhavya Shah: bhavya.us@somaiya.edu
